@@ -1,532 +1,245 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PLAYGROUND</title>
-    <style>
-      :root {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        --bg-1: #f4f6fb;
-        --bg-2: #eef2ff;
-        --text: #1f2a44;
-        --muted: #4b5a74;
-        --card: rgba(255, 255, 255, 0.78);
-        --card-border: rgba(255, 255, 255, 0.5);
-        --shadow: 0 24px 60px rgba(20, 30, 60, 0.14);
-        --ring: rgba(60, 120, 255, 0.25);
-        --accent: #3b82f6;
-        --accent-2: #8b5cf6;
-        color-scheme: light dark;
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLAYGROUND</title>
 
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg-1: #0b1020;
-          --bg-2: #0f1a34;
-          --text: #e8eeff;
-          --muted: #b8c2e0;
-          --card: rgba(18, 26, 52, 0.55);
-          --card-border: rgba(255, 255, 255, 0.08);
-          --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
-          --ring: rgba(120, 160, 255, 0.18);
-          --accent: #60a5fa;
-          --accent-2: #a78bfa;
-        }
-      }
+<style>
+:root{
+  font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
 
-      html,
-      body {
-        height: 100%;
-      }
+  --bg-1:#ffb000;
+  --bg-2:#ff7a18;
 
-      body {
-        margin: 0;
-        display: grid;
-        place-items: center;
-        background: radial-gradient(1200px 800px at 15% 10%, var(--bg-2), transparent 55%),
-          radial-gradient(900px 700px at 85% 30%, rgba(139, 92, 246, 0.18), transparent 55%),
-          radial-gradient(900px 700px at 50% 100%, rgba(59, 130, 246, 0.16), transparent 55%),
-          linear-gradient(180deg, var(--bg-1), var(--bg-2));
-        overflow: hidden;
-      }
+  --edge:18px;
+  --logo-width:260px;
+  --gap-to-logo:2cm;
 
-      /* petits "blobs" décoratifs */
-      body::before,
-      body::after {
-        content: "";
-        position: absolute;
-        inset: auto;
-        width: 520px;
-        height: 520px;
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.6;
-        z-index: 0;
-        transform: translate3d(0, 0, 0);
-        animation: float 10s ease-in-out infinite;
-      }
-
-      body::before {
-        left: -120px;
-        top: -140px;
-        background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.55), transparent 60%),
-          radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.45), transparent 55%);
-      }
-
-      body::after {
-        right: -160px;
-        bottom: -180px;
-        background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.55), transparent 60%),
-          radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.45), transparent 55%);
-        animation-delay: -3s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-        50% {
-          transform: translate3d(0, 18px, 0) scale(1.03);
-        }
-      }
-
-      .card {
-        position: relative;
-        z-index: 1;
-        background: var(--card);
-        padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
-        border-radius: 26px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--card-border);
-        text-align: center;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transform: translateY(0);
-        animation: pop 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-      }
-
-      @keyframes pop {
-        from {
-          opacity: 0;
-          transform: translateY(10px) scale(0.98);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .card:focus-within,
-      .card:hover {
-        box-shadow: 0 28px 80px rgba(20, 30, 60, 0.18);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(2.4rem, 6vw, 4rem);
-        letter-spacing: 0.32rem;
-        color: var(--text);
-        line-height: 1.05;
-      }
-
-      /* petit accent “néon” sur le titre */
-      .title-accent {
-        display: inline-block;
-        position: relative;
-      }
-      .title-accent::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -0.35rem;
-        width: 78%;
-        height: 0.55rem;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        opacity: 0.18;
-        filter: blur(1px);
-        pointer-events: none;
-      }
-
-      p {
-        margin: 1rem 0 0;
-        font-size: 1.05rem;
-        color: var(--muted);
-      }
-
-      /* Accessibilité : focus visible si on ajoute des éléments interactifs plus tard */
-      :focus-visible {
-        outline: 3px solid var(--ring);
-        outline-offset: 6px;
-        border-radius: 16px;
-      }
-
-.logo {
-  position: absolute;
-  top: 94px; }
-  left: 24px;
-  width: 120px;
-  height: auto;
-  z-index: 10;
+  /* 🔑 espace IDENTIQUE autour du point */
+  --dot-gap:14px;
 }
-.subtitle {
-  margin-top: 1.2rem;
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.02em;
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  overflow-x:hidden;
 }
-<div class="score-ticker theme-orange" aria-label="Scores sport imaginaires">
-  <div class="ticker-top">
-    <span class="badge-live">LIVE</span>
-    <span class="ticker-title">SCORES • UNIVERS PLAYGROUND</span>
-  </div>
 
-  <div class="ticker-track">
-    <div class="ticker-content">
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Orions</span><span class="score win">92</span>
-        <span class="sep">–</span>
-        <span class="score">88</span><span class="team">Valkyries</span>
-        <span class="status live">Q4 • 01:12</span>
-      </span>
+/* LOGO */
+.logo{
+  position:absolute;
+  top:calc(var(--edge) - 30px);
+  right:var(--edge);
+  width:var(--logo-width);
+  z-index:10;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,.35));
+}
 
-      <span class="dot">•</span>
+/* BANNIÈRES */
+.ticker{
+  position:fixed;
+  left:var(--edge);
+  right:calc(var(--logo-width) + var(--gap-to-logo) + var(--edge));
+  height:56px;
+  border-radius:18px;
+  background:linear-gradient(180deg,#b17816,#8a5710);
+  box-shadow:0 14px 40px rgba(0,0,0,.3);
+  color:#fff;
+  z-index:5;
+  overflow:hidden;
+}
 
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Neon Sharks</span><span class="score">2</span>
-        <span class="sep">–</span>
-        <span class="score win">3</span><span class="team">Crimson Foxes</span>
-        <span class="status live">90’+4</span>
-      </span>
+.ticker.scores{ top:var(--edge); }
+.ticker.transfers{ top:calc(var(--edge) + 66px); }
 
-      <span class="dot">•</span>
+.label{
+  padding:6px 14px 0;
+  font-size:.75rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
 
-      <span class="chip cat">🏈 FOOT US</span>
-      <span class="match">
-        <span class="team">Solar Titans</span><span class="score win">27</span>
-        <span class="sep">–</span>
-        <span class="score">24</span><span class="team">Iron Wolves</span>
-        <span class="status">Final</span>
-      </span>
+.track{
+  height:calc(56px - 22px);
+  padding:4px 14px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
 
-      <span class="dot">•</span>
+/* MARQUEE CONSTANT */
+.marquee{
+  display:flex;
+  white-space:nowrap;
+  will-change:transform;
+}
 
-      <span class="chip cat">🏒 HOCKEY</span>
-      <span class="match">
-        <span class="team">Glacier Kings</span><span class="score win">5</span>
-        <span class="sep">–</span>
-        <span class="score">3</span><span class="team">Storm Riders</span>
-        <span class="status">Final</span>
-      </span>
+/* Ligne */
+.marquee-inner{
+  display:inline-flex;
+  align-items:center;
+}
 
-      <span class="dot">•</span>
+/* Pause au survol */
+.ticker:hover .marquee{
+  animation-play-state:paused;
+}
 
-      <span class="chip cat">🎾 TENNIS</span>
-      <span class="match">
-        <span class="team">Nova Ace</span><span class="score win">6</span><span class="sep">–</span><span class="score">4</span>
-        <span class="score win">7</span><span class="sep">–</span><span class="score">6</span>
-        <span class="team">Cobalt Spin</span>
-        <span class="status live">TB • 5–3</span>
-      </span>
+/* ITEM */
+.item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:900;
+  font-size:.95rem;
+}
 
-      <span class="dot">•</span>
+/* POINT TOUJOURS PRÉSENT (y compris fin de bloc) */
+.dot{
+  margin:0 var(--dot-gap);
+  opacity:.65;
+  font-weight:700;
+}
 
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Metro Giants</span><span class="score">71</span>
-        <span class="sep">–</span>
-        <span class="score win">79</span><span class="team">Amber Sparks</span>
-        <span class="status live">Q3 • 00:29</span>
-      </span>
+/* ÉQUIPES */
+.team{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
 
-      <span class="dot">•</span>
+.team img,
+.logoTeam{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.4));
+}
+</style>
+</head>
 
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Aurora FC</span><span class="score">1</span>
-        <span class="sep">–</span>
-        <span class="score">1</span><span class="team">Metro United</span>
-        <span class="status">Mi-temps</span>
-      </span>
-    </div>
+<body>
 
-    <!-- duplication pour une boucle fluide -->
-    <div class="ticker-content" aria-hidden="true">
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Orions</span><span class="score win">92</span>
-        <span class="sep">–</span>
-        <span class="score">88</span><span class="team">Valkyries</span>
-        <span class="status live">Q4 • 01:12</span>
-      </span>
+<!-- ================= SCORES ================= -->
+<div class="ticker scores" id="scores">
+  <div class="label">SCORES</div>
+  <div class="track">
+    <div class="marquee">
+      <div class="marquee-inner">
 
-      <span class="dot">•</span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg">Bulls</span>
+          104–99
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg">Heat</span>
+        </span><span class="dot">·</span>
 
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Neon Sharks</span><span class="score">2</span>
-        <span class="sep">–</span>
-        <span class="score win">3</span><span class="team">Crimson Foxes</span>
-        <span class="status live">90’+4</span>
-      </span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg">Lakers</span>
+          97–101
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg">Suns</span>
+        </span><span class="dot">·</span>
 
-      <span class="dot">•</span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg">Warriors</span>
+          121–109
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg">Celtics</span>
+        </span><span class="dot">·</span>
 
-      <span class="chip cat">🏈 FOOT US</span>
-      <span class="match">
-        <span class="team">Solar Titans</span><span class="score win">27</span>
-        <span class="sep">–</span>
-        <span class="score">24</span><span class="team">Iron Wolves</span>
-        <span class="status">Final</span>
-      </span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg">Nuggets</span>
+          113–115
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg">Mavericks</span>
+        </span><span class="dot">·</span>
 
-      <span class="dot">•</span>
+      </div>
 
-      <span class="chip cat">🏒 HOCKEY</span>
-      <span class="match">
-        <span class="team">Glacier Kings</span><span class="score win">5</span>
-        <span class="sep">–</span>
-        <span class="score">3</span><span class="team">Storm Riders</span>
-        <span class="status">Final</span>
-      </span>
+      <!-- DUPLICATION STRICTE -->
+      <div class="marquee-inner" aria-hidden="true">
 
-      <span class="dot">•</span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612741/global/L/logo.svg">Bulls</span>
+          104–99
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg">Heat</span>
+        </span><span class="dot">·</span>
 
-      <span class="chip cat">🎾 TENNIS</span>
-      <span class="match">
-        <span class="team">Nova Ace</span><span class="score win">6</span><span class="sep">–</span><span class="score">4</span>
-        <span class="score win">7</span><span class="sep">–</span><span class="score">6</span>
-        <span class="team">Cobalt Spin</span>
-        <span class="status live">TB • 5–3</span>
-      </span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612747/global/L/logo.svg">Lakers</span>
+          97–101
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612756/global/L/logo.svg">Suns</span>
+        </span><span class="dot">·</span>
 
-      <span class="dot">•</span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg">Warriors</span>
+          121–109
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612738/global/L/logo.svg">Celtics</span>
+        </span><span class="dot">·</span>
 
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Metro Giants</span><span class="score">71</span>
-        <span class="sep">–</span>
-        <span class="score win">79</span><span class="team">Amber Sparks</span>
-        <span class="status live">Q3 • 00:29</span>
-      </span>
+        <span class="item">
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612743/global/L/logo.svg">Nuggets</span>
+          113–115
+          <span class="team"><img src="https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg">Mavericks</span>
+        </span><span class="dot">·</span>
 
-      <span class="dot">•</span>
-
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Aurora FC</span><span class="score">1</span>
-        <span class="sep">–</span>
-        <span class="score">1</span><span class="team">Metro United</span>
-        <span class="status">Mi-temps</span>
-      </span>
+      </div>
     </div>
   </div>
 </div>
-/* =======================
-   TICKER ORANGE / NOIR
-   ======================= */
 
-.score-ticker.theme-orange {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  right: 18px;
-  z-index: 9;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(180deg, rgba(10, 10, 12, 0.78), rgba(10, 10, 12, 0.58));
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.38);
+<!-- ================= TRANSFERTS ================= -->
+<div class="ticker transfers" id="transfers">
+  <div class="label">TRANSFERTS</div>
+  <div class="track">
+    <div class="marquee">
+      <div class="marquee-inner">
+
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg">Stephen Curry → Knicks (fictif)</span><span class="dot">·</span>
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg">LeBron James → Warriors (fictif)</span><span class="dot">·</span>
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg">Giannis → Heat (fictif)</span><span class="dot">·</span>
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg">Kevin Durant → Mavericks (fictif)</span><span class="dot">·</span>
+
+      </div>
+
+      <!-- DUPLICATION -->
+      <div class="marquee-inner" aria-hidden="true">
+
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612752/global/L/logo.svg">Stephen Curry → Knicks (fictif)</span><span class="dot">·</span>
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612744/global/L/logo.svg">LeBron James → Warriors (fictif)</span><span class="dot">·</span>
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612748/global/L/logo.svg">Giannis → Heat (fictif)</span><span class="dot">·</span>
+        <span class="item"><img class="logoTeam" src="https://cdn.nba.com/logos/nba/1610612742/global/L/logo.svg">Kevin Durant → Mavericks (fictif)</span><span class="dot">·</span>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<img src="logo-playground.png" class="logo" alt="PLAYGROUND">
+
+<script>
+function startMarquee(id, speed){
+  const ticker=document.getElementById(id);
+  const inner=ticker.querySelector('.marquee-inner');
+  const marquee=ticker.querySelector('.marquee');
+  const width=inner.offsetWidth;
+  const duration=width/speed;
+
+  marquee.style.animation=`scroll-${id} ${duration}s linear infinite`;
+
+  const style=document.createElement('style');
+  style.innerHTML=`
+    @keyframes scroll-${id}{
+      from{transform:translateX(0);}
+      to{transform:translateX(-${width}px);}
+    }`;
+  document.head.appendChild(style);
 }
 
-.ticker-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
+window.addEventListener('load',()=>{
+  startMarquee('scores',30);
+  startMarquee('transfers',26);
+});
+</script>
 
-.ticker-title {
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.badge-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  padding: 6px 10px;
-  border-radius: 999px;
-  color: #0b0b0f;
-  background: linear-gradient(90deg, #ff7a18, #ffb000);
-  box-shadow: 0 10px 22px rgba(255, 122, 24, 0.28);
-}
-
-.badge-live::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff2e2e;
-  box-shadow: 0 0 0 6px rgba(255, 46, 46, 0.18);
-  animation: pulse 1.2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 0.75;
-  }
-}
-
-.ticker-track {
-  position: relative;
-  display: flex;
-  gap: 2.2rem;
-  padding: 10px 14px 12px;
-  align-items: center;
-}
-
-.ticker-track::before,
-.ticker-track::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 76px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.ticker-track::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(10, 10, 12, 0.95), transparent);
-}
-
-.ticker-track::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(10, 10, 12, 0.95), transparent);
-}
-
-.ticker-content {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.1rem;
-  white-space: nowrap;
-  will-change: transform;
-  animation: ticker 22s linear infinite;
-}
-
-@keyframes ticker {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.chip.cat {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 122, 24, 0.10);
-}
-
-.match {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  font-size: 0.96rem;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.team {
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.score {
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-}
-
-.score.win {
-  color: #ffb000;
-  text-shadow: 0 10px 24px rgba(255, 176, 0, 0.18);
-}
-
-.sep {
-  opacity: 0.55;
-}
-
-.status {
-  margin-left: 0.35rem;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0.18rem 0.5rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.status.live {
-  border-color: rgba(255, 46, 46, 0.30);
-  box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.12);
-}
-
-.dot {
-  opacity: 0.25;
-  user-select: none;
-}
-
-/* Accessibilité : réduit l’animation si demandé */
-@media (prefers-reduced-motion: reduce) {
-  .ticker-content {
-    animation: none;
-  }
-  .score-ticker.theme-orange {
-    position: static;
-    margin: 16px auto 0;
-  }
-}
-
-    </style>
-  </head>
-  <body>
-
-<img src="logo-playground.png" alt="Logo Playground" class="logo" />
-
-    <main class="card" role="main">
-  <h1><span class="title-accent">PLAYGROUND</span></h1>
-  <p class="subtitle">Toute l’actualité de ton sport préféré</p>
-</main>
-
-  </body>
+</body>
 </html>
