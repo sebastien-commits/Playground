@@ -172,6 +172,13 @@
   height: auto;
   z-index: 10;
 }
+.subtitle {
+  margin-top: 1.2rem;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
 
     </style>
   </head>
@@ -180,8 +187,9 @@
 <img src="logo-playground.png" alt="Logo Playground" class="logo" />
 
     <main class="card" role="main">
-      <h1><span class="title-accent">PLAYGROUND</span></h1>
-      <p>Bienvenue sur votre espace de création.</p>
-    </main>
+  <h1><span class="title-accent">PLAYGROUND</span></h1>
+  <p class="subtitle">Toute l’actualité de ton sport préféré</p>
+</main>
+
   </body>
 </html>
