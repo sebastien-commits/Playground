@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PLAYGROUND</title>
+    <style>
+      :root {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        --bg-1: #f4f6fb;
+        --bg-2: #eef2ff;
+        --text: #1f2a44;
+        --muted: #4b5a74;
+        --card: rgba(255, 255, 255, 0.78);
+        --card-border: rgba(255, 255, 255, 0.5);
+        --shadow: 0 24px 60px rgba(20, 30, 60, 0.14);
+        --ring: rgba(60, 120, 255, 0.25);
+        --accent: #3b82f6;
+        --accent-2: #8b5cf6;
+        color-scheme: light dark;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg-1: #0b1020;
+          --bg-2: #0f1a34;
+          --text: #e8eeff;
+          --muted: #b8c2e0;
+          --card: rgba(18, 26, 52, 0.55);
+          --card-border: rgba(255, 255, 255, 0.08);
+          --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+          --ring: rgba(120, 160, 255, 0.18);
+          --accent: #60a5fa;
+          --accent-2: #a78bfa;
+        }
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(1200px 800px at 15% 10%, var(--bg-2), transparent 55%),
+          radial-gradient(900px 700px at 85% 30%, rgba(139, 92, 246, 0.18), transparent 55%),
+          radial-gradient(900px 700px at 50% 100%, rgba(59, 130, 246, 0.16), transparent 55%),
+          linear-gradient(180deg, var(--bg-1), var(--bg-2));
+        overflow: hidden;
+      }
+
+      /* petits "blobs" décoratifs */
+      body::before,
+      body::after {
+        content: "";
+        position: absolute;
+        inset: auto;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.6;
+        z-index: 0;
+        transform: translate3d(0, 0, 0);
+        animation: float 10s ease-in-out infinite;
+      }
+
+      body::before {
+        left: -120px;
+        top: -140px;
+        background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.55), transparent 60%),
+          radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.45), transparent 55%);
+      }
+
+      body::after {
+        right: -160px;
+        bottom: -180px;
+        background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.55), transparent 60%),
+          radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.45), transparent 55%);
+        animation-delay: -3s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(0, 18px, 0) scale(1.03);
+        }
+      }
+
+      .card {
+        position: relative;
+        z-index: 1;
+        background: var(--card);
+        padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--card-border);
+        text-align: center;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transform: translateY(0);
+        animation: pop 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+
+      @keyframes pop {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .card:focus-within,
+      .card:hover {
+        box-shadow: 0 28px 80px rgba(20, 30, 60, 0.18);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        letter-spacing: 0.32rem;
+        color: var(--text);
+        line-height: 1.05;
+      }
+
+      /* petit accent “néon” sur le titre */
+      .title-accent {
+        display: inline-block;
+        position: relative;
+      }
+      .title-accent::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -0.35rem;
+        width: 78%;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        opacity: 0.18;
+        filter: blur(1px);
+        pointer-events: none;
+      }
+
+      p {
+        margin: 1rem 0 0;
+        font-size: 1.05rem;
+        color: var(--muted);
+      }
+
+      /* Accessibilité : focus visible si on ajoute des éléments interactifs plus tard */
+      :focus-visible {
+        outline: 3px solid var(--ring);
+        outline-offset: 6px;
+        border-radius: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card" role="main">
+      <h1><span class="title-accent">PLAYGROUND</span></h1>
+      <p>Bienvenue sur votre espace de création.</p>
+    </main>
+  </body>
+</html>
