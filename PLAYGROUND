@@ -166,7 +166,7 @@
 
 .logo {
   position: fixed;
-  top: 24px;
+  top: 94px; }
   left: 24px;
   width: 120px;
   height: auto;
@@ -178,6 +178,343 @@
   font-weight: 500;
   color: var(--muted);
   letter-spacing: 0.02em;
+}
+<div class="score-ticker theme-orange" aria-label="Scores sport imaginaires">
+  <div class="ticker-top">
+    <span class="badge-live">LIVE</span>
+    <span class="ticker-title">SCORES • UNIVERS PLAYGROUND</span>
+  </div>
+
+  <div class="ticker-track">
+    <div class="ticker-content">
+      <span class="chip cat">🏀 BASKET</span>
+      <span class="match">
+        <span class="team">Orions</span><span class="score win">92</span>
+        <span class="sep">–</span>
+        <span class="score">88</span><span class="team">Valkyries</span>
+        <span class="status live">Q4 • 01:12</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">⚽ FOOT</span>
+      <span class="match">
+        <span class="team">Neon Sharks</span><span class="score">2</span>
+        <span class="sep">–</span>
+        <span class="score win">3</span><span class="team">Crimson Foxes</span>
+        <span class="status live">90’+4</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🏈 FOOT US</span>
+      <span class="match">
+        <span class="team">Solar Titans</span><span class="score win">27</span>
+        <span class="sep">–</span>
+        <span class="score">24</span><span class="team">Iron Wolves</span>
+        <span class="status">Final</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🏒 HOCKEY</span>
+      <span class="match">
+        <span class="team">Glacier Kings</span><span class="score win">5</span>
+        <span class="sep">–</span>
+        <span class="score">3</span><span class="team">Storm Riders</span>
+        <span class="status">Final</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🎾 TENNIS</span>
+      <span class="match">
+        <span class="team">Nova Ace</span><span class="score win">6</span><span class="sep">–</span><span class="score">4</span>
+        <span class="score win">7</span><span class="sep">–</span><span class="score">6</span>
+        <span class="team">Cobalt Spin</span>
+        <span class="status live">TB • 5–3</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🏀 BASKET</span>
+      <span class="match">
+        <span class="team">Metro Giants</span><span class="score">71</span>
+        <span class="sep">–</span>
+        <span class="score win">79</span><span class="team">Amber Sparks</span>
+        <span class="status live">Q3 • 00:29</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">⚽ FOOT</span>
+      <span class="match">
+        <span class="team">Aurora FC</span><span class="score">1</span>
+        <span class="sep">–</span>
+        <span class="score">1</span><span class="team">Metro United</span>
+        <span class="status">Mi-temps</span>
+      </span>
+    </div>
+
+    <!-- duplication pour une boucle fluide -->
+    <div class="ticker-content" aria-hidden="true">
+      <span class="chip cat">🏀 BASKET</span>
+      <span class="match">
+        <span class="team">Orions</span><span class="score win">92</span>
+        <span class="sep">–</span>
+        <span class="score">88</span><span class="team">Valkyries</span>
+        <span class="status live">Q4 • 01:12</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">⚽ FOOT</span>
+      <span class="match">
+        <span class="team">Neon Sharks</span><span class="score">2</span>
+        <span class="sep">–</span>
+        <span class="score win">3</span><span class="team">Crimson Foxes</span>
+        <span class="status live">90’+4</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🏈 FOOT US</span>
+      <span class="match">
+        <span class="team">Solar Titans</span><span class="score win">27</span>
+        <span class="sep">–</span>
+        <span class="score">24</span><span class="team">Iron Wolves</span>
+        <span class="status">Final</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🏒 HOCKEY</span>
+      <span class="match">
+        <span class="team">Glacier Kings</span><span class="score win">5</span>
+        <span class="sep">–</span>
+        <span class="score">3</span><span class="team">Storm Riders</span>
+        <span class="status">Final</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🎾 TENNIS</span>
+      <span class="match">
+        <span class="team">Nova Ace</span><span class="score win">6</span><span class="sep">–</span><span class="score">4</span>
+        <span class="score win">7</span><span class="sep">–</span><span class="score">6</span>
+        <span class="team">Cobalt Spin</span>
+        <span class="status live">TB • 5–3</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">🏀 BASKET</span>
+      <span class="match">
+        <span class="team">Metro Giants</span><span class="score">71</span>
+        <span class="sep">–</span>
+        <span class="score win">79</span><span class="team">Amber Sparks</span>
+        <span class="status live">Q3 • 00:29</span>
+      </span>
+
+      <span class="dot">•</span>
+
+      <span class="chip cat">⚽ FOOT</span>
+      <span class="match">
+        <span class="team">Aurora FC</span><span class="score">1</span>
+        <span class="sep">–</span>
+        <span class="score">1</span><span class="team">Metro United</span>
+        <span class="status">Mi-temps</span>
+      </span>
+    </div>
+  </div>
+</div>
+/* =======================
+   TICKER ORANGE / NOIR
+   ======================= */
+
+.score-ticker.theme-orange {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  right: 18px;
+  z-index: 9;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0.78), rgba(10, 10, 12, 0.58));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.38);
+}
+
+.ticker-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.ticker-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #0b0b0f;
+  background: linear-gradient(90deg, #ff7a18, #ffb000);
+  box-shadow: 0 10px 22px rgba(255, 122, 24, 0.28);
+}
+
+.badge-live::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff2e2e;
+  box-shadow: 0 0 0 6px rgba(255, 46, 46, 0.18);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.75;
+  }
+}
+
+.ticker-track {
+  position: relative;
+  display: flex;
+  gap: 2.2rem;
+  padding: 10px 14px 12px;
+  align-items: center;
+}
+
+.ticker-track::before,
+.ticker-track::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 76px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ticker-track::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 12, 0.95), transparent);
+}
+
+.ticker-track::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(10, 10, 12, 0.95), transparent);
+}
+
+.ticker-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  white-space: nowrap;
+  will-change: transform;
+  animation: ticker 22s linear infinite;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.chip.cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 122, 24, 0.10);
+}
+
+.match {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.team {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.score {
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.score.win {
+  color: #ffb000;
+  text-shadow: 0 10px 24px rgba(255, 176, 0, 0.18);
+}
+
+.sep {
+  opacity: 0.55;
+}
+
+.status {
+  margin-left: 0.35rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.status.live {
+  border-color: rgba(255, 46, 46, 0.30);
+  box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.12);
+}
+
+.dot {
+  opacity: 0.25;
+  user-select: none;
+}
+
+/* Accessibilité : réduit l’animation si demandé */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-content {
+    animation: none;
+  }
+  .score-ticker.theme-orange {
+    position: static;
+    margin: 16px auto 0;
+  }
 }
 
     </style>
