@@ -9,54 +9,63 @@ body{
   color:#111;
 }
 
-/* TOP BAR */
+/* TOPBAR : réserve une vraie colonne logo */
 .topbar{
-  display:grid;
-  grid-template-columns: 1fr auto;
-  gap: 4cm;                 /* ✅ espace exact avant le logo */
-  align-items:flex-start;
+  display: grid;
+  grid-template-columns: 1fr 360px;  /* ✅ colonne logo FIXE */
+  gap: 4cm;                          /* ✅ espace 4cm garanti */
+  align-items: start;
   padding: 20px 24px;
 }
 
-/* LOGO */
-.logo{
-  height: 210px;
-  width:auto;
+/* Zone logo */
+.logo-slot{
+  width: 360px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
-/* BANNIÈRES : elles vont JUSQU’À l’espace du logo */
+/* Logo */
+.logo{
+  height: 210px;
+  width: auto;
+  display: block;
+}
+
+/* BANNIÈRES : prend toute la largeur de la colonne 1 (donc s’arrête avant le gap) */
 .banners{
   display:flex;
-  flex-direction:column;
+  flex-direction: column;
   gap: 10px;
-  width: 100%;              /* ✅ prend toute la largeur disponible */
+  width: 100%;
   min-width: 0;
 }
 
-/* BANNER : 2× moins “large” = 2× moins HAUTE */
+/* BANNIÈRES 2x moins épaisses */
 .banner{
-  height: 28px;             /* ✅ 56 / 2 = 28 */
+  height: 28px !important;          /* ✅ force la hauteur */
   display:flex;
   align-items:center;
   overflow:hidden;
-  border-radius: 10px;
+  border-radius: 12px;
   background: linear-gradient(90deg,#ff9800,#ffcc00);
-  box-shadow: 0 4px 10px rgba(0,0,0,.16);
+  box-shadow: 0 4px 10px rgba(0,0,0,.14);
 }
 
-/* LABEL */
+/* Label */
 .label{
-  font-weight:900;
+  font-weight: 900;
   padding: 0 10px;
-  white-space:nowrap;
+  white-space: nowrap;
   font-size: 14px;
 }
 
-/* MARQUEE */
-.track{ flex:1; overflow:hidden; min-width:0; }
+/* Marquee */
+.track{ flex: 1; overflow:hidden; min-width: 0; }
 .marquee{
   display:flex;
-  width:max-content;
+  width: max-content;
   animation: scroll 18s linear infinite;
 }
 .banner.transfers .marquee{ animation-duration: 22s; }
@@ -66,7 +75,7 @@ body{
   to  { transform: translateX(-50%); }
 }
 
-/* CONTENU */
+/* Contenu */
 .group{ display:flex; align-items:center; }
 
 .item{
@@ -74,31 +83,42 @@ body{
   align-items:center;
   gap: 8px;
   padding: 0 14px;
-  font-weight:800;
-  white-space:nowrap;
+  font-weight: 800;
+  white-space: nowrap;
   font-size: 14px;
 }
 
+/* Points centrés */
 .sep{
-  width: 52px;              /* point centré */
+  width: 52px;
   display:flex;
   justify-content:center;
-  font-weight:900;
-  opacity:.7;
+  align-items:center;
+  font-weight: 900;
+  opacity: .7;
 }
 
 /* Logos équipes */
 .team{ height: 18px; width:auto; }
 
-/* Scores */
-.score{ font-weight:900; }
+/* Score */
+.score{ font-weight: 900; }
 
 /* Tag fictif */
 .tag{
   font-size: 11px;
-  font-weight:900;
+  font-weight: 900;
   background: rgba(0,0,0,.15);
   padding: 1px 6px;
   border-radius: 999px;
 }
 
+/* Responsive (si écran petit) */
+@media (max-width: 980px){
+  .topbar{
+    grid-template-columns: 1fr 260px;
+    gap: 2cm;
+  }
+  .logo-slot{ width: 260px; }
+  .logo{ height: 160px; }
+}
