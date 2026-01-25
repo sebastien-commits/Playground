@@ -1,198 +1,143 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PLAYGROUND</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PLAYGROUND</title>
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #ff9800, #ffcc00);
-  min-height: 100vh;
-  color: #111;
-}
-
-/* ===== TOP BAR ===== */
-.topbar {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4cm;                 /* espace exact avant le logo */
-  align-items: start;
-  padding: 20px 24px;
-}
-
-/* ===== LOGO ===== */
-.logo {
-  height: 210px;            /* 1,5× plus gros */
-  width: auto;
-  display: block;
-}
-
-/* ===== BANNIÈRES ===== */
-.banners {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  max-width: 50%;           /* 2× moins large */
-}
-
-/* ===== BANNER ===== */
-.banner {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 14px;
-  background: linear-gradient(90deg, #ff9800, #ffcc00);
-  box-shadow: 0 6px 14px rgba(0,0,0,
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css?v=1">
 </head>
 
 <body>
-<div style="position:fixed;top:0;left:0;z-index:999999;
-background:red;color:white;padding:10px 14px;font-weight:900">
-  TEST V3 - 12345
-</div>
-<div class="topbar">
 
-  <div class="banners">
+  <div class="topbar">
 
-    <!-- SCORES -->
-    <div class="banner">
-      <div class="label">SCORES</div>
-      <div class="track">
-        <div class="marquee">
+    <!-- BANNIÈRES -->
+    <div class="banners">
 
-          <!-- copie 1 -->
-          <div class="group">
-            <span class="item">
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
-              Bulls <span class="score">104–99</span>
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
-              Heat
-            </span>
-            <span class="sep">•</span>
+      <!-- SCORES -->
+      <div class="banner">
+        <div class="label">SCORES</div>
+        <div class="track">
+          <div class="marquee">
 
-            <span class="item">
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
-              Lakers <span class="score">112–108</span>
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="">
-              Suns
-            </span>
-            <span class="sep">•</span>
+            <!-- COPIE 1 -->
+            <div class="group">
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png">
+                Bulls <span class="score">104–99</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+                Heat
+              </span>
+              <span class="sep">•</span>
 
-            <span class="item">
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
-              Celtics <span class="score">120–114</span>
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="">
-              Knicks
-            </span>
-            <span class="sep">•</span>
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+                Lakers <span class="score">112–108</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png">
+                Suns
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png">
+                Celtics <span class="score">120–114</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png">
+                Knicks
+              </span>
+            </div>
+
+            <!-- COPIE 2 (identique pour boucle parfaite) -->
+            <div class="group">
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png">
+                Bulls <span class="score">104–99</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+                Heat
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+                Lakers <span class="score">112–108</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png">
+                Suns
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png">
+                Celtics <span class="score">120–114</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png">
+                Knicks
+              </span>
+            </div>
+
           </div>
-
-          <!-- copie 2 identique -->
-          <div class="group" aria-hidden="true">
-            <span class="item">
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
-              Bulls <span class="score">104–99</span>
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
-              Heat
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
-              Lakers <span class="score">112–108</span>
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="">
-              Suns
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
-              Celtics <span class="score">120–114</span>
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="">
-              Knicks
-            </span>
-            <span class="sep">•</span>
-          </div>
-
         </div>
       </div>
-    </div>
 
-    <!-- TRANSFERTS -->
-    <div class="banner transfers">
-      <div class="label">TRANSFERTS</div>
-      <div class="track">
-        <div class="marquee">
+      <!-- TRANSFERTS -->
+      <div class="banner transfers">
+        <div class="label">TRANSFERTS</div>
+        <div class="track">
+          <div class="marquee">
 
-          <!-- copie 1 -->
-          <div class="group">
-            <span class="item">
-              Luka Dončić →
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
-              Lakers <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
+            <div class="group">
+              <span class="item">
+                Luka Dončić →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+                Lakers <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
 
-            <span class="item">
-              Giannis →
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
-              Heat <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
+              <span class="item">
+                Giannis →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+                Heat <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
 
-            <span class="item">
-              Kevin Durant →
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
-              Mavericks <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
+              <span class="item">
+                Kevin Durant →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png">
+                Mavericks <span class="tag">(fictif)</span>
+              </span>
+            </div>
+
+            <div class="group">
+              <span class="item">
+                Luka Dončić →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+                Lakers <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                Giannis →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+                Heat <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                Kevin Durant →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png">
+                Mavericks <span class="tag">(fictif)</span>
+              </span>
+            </div>
+
           </div>
-
-          <!-- copie 2 identique -->
-          <div class="group" aria-hidden="true">
-            <span class="item">
-              Luka Dončić →
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
-              Lakers <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              Giannis →
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
-              Heat <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              Kevin Durant →
-              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
-              Mavericks <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
-          </div>
-
         </div>
       </div>
+
     </div>
+
+    <!-- LOGO -->
+    <img class="logo" src="./logo-playground.png" alt="PLAYGROUND">
 
   </div>
-
-  <!-- Logo (aucun rectangle) -->
-  <img class="logo"
-       src="https://sebastien-commits.github.io/PLAYGROUND/logo-playground.png"
-       alt="PLAYGROUND">
-
-</div>
 
 </body>
 </html>
