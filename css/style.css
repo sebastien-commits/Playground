@@ -1,0 +1,61 @@
+:root {
+  --bg-1: #ffb000;
+  --bg-2: #ff7a18;
+  --text: #111;
+  --dot-gap: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  overflow: hidden;
+}
+
+/* TICKER */
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(255,255,255,0.85);
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.ticker.transfers {
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+}
+
+.track {
+  white-space: nowrap;
+  display: flex;
+}
+
+.marquee {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dot-gap);
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.dot {
+  margin: 0 var(--dot-gap);
+}
+
+/* LOGO */
+.logo {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 220px;
+}
+
+/* PAUSE AU SURVOL */
+.ticker:hover .marquee {
+  animation-play-state: paused;
+}
