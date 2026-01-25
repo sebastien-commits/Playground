@@ -1,15 +1,13 @@
-console.log("Playground prêt 🚀");
-
 function startMarquee(id, speed) {
-  const container = document.getElementById(id);
-  const content = container.querySelector('.marquee-content');
+  const ticker = document.getElementById(id);
+  const marquee = ticker.querySelector(".marquee");
 
-  if (!container || !content) return;
+  // dupliquer le contenu pour éviter les trous
+  marquee.innerHTML += marquee.innerHTML;
 
-  const width = content.scrollWidth;
+  const width = marquee.scrollWidth / 2;
 
-  // créer une animation unique par bannière
-  const style = document.createElement('style');
+  const style = document.createElement("style");
   style.innerHTML = `
     @keyframes scroll-${id} {
       from { transform: translateX(0); }
@@ -18,12 +16,10 @@ function startMarquee(id, speed) {
   `;
   document.head.appendChild(style);
 
-  content.style.animation = `scroll-${id} ${speed}s linear infinite`;
+  marquee.style.animation = `scroll-${id} ${speed}s linear infinite`;
 }
 
-// lancer les animations quand la page est chargée
-window.addEventListener('load', () => {
-  startMarquee('scores', 30);     // bannière scores (lent)
-  startMarquee('transfers', 26);  // bannière transferts
-})
-
+window.addEventListener("load", () => {
+  startMarquee("scores", 30);     // lent
+  startMarquee("transfers", 26);  // légèrement plus rapide
+});
