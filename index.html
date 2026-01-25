@@ -5,23 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PLAYGROUND</title>
 
-  <link rel="stylesheet" href="./css/style.css?v=4">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#ff9800,#ffcc00);
+      min-height:100vh;color:#111
+    }
+
+    /* Topbar: colonne bannières + colonne logo (réservée) */
+    .topbar{
+      display:grid;
+      grid-template-columns:1fr 360px; /* réserve la colonne logo */
+      gap:4cm;                         /* distance logo */
+      align-items:start;
+      padding:20px 24px;
+    }
+
+    /* Zone logo (sans rectangle) */
+    .logo-slot{
+      width:360px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:flex-start;
+    }
+    .logo{height:210px;width:auto;display:block}
+
+    /* Bannières : vont jusqu’au logo (donc arrêt avant le gap) */
+    .banners{display:flex;flex-direction:column;gap:10px;width:100%;min-width:0}
+
+    /* 2× moins épaisses */
+    .banner{
+      height:28px; /* 56/2 */
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      border-radius:12px;
+      background:linear-gradient(90deg,#ff9800,#ffcc00);
+      box-shadow:0 4px 10px rgba(0,0,0,.14);
+    }
+
+    .label{
+      font-weight:900;
+      padding:0 10px;
+      white-space:nowrap;
+      font-size:14px;
+    }
+
+    .track{flex:1;overflow:hidden;min-width:0}
+    .marquee{
+      display:flex;
+      width:max-content;
+      animation:scroll 18s linear infinite;
+    }
+    .banner.transfers .marquee{animation-duration:22s}
+
+    @keyframes scroll{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    .group{display:flex;align-items:center}
+    .item{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:0 14px;
+      font-weight:800;
+      white-space:nowrap;
+      font-size:14px;
+    }
+    .sep{
+      width:52px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-weight:900;
+      opacity:.7
+    }
+    .team{height:18px;width:auto}
+    .score{font-weight:900}
+    .tag{
+      font-size:11px;
+      font-weight:900;
+      background:rgba(0,0,0,.15);
+      padding:1px 6px;
+      border-radius:999px;
+    }
+
+    @media (max-width:980px){
+      .topbar{grid-template-columns:1fr 260px;gap:2cm}
+      .logo-slot{width:260px}
+      .logo{height:160px}
+    }
+  </style>
 </head>
 
 <body>
 
   <div class="topbar">
 
-    <!-- BANNIÈRES -->
     <div class="banners">
 
-      <!-- SCORES -->
       <div class="banner">
         <div class="label">SCORES</div>
         <div class="track">
           <div class="marquee">
-
-            <!-- COPIE 1 -->
             <div class="group">
               <span class="item">
                 <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
@@ -47,7 +136,6 @@
               </span>
             </div>
 
-            <!-- COPIE 2 (identique) -->
             <div class="group">
               <span class="item">
                 <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
@@ -72,12 +160,10 @@
                 Knicks
               </span>
             </div>
-
           </div>
         </div>
       </div>
 
-      <!-- TRANSFERTS -->
       <div class="banner transfers">
         <div class="label">TRANSFERTS</div>
         <div class="track">
@@ -85,13 +171,6 @@
 
             <div class="group">
               <span class="item">
-                Luka Dončić →
-                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
-                Lakers <span class="tag">(fictif)</span>
-              </span>
-              <span class="sep">•</span>
-
-              <span class="item">
                 Giannis →
                 <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
                 Heat <span class="tag">(fictif)</span>
@@ -102,18 +181,18 @@
                 Kevin Durant →
                 <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
                 Mavericks <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                Luka Dončić →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+                Lakers <span class="tag">(fictif)</span>
               </span>
             </div>
 
             <div class="group">
               <span class="item">
-                Luka Dončić →
-                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
-                Lakers <span class="tag">(fictif)</span>
-              </span>
-              <span class="sep">•</span>
-
-              <span class="item">
                 Giannis →
                 <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
                 Heat <span class="tag">(fictif)</span>
@@ -124,6 +203,13 @@
                 Kevin Durant →
                 <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
                 Mavericks <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                Luka Dončić →
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+                Lakers <span class="tag">(fictif)</span>
               </span>
             </div>
 
@@ -133,12 +219,8 @@
 
     </div>
 
-    <!-- LOGO (colonne réservée même si l’image charge mal) -->
     <div class="logo-slot">
-      <img class="logo"
-           src="https://sebastien-commits.github.io/PLAYGROUND/logo-playground.png"
-           alt="PLAYGROUND"
-           onerror="this.onerror=null; this.src='./logo-playground.png';">
+      <img class="logo" src="./logo-playground.png" alt="PLAYGROUND">
     </div>
 
   </div>
