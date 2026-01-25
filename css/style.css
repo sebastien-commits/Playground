@@ -1,10 +1,7 @@
 /* ===== RESET ===== */
 *{ box-sizing: border-box; }
-body{
-  margin:0;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background: linear-gradient(180deg,#ffb300,#ff8c1a);
-  min-height:100vh;
+body {
+  background: red !important;
 }
 
 /* ===== TOPBAR ===== */
@@ -150,3 +147,4 @@ body{
 @media (prefers-reduced-motion: reduce){
   .rail-marquee{ animation:none; }
 }
+
