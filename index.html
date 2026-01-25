@@ -1,72 +1,280 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PLAYGROUND</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/style.css?v=4">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#ff9800,#ffcc00);
+      min-height:100vh;
+      color:#111;
+    }
+
+    /* ===== TOP ===== */
+    .topbar{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 4cm;                 /* espace avant logo */
+      padding:24px;
+      align-items:start;
+    }
+
+    .logo{
+      width:220px;
+      height:auto;
+      display:block;
+    }
+
+    /* ===== BANNERS ===== */
+    .banners{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-width:0;
+    }
+
+    .banner{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      background:rgba(255,255,255,.35);
+      padding:10px 14px;
+      border-radius:18px;
+      box-shadow:0 10px 20px rgba(0,0,0,.15);
+      min-width:0;
+    }
+
+    .label{
+      font-weight:900;
+      white-space:nowrap;
+      flex:0 0 auto;
+    }
+
+    .track{
+      overflow:hidden;
+      flex:1 1 auto;
+      min-width:0;
+    }
+
+    /* Animation fluide, boucle parfaite = on duplique le contenu */
+    .marquee{
+      display:flex;
+      width:max-content;
+      gap:18px;
+      white-space:nowrap;
+      animation: scroll 18s linear infinite;
+      will-change: transform;
+    }
+    .marquee:hover{ animation-play-state: paused; }
+
+    @keyframes scroll{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(-50%); }
+    }
+
+    .group{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      padding-right:18px;
+    }
+
+    .item{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-weight:800;
+    }
+
+    .team{
+      width:20px;
+      height:20px;
+      object-fit:contain;
+      display:inline-block;
+      vertical-align:middle;
+    }
+
+    .sep{
+      display:inline-block;
+      font-weight:900;
+      opacity:.85;
+      transform: translateY(-1px);
+    }
+
+    .score{ font-weight:900; }
+    .tag{ font-size:12px; opacity:.7; font-weight:800; margin-left:2px; }
+
+    /* ===== MENU ===== */
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      background:rgba(255,255,255,.25);
+      border-radius:18px;
+      box-shadow:0 10px 18px rgba(0,0,0,.15);
+      overflow:hidden;
+    }
+    .menu a{
+      text-decoration:none;
+      color:#111;
+      font-weight:900;
+      text-align:center;
+      padding:14px 0;
+    }
+    .menu a:hover{ background:rgba(0,0,0,.10); }
+
+    /* ===== NEWS GRID (5 fenêtres) ===== */
+    .news-grid{
+      margin: 18px 24px 40px;
+      display:grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: repeat(2, 240px);
+      gap:18px;
+    }
+    .news{
+      position:relative;
+      overflow:hidden;
+      border-radius:18px;
+      box-shadow:0 12px 22px rgba(0,0,0,.2);
+      background: rgba(255,255,255,.25);
+    }
+    .news.big{ grid-row: span 2; }
+
+    .news img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .news h3{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding:14px;
+      font-size:18px;
+      color:#fff;
+      background:linear-gradient(transparent,rgba(0,0,0,.75));
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ===== TOP BAR ===== -->
   <div class="topbar">
 
-    <!-- BANNIÈRES -->
     <div class="banners">
 
-      <!-- SCORES -->
+      <!-- ===== SCORES ===== -->
       <div class="banner">
         <div class="label">SCORES</div>
         <div class="track">
+
           <div class="marquee">
-            <span class="item">
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
-              Lakers <span class="score">112–108</span>
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png">
-              Suns
-            </span>
-            <span class="sep">•</span>
-            <span class="item">
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png">
-              Celtics <span class="score">120–114</span>
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png">
-              Knicks
-            </span>
-            <span class="sep">•</span>
-            <span class="item">
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png">
-              Bulls <span class="score">104–99</span>
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
-              Heat
-            </span>
+            <!-- GROUP 1 -->
+            <div class="group">
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+                Lakers <span class="score">112–108</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="">
+                Suns
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
+                Celtics <span class="score">120–114</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="">
+                Knicks
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
+                Bulls <span class="score">104–99</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
+                Heat
+              </span>
+              <span class="sep">•</span>
+            </div>
+
+            <!-- GROUP 2 (copie exacte pour boucle parfaite) -->
+            <div class="group" aria-hidden="true">
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+                Lakers <span class="score">112–108</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="">
+                Suns
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
+                Celtics <span class="score">120–114</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="">
+                Knicks
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
+                Bulls <span class="score">104–99</span>
+                <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
+                Heat
+              </span>
+              <span class="sep">•</span>
+            </div>
           </div>
+
         </div>
       </div>
 
-      <!-- TRANSFERTS -->
+      <!-- ===== TRANSFERTS ===== -->
       <div class="banner">
         <div class="label">TRANSFERTS</div>
         <div class="track">
+
           <div class="marquee">
-            <span class="item">
-              Luka Dončić → 
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
-              Lakers <span class="tag">(fictif)</span>
-            </span>
-            <span class="sep">•</span>
-            <span class="item">
-              Giannis →
-              <img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
-              Heat <span class="tag">(fictif)</span>
-            </span>
+            <!-- GROUP 1 -->
+            <div class="group">
+              <span class="item">
+                Luka Dončić → <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+                Lakers <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                Giannis → <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
+                Heat <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                Kevin Durant → <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
+                Mavericks <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+            </div>
+
+            <!-- GROUP 2 (copie exacte) -->
+            <div class="group" aria-hidden="true">
+              <span class="item">
+                Luka Dončić → <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+                Lakers <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                Giannis → <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
+                Heat <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+              <span class="item">
+                Kevin Durant → <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
+                Mavericks <span class="tag">(fictif)</span>
+              </span>
+              <span class="sep">•</span>
+            </div>
           </div>
+
         </div>
       </div>
 
-      <!-- MENU -->
+      <!-- ===== MENU ===== -->
       <nav class="menu">
         <a href="#">Actus</a>
         <a href="#">Équipes</a>
@@ -81,34 +289,32 @@
 
   </div>
 
-  <!-- ===== NEWS ===== -->
+  <!-- ===== 5 fenêtres news ===== -->
   <section class="news-grid">
-
     <article class="news big">
-      <img src="./assets/news/news1.jpg">
-      <h3>Actu principale NBA</h3>
+      <img src="./assets/news/news1.jpg" alt="">
+      <h3>Actu principale</h3>
     </article>
 
     <article class="news">
-      <img src="./assets/news/news2.jpg">
-      <h3>Actu secondaire 1</h3>
+      <img src="./assets/news/news2.jpg" alt="">
+      <h3>Actu 2</h3>
     </article>
 
     <article class="news">
-      <img src="./assets/news/news3.jpg">
-      <h3>Actu secondaire 2</h3>
+      <img src="./assets/news/news3.jpg" alt="">
+      <h3>Actu 3</h3>
     </article>
 
     <article class="news">
-      <img src="./assets/news/news4.jpg">
-      <h3>Actu secondaire 3</h3>
+      <img src="./assets/news/news4.jpg" alt="">
+      <h3>Actu 4</h3>
     </article>
 
     <article class="news">
-      <img src="./assets/news/news5.jpg">
-      <h3>Actu secondaire 4</h3>
+      <img src="./assets/news/news5.jpg" alt="">
+      <h3>Actu 5</h3>
     </article>
-
   </section>
 
 </body>
