@@ -1,150 +1,110 @@
-/* ===== RESET ===== */
-*{ box-sizing: border-box; }
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== THEME GLOBAL ORANGE / JAUNE ===== */
 body {
-  background: red !important;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #ff9800 0%, #ffcc00 45%, #ff9800 100%);
+  color: #111;
+  min-height: 100vh;
 }
 
 /* ===== TOPBAR ===== */
-.topbar{
-  position: fixed;
-  top:18px;
-  left:18px;
-  right:18px;
-  z-index:50;
+.topbar {
+  background: linear-gradient(90deg, #ff9800, #ffcc00);
+  padding: 18px 0;
 }
 
-.topbar-inner{
-  max-width:1250px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns: 1fr auto;
-  gap:18px;
-  align-items:start;
-}
-
-.topbar-logo{
-  width:160px;
-  height:auto;
-  filter: drop-shadow(0 18px 38px rgba(0,0,0,.25));
+.topbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 20px;
 }
 
 /* ===== RAILS ===== */
-.rails{
-  padding:14px;
-  border-radius:22px;
-  background: rgba(25,15,5,.38);
-  border:1px solid rgba(255,255,255,.15);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+.rail {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
 }
 
-.rail{
-  display:grid;
-  grid-template-columns:110px 1fr;
-  gap:12px;
-  align-items:center;
+.rail-label {
+  font-weight: 900;
+  color: #000;
+  margin-right: 18px;
+  white-space: nowrap;
 }
 
-.rail + .rail{ margin-top:12px; }
-
-.rail-label{
-  font-size:.78rem;
-  font-weight:900;
-  letter-spacing:.18em;
-  color:rgba(255,255,255,.9);
+.rail-track {
+  overflow: hidden;
+  width: 100%;
 }
 
-/* ===== TRACK ===== */
-.rail-track{
-  position:relative;
-  overflow:hidden;
-  border-radius:16px;
-  background: rgba(0,0,0,.28);
-  border:1px solid rgba(255,255,255,.12);
-  padding:10px 14px;
+.rail-marquee {
+  display: flex;
 }
 
-.rail-fade{
-  position:absolute;
-  top:0; bottom:0;
-  width:70px;
-  pointer-events:none;
-  z-index:2;
-}
-.rail-fade-left{
-  left:0;
-  background:linear-gradient(90deg,rgba(0,0,0,.55),transparent);
-}
-.rail-fade-right{
-  right:0;
-  background:linear-gradient(270deg,rgba(0,0,0,.55),transparent);
+.rail-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  white-space: nowrap;
+  animation: scroll 18s linear infinite;
 }
 
-/* ===== MARQUEE ===== */
-.rail-marquee{
-  display:flex;
-  gap:30px;
-  width:max-content;
-  animation: ticker 22s linear infinite;
-  will-change: transform;
-}
-.rail-marquee.slower{ animation-duration:32s; }
-
-@keyframes ticker{
-  from{ transform:translateX(0); }
-  to{ transform:translateX(-50%); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.rail-content{
-  display:inline-flex;
-  align-items:center;
-  gap:22px;
-  white-space:nowrap;
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  color: #000;
 }
 
-/* ===== ITEMS ===== */
-.item{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-size:.95rem;
-  font-weight:700;
-  color:rgba(255,255,255,.95);
+.logo {
+  height: 30px;
+  width: auto;
 }
 
-.logo{
-  width:22px;
-  height:22px;
-  object-fit:contain;
+.score {
+  color: #111;
 }
 
-.player{
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  object-fit:cover;
-  box-shadow:0 8px 18px rgba(0,0,0,.25);
+.dot {
+  opacity: .6;
 }
 
-.score{
-  font-weight:900;
-  color:#ffb000;
-  text-shadow:0 10px 24px rgba(255,176,0,.25);
+/* ===== TAG ===== */
+.tag {
+  background: rgba(0,0,0,.15);
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 12px;
 }
 
-.tag{
-  opacity:.75;
-  font-weight:800;
-  font-size:.85rem;
+/* ===== LOGO SITE (x6) ===== */
+.topbar-logo {
+  height: 228px; /* ~38px x 6 */
+  width: auto;
 }
 
-.dot{
-  opacity:.25;
-  user-select:none;
-}
-
-/* ===== ACCESSIBILITY ===== */
-@media (prefers-reduced-motion: reduce){
-  .rail-marquee{ animation:none; }
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .topbar-logo {
+    height: 140px;
+  }
 }
 
