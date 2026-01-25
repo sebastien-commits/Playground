@@ -24,7 +24,7 @@ body {
 
 /* LOGO */
 .logo {
-  height: 210px; /* 1,5× plus gros */
+  height: 210px;
   width: auto;
 }
 
@@ -33,7 +33,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-width: 50%;
+
+  width: calc(100% - 4cm); /* s’arrête à 4 cm du logo */
+  max-width: 40%;          /* 2× moins large */
 }
 
 /* BANNER */
@@ -112,3 +114,4 @@ body {
   padding: 2px 8px;
   border-radius: 999px;
 }
+
