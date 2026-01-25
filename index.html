@@ -5,148 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PLAYGROUND</title>
 
-  <style>
-    :root {
-      --orange-1: #ffb000;
-      --orange-2: #ff8c00;
-      --brown: #3a220a;
-      --text-light: #fff6e0;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(
-        to bottom,
-        var(--orange-1),
-        var(--orange-2)
-      );
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* ===== TICKERS ===== */
-
-    .ticker {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      background: var(--brown);
-      color: var(--text-light);
-      font-size: 16px;
-      padding: 10px 0;
-    }
-
-    .ticker.light {
-      background: #fff3d6;
-      color: #2b1a00;
-      font-weight: 600;
-    }
-
-    .track {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll 30s linear infinite;
-    }
-
-    .ticker.fast .track {
-      animation-duration: 20s;
-    }
-
-    @keyframes scroll {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
-
-    .item {
-      margin: 0 25px;
-      display: inline-block;
-    }
-
-    /* ===== STRIPES BACKGROUND ===== */
-
-    .stripes {
-      display: grid;
-      grid-template-rows: repeat(6, 1fr);
-      height: calc(100vh - 100px);
-    }
-
-    .stripe {
-      background: linear-gradient(
-        to right,
-        #ffb000,
-        #ff9a00
-      );
-      border-top: 1px solid rgba(255,255,255,0.25);
-    }
-
-    /* ===== LOGO ===== */
-
-    .logo {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 180px;
-      z-index: 10;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
-    }
-
-    @media (max-width: 600px) {
-      .logo {
-        width: 120px;
-        bottom: 20px;
-        right: 20px;
-      }
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- SCORES -->
-  <div class="ticker light">
-    <div class="track">
-      <span class="item">🏀 Bulls 104–99 Heat</span>
-      <span class="item">Lakers 112–108 Suns</span>
-      <span class="item">Celtics 120–114 Knicks</span>
-      <span class="item">Warriors 109–101 Clippers</span>
-      <span class="item">Bulls 104–99 Heat</span>
-      <span class="item">Lakers 112–108 Suns</span>
+  <!-- ================= TOPBAR ================= -->
+  <header class="topbar">
+    <div class="topbar-inner">
+
+      <div class="rails">
+
+        <!-- SCORES -->
+        <section class="rail">
+          <div class="rail-label">SCORES</div>
+
+          <div class="rail-track">
+            <span class="rail-fade rail-fade-left"></span>
+            <span class="rail-fade rail-fade-right"></span>
+
+            <div class="rail-marquee">
+              <div class="rail-content">
+                <span class="item">
+                  <img class="logo" src="assets/teams/bulls.png" alt="">
+                  Bulls <span class="score">104–99</span>
+                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  Heat
+                </span>
+
+                <span class="dot">•</span>
+
+                <span class="item">
+                  <img class="logo" src="assets/teams/lakers.png" alt="">
+                  Lakers <span class="score">112–108</span>
+                  <img class="logo" src="assets/teams/suns.png" alt="">
+                  Suns
+                </span>
+
+                <span class="dot">•</span>
+
+                <span class="item">
+                  <img class="logo" src="assets/teams/celtics.png" alt="">
+                  Celtics <span class="score">120–114</span>
+                  <img class="logo" src="assets/teams/knicks.png" alt="">
+                  Knicks
+                </span>
+              </div>
+
+              <!-- duplication -->
+              <div class="rail-content" aria-hidden="true">
+                <span class="item">
+                  <img class="logo" src="assets/teams/bulls.png" alt="">
+                  Bulls <span class="score">104–99</span>
+                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  Heat
+                </span>
+
+                <span class="dot">•</span>
+
+                <span class="item">
+                  <img class="logo" src="assets/teams/lakers.png" alt="">
+                  Lakers <span class="score">112–108</span>
+                  <img class="logo" src="assets/teams/suns.png" alt="">
+                  Suns
+                </span>
+
+                <span class="dot">•</span>
+
+                <span class="item">
+                  <img class="logo" src="assets/teams/celtics.png" alt="">
+                  Celtics <span class="score">120–114</span>
+                  <img class="logo" src="assets/teams/knicks.png" alt="">
+                  Knicks
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TRANSFERTS -->
+        <section class="rail">
+          <div class="rail-label">TRANSFERTS</div>
+
+          <div class="rail-track">
+            <span class="rail-fade rail-fade-left"></span>
+            <span class="rail-fade rail-fade-right"></span>
+
+            <div class="rail-marquee slower">
+              <div class="rail-content">
+                <span class="item">
+                  <img class="player" src="assets/players/giannis.png" alt="">
+                  Giannis → 
+                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  Heat <span class="tag">(fictif)</span>
+                </span>
+
+                <span class="dot">•</span>
+
+                <span class="item">
+                  <img class="player" src="assets/players/durant.png" alt="">
+                  Kevin Durant →
+                  <img class="logo" src="assets/teams/mavericks.png" alt="">
+                  Mavericks <span class="tag">(fictif)</span>
+                </span>
+              </div>
+
+              <!-- duplication -->
+              <div class="rail-content" aria-hidden="true">
+                <span class="item">
+                  <img class="player" src="assets/players/giannis.png" alt="">
+                  Giannis → 
+                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  Heat <span class="tag">(fictif)</span>
+                </span>
+
+                <span class="dot">•</span>
+
+                <span class="item">
+                  <img class="player" src="assets/players/durant.png" alt="">
+                  Kevin Durant →
+                  <img class="logo" src="assets/teams/mavericks.png" alt="">
+                  Mavericks <span class="tag">(fictif)</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- LOGO -->
+      <img src="logo-playground.png" class="topbar-logo" alt="Playground">
+
     </div>
-  </div>
-
-  <!-- TRANSFERS -->
-  <div class="ticker fast">
-    <div class="track">
-      <span class="item">📝 Luka Dončić → Lakers (imaginaire)</span>
-      <span class="item">LeBron James → Knicks (imaginaire)</span>
-      <span class="item">Kevin Durant → Heat (imaginaire)</span>
-      <span class="item">📝 Luka Dončić → Lakers (imaginaire)</span>
-      <span class="item">LeBron James → Knicks (imaginaire)</span>
-    </div>
-  </div>
-
-  <!-- BACKGROUND -->
-  <div class="stripes">
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-  </div>
-
-  <!-- LOGO -->
-  <img src="logo-playground.png" alt="PLAYGROUND" class="logo">
+  </header>
 
 </body>
 </html>
