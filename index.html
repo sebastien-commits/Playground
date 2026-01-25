@@ -5,93 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PLAYGROUND</title>
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #fff;
-    }
-
-    .topbar {
-      background: linear-gradient(90deg, #ff9800, #ffcc00);
-      padding: 14px 0;
-      overflow: hidden;
-    }
-
-    .topbar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 14px;
-    }
-
-    .rail {
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      flex: 1;
-      min-width: 0;
-    }
-
-    .rail-label {
-      font-weight: 900;
-      color: #000;
-      margin-right: 16px;
-      white-space: nowrap;
-      letter-spacing: 0.5px;
-    }
-
-    .rail-track {
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .rail-content {
-      display: inline-flex;
-      gap: 28px;
-      white-space: nowrap;
-      animation: scroll 18s linear infinite;
-    }
-
-    .item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #000;
-      font-weight: 800;
-    }
-
-    .logo {
-      height: 28px;
-      width: auto;
-      vertical-align: middle;
-    }
-
-    .score { color: #111; }
-
-    .dot { color: #000; opacity: .8; }
-
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    .topbar-logo {
-      height: 38px;
-      width: auto;
-    }
-
-    /* petit bonus responsive */
-    @media (max-width: 700px) {
-      .topbar-logo { display: none; }
-      .rail-label { margin-right: 10px; }
-      .rail-content { animation-duration: 14s; }
-    }
-  </style>
+  <!-- CSS PRO -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -99,72 +14,76 @@
 <header class="topbar">
   <div class="topbar-inner">
 
+    <!-- ===== SCORES ===== -->
     <div class="rail">
       <div class="rail-label">SCORES</div>
 
       <div class="rail-track">
-        <!-- Pour défilement infini, on duplique le contenu 2 fois -->
-        <div class="rail-content">
-          <span class="item">
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
-            Bulls <span class="score">104–99</span>
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
-            Heat
-          </span>
+        <div class="rail-marquee">
 
-          <span class="dot">•</span>
+          <!-- contenu 1 -->
+          <div class="rail-content">
+            <span class="item">
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
+              Bulls <span class="score">104–99</span>
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
+              Heat
+            </span>
 
-          <span class="item">
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
-            Lakers <span class="score">112–108</span>
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
-            Suns
-          </span>
+            <span class="dot">•</span>
 
-          <span class="dot">•</span>
+            <span class="item">
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
+              Lakers <span class="score">112–108</span>
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
+              Suns
+            </span>
 
-          <span class="item">
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
-            Celtics <span class="score">120–114</span>
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
-            Knicks
-          </span>
+            <span class="dot">•</span>
 
-          <span class="dot">•</span>
-        </div>
+            <span class="item">
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
+              Celtics <span class="score">120–114</span>
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
+              Knicks
+            </span>
+          </div>
 
-        <div class="rail-content" aria-hidden="true">
-          <span class="item">
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
-            Bulls <span class="score">104–99</span>
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
-            Heat
-          </span>
+          <!-- contenu 2 (clone pour scroll infini) -->
+          <div class="rail-content" aria-hidden="true">
+            <span class="item">
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
+              Bulls <span class="score">104–99</span>
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
+              Heat
+            </span>
 
-          <span class="dot">•</span>
+            <span class="dot">•</span>
 
-          <span class="item">
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
-            Lakers <span class="score">112–108</span>
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
-            Suns
-          </span>
+            <span class="item">
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
+              Lakers <span class="score">112–108</span>
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
+              Suns
+            </span>
 
-          <span class="dot">•</span>
+            <span class="dot">•</span>
 
-          <span class="item">
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
-            Celtics <span class="score">120–114</span>
-            <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
-            Knicks
-          </span>
+            <span class="item">
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
+              Celtics <span class="score">120–114</span>
+              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
+              Knicks
+            </span>
+          </div>
 
-          <span class="dot">•</span>
         </div>
       </div>
     </div>
 
+    <!-- LOGO SITE -->
     <img src="logo-playground.png" class="topbar-logo" alt="Playground">
+
   </div>
 </header>
 
