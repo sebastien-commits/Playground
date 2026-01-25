@@ -1,34 +1,37 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ========= RESET ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ===== THEME GLOBAL ORANGE / JAUNE ===== */
-body {
+/* ========= FOND GLOBAL (FORCÉ) ========= */
+html, body {
+  min-height: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ff9800 0%, #ffcc00 45%, #ff9800 100%) !important;
+  color: #111 !important;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #ff9800 0%, #ffcc00 45%, #ff9800 100%);
-  color: #111;
-  min-height: 100vh;
 }
 
-/* ===== TOPBAR ===== */
-.topbar {
-  background: linear-gradient(90deg, #ff9800, #ffcc00);
-  padding: 18px 0;
+/* Si tu as un wrapper qui met du noir */
+main, .page, .container, .content, .app, .wrapper, #app, #root {
+  background: transparent !important;
 }
 
+/* ========= TOPBAR ========= */
+header.topbar, .topbar {
+  background: linear-gradient(90deg, #ff9800, #ffcc00) !important;
+  padding: 16px 0;
+}
+
+/* Layout */
 .topbar-inner {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
   padding: 0 20px;
 }
 
-/* ===== RAILS ===== */
+/* ========= RAILS ========= */
 .rail {
   display: flex;
   align-items: center;
@@ -44,14 +47,9 @@ body {
   white-space: nowrap;
 }
 
-.rail-track {
-  overflow: hidden;
-  width: 100%;
-}
+.rail-track { overflow: hidden; width: 100%; }
 
-.rail-marquee {
-  display: flex;
-}
+.rail-marquee { display: flex; gap: 18px; }
 
 .rail-content {
   display: inline-flex;
@@ -77,17 +75,12 @@ body {
 .logo {
   height: 30px;
   width: auto;
+  vertical-align: middle;
 }
 
-.score {
-  color: #111;
-}
+.score { color: #111; }
+.dot { opacity: .6; }
 
-.dot {
-  opacity: .6;
-}
-
-/* ===== TAG ===== */
 .tag {
   background: rgba(0,0,0,.15);
   padding: 2px 6px;
@@ -95,16 +88,21 @@ body {
   font-size: 12px;
 }
 
-/* ===== LOGO SITE (x6) ===== */
-.topbar-logo {
-  height: 228px; /* ~38px x 6 */
-  width: auto;
+/* ========= LOGO x6 (FORCÉ) ========= */
+header .topbar-logo,
+.topbar .topbar-logo,
+img.topbar-logo {
+  height: 228px !important;
+  width: auto !important;
+  display: block;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 900px) {
-  .topbar-logo {
-    height: 140px;
+  header .topbar-logo,
+  .topbar .topbar-logo,
+  img.topbar-logo {
+    height: 140px !important;
   }
 }
 
