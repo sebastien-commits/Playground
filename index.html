@@ -295,34 +295,35 @@
 </div>
 
 <script>
-  // Essaie plusieurs URLs jusqu'à ce qu'une marche (ZÉRO dépendance au chemin)
-  (function(){
-    const candidates = [
-      "/PLAYGROUND/logo-playground.png", // GitHub Pages (repo PLAYGROUND)
-      "./logo-playground.png",           // relatif
-      "https://cdn.jsdelivr.net/gh/sebastien-commits/PLAYGROUND@v3/logo-playground.png" // CDN
-    ];
+(function(){
+  const candidates = [
+    "/PLAYGROUND/logo-playground.png",
+    "./logo-playground.png",
+    "https://cdn.jsdelivr.net/gh/sebastien-commits/PLAYGROUND@v3/logo-playground.png"
+  ];
 
-    const img = document.getElementById("siteLogo");
-    let i = 0;
+  const img = document.getElementById("siteLogo");
+  let i = 0;
 
-    function tryNext(){
-      if(i >= candidates.length){
-        // fallback texte si tout échoue
-        img.replaceWith(Object.assign(document.createElement("div"), {
-          textContent: "PLAYGROUND",
-          style: "font-weight:900;font-size:32px;padding:10px 14px;border:2px solid rgba(0,0,0,.2);border-radius:14px;"
-        }));
-        return;
-      }
-      const url = candidates[i++] + "?v=" + Date.now(); // anti-cache
-      img.onerror = tryNext;
-      img.src = url;
+  function tryNext(){
+    if(i >= candidates.length){
+      img.replaceWith(Object.assign(document.createElement("div"), {
+        textContent: "PLAYGROUND",
+        style: "font-weight:900;font-size:32px;padding:10px 14px;border:2px solid rgba(0,0,0,.2);border-radius:14px;"
+      }));
+      return;
     }
 
-    tryNext();
-  })();
+    const url = candidates[i++] + "?v=" + Date.now();
+    img.onerror = tryNext;
+    img.src = url;
+  }
+
+  /* ✅ LIGNE CRUCIALE */
+  tryNext();
+})();
 </script>
+
 
 </body>
 </html>
