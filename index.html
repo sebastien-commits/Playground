@@ -20,12 +20,12 @@
   --dot-gap:14px;
 }
 
-body{
-  margin:0;
-  min-height:100vh;
-  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
-  overflow-x:hidden;
+body {
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
 }
+
 
 /* LOGO */
 .logo{
@@ -216,30 +216,9 @@ body{
 
 <img src="logo-playground.png" class="logo" alt="PLAYGROUND">
 
-<script>
-function startMarquee(id, speed){
-  const ticker=document.getElementById(id);
-  const inner=ticker.querySelector('.marquee-inner');
-  const marquee=ticker.querySelector('.marquee');
-  const width=inner.offsetWidth;
-  const duration=width/speed;
 
-  marquee.style.animation=`scroll-${id} ${duration}s linear infinite`;
-
-  const style=document.createElement('style');
-  style.innerHTML=`
-    @keyframes scroll-${id}{
-      from{transform:translateX(0);}
-      to{transform:translateX(-${width}px);}
-    }`;
-  document.head.appendChild(style);
-}
-
-window.addEventListener('load',()=>{
-  startMarquee('scores',30);
-  startMarquee('transfers',26);
-});
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
+
+
