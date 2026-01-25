@@ -7,6 +7,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/style.css">
+
+  <!-- JS (si ton fichier s'appelle bien main.js) -->
+  <script src="./js/main.js" defer></script>
 </head>
 
 <body>
@@ -17,7 +20,7 @@
 
       <div class="rails">
 
-        <!-- SCORES -->
+        <!-- ================= SCORES ================= -->
         <section class="rail">
           <div class="rail-label">SCORES</div>
 
@@ -26,57 +29,57 @@
             <span class="rail-fade rail-fade-right"></span>
 
             <div class="rail-marquee">
+              <!-- IMPORTANT : 2x le contenu pour l'effet défilement infini -->
               <div class="rail-content">
                 <span class="item">
-                  <img class="logo" src="assets/teams/bulls.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
                   Bulls <span class="score">104–99</span>
-                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
                   Heat
                 </span>
 
                 <span class="dot">•</span>
 
                 <span class="item">
-                  <img class="logo" src="assets/teams/lakers.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
                   Lakers <span class="score">112–108</span>
-                  <img class="logo" src="assets/teams/suns.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
                   Suns
                 </span>
 
                 <span class="dot">•</span>
 
                 <span class="item">
-                  <img class="logo" src="assets/teams/celtics.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
                   Celtics <span class="score">120–114</span>
-                  <img class="logo" src="assets/teams/knicks.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
                   Knicks
                 </span>
               </div>
 
-              <!-- duplication -->
               <div class="rail-content" aria-hidden="true">
                 <span class="item">
-                  <img class="logo" src="assets/teams/bulls.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
                   Bulls <span class="score">104–99</span>
-                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
                   Heat
                 </span>
 
                 <span class="dot">•</span>
 
                 <span class="item">
-                  <img class="logo" src="assets/teams/lakers.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
                   Lakers <span class="score">112–108</span>
-                  <img class="logo" src="assets/teams/suns.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
                   Suns
                 </span>
 
                 <span class="dot">•</span>
 
                 <span class="item">
-                  <img class="logo" src="assets/teams/celtics.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
                   Celtics <span class="score">120–114</span>
-                  <img class="logo" src="assets/teams/knicks.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
                   Knicks
                 </span>
               </div>
@@ -84,7 +87,7 @@
           </div>
         </section>
 
-        <!-- TRANSFERTS -->
+        <!-- ================= TRANSFERTS ================= -->
         <section class="rail">
           <div class="rail-label">TRANSFERTS</div>
 
@@ -92,12 +95,12 @@
             <span class="rail-fade rail-fade-left"></span>
             <span class="rail-fade rail-fade-right"></span>
 
-            <div class="rail-marquee slower">
+            <div class="rail-marquee">
               <div class="rail-content">
                 <span class="item">
                   <img class="player" src="assets/players/giannis.png" alt="">
-                  Giannis → 
-                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  Giannis →
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
                   Heat <span class="tag">(fictif)</span>
                 </span>
 
@@ -106,17 +109,16 @@
                 <span class="item">
                   <img class="player" src="assets/players/durant.png" alt="">
                   Kevin Durant →
-                  <img class="logo" src="assets/teams/mavericks.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Mavericks">
                   Mavericks <span class="tag">(fictif)</span>
                 </span>
               </div>
 
-              <!-- duplication -->
               <div class="rail-content" aria-hidden="true">
                 <span class="item">
                   <img class="player" src="assets/players/giannis.png" alt="">
-                  Giannis → 
-                  <img class="logo" src="assets/teams/heat.png" alt="">
+                  Giannis →
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
                   Heat <span class="tag">(fictif)</span>
                 </span>
 
@@ -125,11 +127,12 @@
                 <span class="item">
                   <img class="player" src="assets/players/durant.png" alt="">
                   Kevin Durant →
-                  <img class="logo" src="assets/teams/mavericks.png" alt="">
+                  <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Mavericks">
                   Mavericks <span class="tag">(fictif)</span>
                 </span>
               </div>
             </div>
+
           </div>
         </section>
 
