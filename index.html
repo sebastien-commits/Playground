@@ -6,59 +6,63 @@
   <title>PLAYGROUND</title>
 
   <style>
-    :root {
-      --bg1: #ff9800;
-      --bg2: #ffcc00;
+    :root{
+      --bg1:#ff9800;
+      --bg2:#ffcc00;
 
-      --logoH: 140px;
-      --gapLogo: 4cm;   /* 👈 ESPACE DEMANDÉ */
-      --railH: 52px;
+      --logoH:140px;
+      --gapLogo:4cm;        /* ✅ espace demandé entre bannières et logo */
 
-      --speedScores: 18s;
-      --speedTransfers: 22s;
+      --railH:56px;
+      --gapItem:26px;
+      --dotGap:18px;
+
+      --speedScores:18s;
+      --speedTransfers:22s;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(180deg, var(--bg1), var(--bg2));
       min-height:100vh;
       color:#111;
     }
 
-    /* ===== LAYOUT GLOBAL ===== */
-    .top {
+    /* ===== LAYOUT : bannières à gauche, logo à droite ===== */
+    .top{
       display:grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr max-content;  /* ✅ colonne logo réelle */
       align-items:start;
       padding: 16px 24px;
-      gap: var(--gapLogo); /* 👈 espace entre bannières et logo */
+      column-gap: var(--gapLogo);              /* ✅ 4cm */
     }
 
-    /* ===== BANNIÈRES ===== */
-    .rails {
+    .rails{
       display:flex;
       flex-direction:column;
       gap: 12px;
-      max-width: 100%;
+      min-width:0;
     }
 
-    /* ===== LOGO ===== */
-    .logo-wrap {
+    .logo-wrap{
       display:flex;
       align-items:flex-start;
       justify-content:flex-end;
+      min-width: 420px;        /* ✅ protège le logo */
+      position: relative;
+      z-index: 10;             /* ✅ au-dessus si overlap */
+      /* border:3px solid red; */  /* debug si besoin */
     }
 
-    .topbar-logo {
+    .topbar-logo{
       height: var(--logoH);
       width:auto;
       display:block;
     }
 
-    /* ===== RAIL ===== */
-    .rail {
+    /* ===== RAILS ===== */
+    .rail{
       height: var(--railH);
       display:flex;
       align-items:center;
@@ -68,66 +72,100 @@
       box-shadow: 0 6px 16px rgba(0,0,0,.15);
     }
 
-    .rail-label {
+    .rail-label{
       font-weight:900;
-      padding:0 16px;
+      color:#000;
+      padding: 0 16px;
       white-space:nowrap;
+      letter-spacing:.4px;
+      flex:0 0 auto;
     }
 
-    .rail-track {
-      flex:1;
+    .rail-track{
+      flex:1 1 auto;
+      min-width:0;
+      overflow:hidden;
+      position:relative;
+      height:100%;
+      display:flex;
+      align-items:center;
+    }
+
+    /* Fades (optionnel) */
+    .rail-track::before,
+    .rail-track::after{
+      content:"";
+      position:absolute;
+      top:0; bottom:0;
+      width: 44px;
+      z-index:2;
+      pointer-events:none;
+    }
+    .rail-track::before{
+      left:0;
+      background: linear-gradient(90deg, rgba(255,152,0,1), rgba(255,152,0,0));
+    }
+    .rail-track::after{
+      right:0;
+      background: linear-gradient(270deg, rgba(255,204,0,1), rgba(255,204,0,0));
+    }
+
+    /* ===== PERFECT LOOP ===== */
+    .marquee{
+      display:flex;
+      width:100%;
       overflow:hidden;
     }
 
-    .marquee {
-      display:flex;
-    }
-
-    .lane {
+    .lane{
       display:flex;
       align-items:center;
       white-space:nowrap;
+      will-change: transform;
       animation: scroll var(--speedScores) linear infinite;
     }
 
-    .rail.transfers .lane {
+    .rail.transfers .lane{
       animation-duration: var(--speedTransfers);
     }
 
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-100%); }
+    @keyframes scroll{
+      from{ transform: translateX(0); }
+      to  { transform: translateX(-100%); }
     }
 
-    .item {
+    /* ===== CONTENT ===== */
+    .item{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding-right: 28px;
+      gap: 8px;
+      padding-right: var(--gapItem);
       font-weight:800;
+      color:#000;
     }
 
-    .dot {
-      margin: 0 18px;
+    .dot{
+      margin: 0 var(--dotGap);
       font-weight:900;
       opacity:.7;
+      color:#000;
     }
 
-    .logo {
-      height:26px;
-    }
+    .team-logo{ height:26px; width:auto; vertical-align:middle; }
+    .score{ font-weight:900; }
 
-    .score { font-weight:900; }
-
-    .tag {
+    .tag{
       background: rgba(0,0,0,.15);
-      padding:2px 6px;
-      border-radius:999px;
-      font-size:12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
     }
 
-    @media (max-width: 900px) {
-      :root { --logoH: 100px; --gapLogo: 2cm; }
+    @media (max-width: 980px){
+      :root{ --logoH: 110px; --gapLogo: 2cm; }
+      .logo-wrap{ min-width: 260px; }
+      .rail-label{ display:none; }
     }
   </style>
 </head>
@@ -136,122 +174,137 @@
 
 <div class="top">
 
-  <!-- ===== BANNIÈRES ===== -->
+  <!-- ===== BANNIÈRES (2 lignes) ===== -->
   <div class="rails">
 
-    <!-- SCORES -->
-    <div class="rail scores">
+    <!-- ===== SCORES ===== -->
+    <section class="rail scores">
       <div class="rail-label">SCORES</div>
       <div class="rail-track">
         <div class="marquee">
+
+          <!-- LANE 1 -->
           <div class="lane">
             <span class="item">
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
               Celtics <span class="score">120–114</span>
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
               Knicks
             </span>
             <span class="dot">•</span>
+
             <span class="item">
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
               Bulls <span class="score">104–99</span>
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
               Heat
             </span>
             <span class="dot">•</span>
+
             <span class="item">
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
               Lakers <span class="score">112–108</span>
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
               Suns
             </span>
             <span class="dot">•</span>
           </div>
 
+          <!-- LANE 2 (CLONE) -->
           <div class="lane" aria-hidden="true">
-            <!-- clone parfait -->
             <span class="item">
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
               Celtics <span class="score">120–114</span>
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
               Knicks
             </span>
             <span class="dot">•</span>
+
             <span class="item">
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
               Bulls <span class="score">104–99</span>
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
               Heat
             </span>
             <span class="dot">•</span>
+
             <span class="item">
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
               Lakers <span class="score">112–108</span>
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
               Suns
             </span>
             <span class="dot">•</span>
           </div>
+
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- TRANSFERTS -->
-    <div class="rail transfers">
+    <!-- ===== TRANSFERTS ===== -->
+    <section class="rail transfers">
       <div class="rail-label">TRANSFERTS</div>
       <div class="rail-track">
         <div class="marquee">
+
+          <!-- LANE 1 -->
           <div class="lane">
             <span class="item">
               Luka Dončić →
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
               Lakers <span class="tag">(fictif)</span>
             </span>
             <span class="dot">•</span>
+
             <span class="item">
               Giannis →
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
               Heat <span class="tag">(fictif)</span>
             </span>
             <span class="dot">•</span>
+
             <span class="item">
               Kevin Durant →
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Mavericks">
               Mavericks <span class="tag">(fictif)</span>
             </span>
             <span class="dot">•</span>
           </div>
 
+          <!-- LANE 2 (CLONE) -->
           <div class="lane" aria-hidden="true">
-            <!-- clone parfait -->
             <span class="item">
               Luka Dončić →
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
               Lakers <span class="tag">(fictif)</span>
             </span>
             <span class="dot">•</span>
+
             <span class="item">
               Giannis →
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
               Heat <span class="tag">(fictif)</span>
             </span>
             <span class="dot">•</span>
+
             <span class="item">
               Kevin Durant →
-              <img class="logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png">
+              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Mavericks">
               Mavericks <span class="tag">(fictif)</span>
             </span>
             <span class="dot">•</span>
           </div>
+
         </div>
       </div>
-    </div>
+    </section>
 
   </div>
 
-  <!-- ===== LOGO À DROITE (VISIBLE) ===== -->
+  <!-- ===== LOGO (FORCÉ VISIBLE) ===== -->
   <div class="logo-wrap">
-    <img src="logo-playground.png" class="topbar-logo" alt="Playground">
+    <!-- ✅ chemin absolu GitHub Pages -->
+    <img src="/PLAYGROUND/logo-playground.png" class="topbar-logo" alt="Playground">
   </div>
 
 </div>
