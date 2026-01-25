@@ -1,331 +1,262 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PLAYGROUND</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLAYGROUND</title>
 
-  <style>
-    :root{
-      --bg1:#ff9800;
-      --bg2:#ffcc00;
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#ff9800,#ffcc00);
+  min-height:100vh;
+  color:#111;
+}
 
-      --logoH:140px;
-      --gapLogo:4cm;
+/* ===== LAYOUT ===== */
+.topbar{
+  display:grid;
+  grid-template-columns: 1fr auto;   /* bannières | logo */
+  align-items:start;
+  gap: 4cm;                          /* ✅ 4cm exact */
+  padding: 16px 24px;
+}
+.banners{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:0;
+}
+.logo{
+  height:140px;
+  width:auto;
+  display:block;
+  /* ✅ plus de rectangle : rien ici */
+}
 
-      --railH:56px;
-      --gapItem:26px;
-      --dotGap:18px;
+/* ===== BANNIÈRES ===== */
+.banner{
+  height:56px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  border-radius:14px;
+  background:linear-gradient(90deg,#ff9800,#ffcc00);
+  box-shadow: 0 6px 14px rgba(0,0,0,.18);
+}
+.label{
+  font-weight:900;
+  padding:0 16px;
+  white-space:nowrap;
+}
 
-      --speedScores:18s;
-      --speedTransfers:22s;
-    }
+/* ===== MARQUEE (boucle parfaite) ===== */
+.track{
+  flex:1;
+  overflow:hidden;
+  min-width:0;
+  position:relative;
+}
+.marquee{
+  display:flex;
+  width:max-content;                 /* contenu = largeur réelle */
+  will-change:transform;
+  animation: scroll 18s linear infinite;
+}
+.banner.transfers .marquee{ animation-duration: 22s; }
 
-    *{ margin:0; padding:0; box-sizing:border-box; }
-    body{
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh;
-      color:#111;
-    }
+/* On anime -50% car on a 2 copies identiques collées */
+@keyframes scroll{
+  from{ transform: translateX(0); }
+  to  { transform: translateX(-50%); }
+}
 
-    .top{
-      display:grid;
-      grid-template-columns: 1fr max-content;
-      align-items:start;
-      padding: 16px 24px;
-      column-gap: var(--gapLogo);
-    }
+/* ===== ITEMS + SEPARATEUR (espacement parfaitement régulier) ===== */
+.group{
+  display:flex;
+  align-items:center;
+}
 
-    .rails{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      min-width:0;
-    }
+/* Chaque item = même largeur -> distance égale */
+.item{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-weight:800;
+  white-space:nowrap;
+  min-width: 520px;                  /* ✅ égalise l’espace (ajuste si tu veux) */
+  padding: 0 14px;
+}
 
-    .logo-wrap{
-      display:flex;
-      align-items:flex-start;
-      justify-content:flex-end;
-      min-width: 420px;
-      position: relative;
-      z-index: 10;
-    }
+/* Le point est un bloc centré, largeur fixe */
+.sep{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 70px;                       /* ✅ point pile au milieu */
+  font-weight:900;
+  opacity:.7;
+}
 
-    /* cadre léger pour vérifier que la zone existe (tu peux supprimer après) */
-    .logo-wrap::before{
-      content:"";
-      position:absolute;
-      inset:-6px;
-      border: 2px solid rgba(0,0,0,.15);
-      border-radius: 16px;
-      pointer-events:none;
-    }
+.team{ height:26px; width:auto; vertical-align:middle; }
+.tag{
+  font-size:12px;
+  font-weight:900;
+  background:rgba(0,0,0,.15);
+  padding:2px 8px;
+  border-radius:999px;
+}
 
-    .topbar-logo{
-      height: var(--logoH);
-      width:auto;
-      display:block;
-      position:relative;
-      z-index:2;
-    }
-
-    .rail{
-      height: var(--railH);
-      display:flex;
-      align-items:center;
-      background: linear-gradient(90deg, var(--bg1), var(--bg2));
-      border-radius: 14px;
-      overflow:hidden;
-      box-shadow: 0 6px 16px rgba(0,0,0,.15);
-    }
-
-    .rail-label{
-      font-weight:900;
-      color:#000;
-      padding: 0 16px;
-      white-space:nowrap;
-      letter-spacing:.4px;
-      flex:0 0 auto;
-    }
-
-    .rail-track{
-      flex:1 1 auto;
-      min-width:0;
-      overflow:hidden;
-      position:relative;
-      height:100%;
-      display:flex;
-      align-items:center;
-    }
-
-    .rail-track::before,
-    .rail-track::after{
-      content:"";
-      position:absolute;
-      top:0; bottom:0;
-      width: 44px;
-      z-index:2;
-      pointer-events:none;
-    }
-    .rail-track::before{
-      left:0;
-      background: linear-gradient(90deg, rgba(255,152,0,1), rgba(255,152,0,0));
-    }
-    .rail-track::after{
-      right:0;
-      background: linear-gradient(270deg, rgba(255,204,0,1), rgba(255,204,0,0));
-    }
-
-    .marquee{ display:flex; width:100%; overflow:hidden; }
-
-    .lane{
-      display:flex;
-      align-items:center;
-      white-space:nowrap;
-      will-change: transform;
-      animation: scroll var(--speedScores) linear infinite;
-    }
-    .rail.transfers .lane{ animation-duration: var(--speedTransfers); }
-
-    @keyframes scroll{
-      from{ transform: translateX(0); }
-      to  { transform: translateX(-100%); }
-    }
-
-    .item{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding-right: var(--gapItem);
-      font-weight:800;
-      color:#000;
-    }
-
-    .dot{
-      margin: 0 var(--dotGap);
-      font-weight:900;
-      opacity:.7;
-      color:#000;
-    }
-
-    .team-logo{ height:26px; width:auto; vertical-align:middle; }
-    .score{ font-weight:900; }
-
-    .tag{
-      background: rgba(0,0,0,.15);
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    @media (max-width: 980px){
-      :root{ --logoH: 110px; --gapLogo: 2cm; }
-      .logo-wrap{ min-width: 260px; }
-      .rail-label{ display:none; }
-    }
-  </style>
+/* Responsive léger */
+@media (max-width: 1100px){
+  .item{ min-width: 420px; }
+}
+@media (max-width: 900px){
+  .label{ display:none; }
+  .item{ min-width: 360px; }
+  .sep{ width: 54px; }
+  .logo{ height:110px; }
+  .topbar{ gap: 2cm; }
+}
+</style>
 </head>
 
 <body>
 
-<div class="top">
+<div class="topbar">
 
-  <div class="rails">
+  <!-- ===== BANNIÈRES ===== -->
+  <div class="banners">
 
-    <!-- ===== SCORES ===== -->
-    <section class="rail scores">
-      <div class="rail-label">SCORES</div>
-      <div class="rail-track">
+    <!-- SCORES -->
+    <div class="banner scores">
+      <div class="label">SCORES</div>
+      <div class="track">
         <div class="marquee">
-
-          <div class="lane">
-            <span class="item">
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
-              Celtics <span class="score">120–114</span>
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
-              Knicks
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
-              Bulls <span class="score">104–99</span>
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
+          <!-- GROUPE (copie 1) -->
+          <div class="group">
+            <div class="item">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
+              Bulls <b>104–99</b>
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
               Heat
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
-              Lakers <span class="score">112–108</span>
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
+            </div>
+            <div class="sep">•</div>
+
+            <div class="item">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+              Lakers <b>112–108</b>
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="">
               Suns
-            </span>
-            <span class="dot">•</span>
+            </div>
+            <div class="sep">•</div>
+
+            <div class="item">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
+              Celtics <b>120–114</b>
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="">
+              Knicks
+            </div>
+            <div class="sep">•</div>
           </div>
 
-          <div class="lane" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="Celtics">
-              Celtics <span class="score">120–114</span>
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="Knicks">
-              Knicks
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="Bulls">
-              Bulls <span class="score">104–99</span>
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
+          <!-- GROUPE (copie 2 identique, collée -> pas de trou) -->
+          <div class="group" aria-hidden="true">
+            <div class="item">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png" alt="">
+              Bulls <b>104–99</b>
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
               Heat
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
-              Lakers <span class="score">112–108</span>
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="Suns">
-              Suns
-            </span>
-            <span class="dot">•</span>
-          </div>
+            </div>
+            <div class="sep">•</div>
 
+            <div class="item">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
+              Lakers <b>112–108</b>
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png" alt="">
+              Suns
+            </div>
+            <div class="sep">•</div>
+
+            <div class="item">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png" alt="">
+              Celtics <b>120–114</b>
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png" alt="">
+              Knicks
+            </div>
+            <div class="sep">•</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- ===== TRANSFERTS ===== -->
-    <section class="rail transfers">
-      <div class="rail-label">TRANSFERTS</div>
-      <div class="rail-track">
+    <!-- TRANSFERTS -->
+    <div class="banner transfers">
+      <div class="label">TRANSFERTS</div>
+      <div class="track">
         <div class="marquee">
-
-          <div class="lane">
-            <span class="item">
+          <!-- copie 1 -->
+          <div class="group">
+            <div class="item">
               Luka Dončić →
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
               Lakers <span class="tag">(fictif)</span>
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
+            </div>
+            <div class="sep">•</div>
+
+            <div class="item">
               Giannis →
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
               Heat <span class="tag">(fictif)</span>
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
+            </div>
+            <div class="sep">•</div>
+
+            <div class="item">
               Kevin Durant →
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Mavericks">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
               Mavericks <span class="tag">(fictif)</span>
-            </span>
-            <span class="dot">•</span>
+            </div>
+            <div class="sep">•</div>
           </div>
 
-          <div class="lane" aria-hidden="true">
-            <span class="item">
+          <!-- copie 2 identique -->
+          <div class="group" aria-hidden="true">
+            <div class="item">
               Luka Dončić →
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="Lakers">
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png" alt="">
               Lakers <span class="tag">(fictif)</span>
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
-              Giannis →
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="Heat">
-              Heat <span class="tag">(fictif)</span>
-            </span>
-            <span class="dot">•</span>
-            <span class="item">
-              Kevin Durant →
-              <img class="team-logo" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="Mavericks">
-              Mavericks <span class="tag">(fictif)</span>
-            </span>
-            <span class="dot">•</span>
-          </div>
+            </div>
+            <div class="sep">•</div>
 
+            <div class="item">
+              Giannis →
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png" alt="">
+              Heat <span class="tag">(fictif)</span>
+            </div>
+            <div class="sep">•</div>
+
+            <div class="item">
+              Kevin Durant →
+              <img class="team" src="https://a.espncdn.com/i/teamlogos/nba/500/dal.png" alt="">
+              Mavericks <span class="tag">(fictif)</span>
+            </div>
+            <div class="sep">•</div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
   </div>
 
-  <!-- ===== LOGO ===== -->
-  <div class="logo-wrap" style="min-width:420px; display:flex; justify-content:flex-end;">
+  <!-- ===== LOGO HAUT DROITE (sans rectangle) ===== -->
   <img
-    src="https://sebastien-commits.github.io/PLAYGROUND/logo-playground.png?v=999"
-    alt="Playground
-
+    class="logo"
+    src="https://sebastien-commits.github.io/PLAYGROUND/logo-playground.png"
+    alt="PLAYGROUND">
 
 </div>
-
-<script>
-(function(){
-  const candidates = [
-    "/PLAYGROUND/logo-playground.png",
-    "./logo-playground.png",
-    "https://cdn.jsdelivr.net/gh/sebastien-commits/PLAYGROUND@v3/logo-playground.png"
-  ];
-
-  const img = document.getElementById("siteLogo");
-  let i = 0;
-
-  function tryNext(){
-    if(i >= candidates.length){
-      img.replaceWith(Object.assign(document.createElement("div"), {
-        textContent: "PLAYGROUND",
-        style: "font-weight:900;font-size:32px;padding:10px 14px;border:2px solid rgba(0,0,0,.2);border-radius:14px;"
-      }));
-      return;
-    }
-
-    const url = candidates[i++] + "?v=" + Date.now();
-    img.onerror = tryNext;
-    img.src = url;
-  }
-
-  /* ✅ LIGNE CRUCIALE */
-  tryNext();
-})();
-</script>
-
 
 </body>
 </html>
