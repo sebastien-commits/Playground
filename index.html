@@ -1,54 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PLAYGROUND</title>
 
-  <link rel="stylesheet" href="./css/style.css?v=3">
-  <style>
-  .menu{ 
-    display:flex !important;
-    gap:16px !important;
-    margin-top:16px !important;
-    padding:12px 16px !important;
-    background: #ff2d2d !important; /* ROUGE pour le voir */
-    color:#fff !important;
-    font-weight:900 !important;
-    border-radius:14px !important;
-    position:relative !important;
-    z-index:9999 !important;
-  }
-  .menu a{ color:#fff !important; text-decoration:none !important; }
-</style>
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css?v=4">
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
+  <!-- ===== TOP BAR ===== -->
   <div class="topbar">
 
-    <!-- LEFT SIDE -->
-    <div class="left">
+    <!-- BANNIÈRES -->
+    <div class="banners">
 
-      <!-- BANNERS -->
-      <div class="banners">
-
-        <div class="banner">
-          <div class="label">SCORES</div>
-          <div class="content">
-            Lakers 112–108 Suns • Celtics 120–114 Knicks • Bulls 104–99 Heat
+      <!-- SCORES -->
+      <div class="banner">
+        <div class="label">SCORES</div>
+        <div class="track">
+          <div class="marquee">
+            <span class="item">
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+              Lakers <span class="score">112–108</span>
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/phx.png">
+              Suns
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/bos.png">
+              Celtics <span class="score">120–114</span>
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/nyk.png">
+              Knicks
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/chi.png">
+              Bulls <span class="score">104–99</span>
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+              Heat
+            </span>
           </div>
         </div>
+      </div>
 
-        <div class="banner">
-          <div class="label">TRANSFERTS</div>
-          <div class="content">
-            Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)
+      <!-- TRANSFERTS -->
+      <div class="banner">
+        <div class="label">TRANSFERTS</div>
+        <div class="track">
+          <div class="marquee">
+            <span class="item">
+              Luka Dončić → 
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/lal.png">
+              Lakers <span class="tag">(fictif)</span>
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              Giannis →
+              <img src="https://a.espncdn.com/i/teamlogos/nba/500/mia.png">
+              Heat <span class="tag">(fictif)</span>
+            </span>
           </div>
         </div>
-
       </div>
 
       <!-- MENU -->
@@ -65,7 +80,36 @@
     <img class="logo" src="./logo-playground.png" alt="PLAYGROUND">
 
   </div>
-  <!-- END TOPBAR -->
+
+  <!-- ===== NEWS ===== -->
+  <section class="news-grid">
+
+    <article class="news big">
+      <img src="./assets/news/news1.jpg">
+      <h3>Actu principale NBA</h3>
+    </article>
+
+    <article class="news">
+      <img src="./assets/news/news2.jpg">
+      <h3>Actu secondaire 1</h3>
+    </article>
+
+    <article class="news">
+      <img src="./assets/news/news3.jpg">
+      <h3>Actu secondaire 2</h3>
+    </article>
+
+    <article class="news">
+      <img src="./assets/news/news4.jpg">
+      <h3>Actu secondaire 3</h3>
+    </article>
+
+    <article class="news">
+      <img src="./assets/news/news5.jpg">
+      <h3>Actu secondaire 4</h3>
+    </article>
+
+  </section>
 
 </body>
 </html>
