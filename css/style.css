@@ -1,109 +1,158 @@
-/* ========= RESET ========= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* ========= FOND GLOBAL (FORCÉ) ========= */
-html, body {
-  min-height: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #ff9800 0%, #ffcc00 45%, #ff9800 100%) !important;
-  color: oange,jaune !important;
+/* ===== BASE ===== */
+body {
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #ff9800, #ffcc00);
+  min-height: 100vh;
+  color: #111;
 }
 
-/* Si tu as un wrapper qui met du noir */
-main, .page, .container, .content, .app, .wrapper, #app, #root {
-  background: transparent !important;
+/* ===== TOPBAR LAYOUT ===== */
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto; /* bannières | logo */
+  gap: 4cm;                        /* ✅ espace exact avant le logo */
+  align-items: start;
+  padding: 16px 24px;
 }
 
-/* ========= TOPBAR ========= */
-header.topbar, .topbar {
-  background: linear-gradient(90deg, #ff9800, #ffcc00) !important;
-  padding: 16px 0;
-}
-
-/* Layout */
-.topbar-inner {
-  max-width: 1600px;
-  margin: 0 auto;
+/* ===== BANNIÈRES ===== */
+.banners {
   display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 0 20px;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+
+  max-width: 50%;                  /* ✅ bannières 2× moins larges */
 }
 
-/* ========= RAILS ========= */
-.rail {
+/* ===== LOGO ===== */
+.logo {
+  height: 210px;                   /* ✅ 1,5× plus gros (140 → 210) */
+  width: auto;
+  display: block;
+}
+
+/* ===== BANNER CONTAINER ===== */
+.banner {
+  height: 56px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #ff9800, #ffcc00);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* Label SCORES / TRANSFERTS */
+.label {
+  font-weight: 900;
+  padding: 0 16px;
+  white-space: nowrap;
+}
+
+/* ===== TRACK ===== */
+.track {
   flex: 1;
+  overflow: hidden;
   min-width: 0;
 }
 
-.rail-label {
-  font-weight: 900;
-  color: #000;
-  margin-right: 18px;
-  white-space: nowrap;
-}
-
-.rail-track { overflow: hidden; width: 100%; }
-
-.rail-marquee { display: flex; gap: 18px; }
-
-.rail-content {
-  display: inline-flex;
-  align-items: center;
-  gap: 28px;
-  white-space: nowrap;
+/* ===== MARQUEE (boucle parfaite) ===== */
+.marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
   animation: scroll 18s linear infinite;
 }
 
+.banner.transfers .marquee {
+  animation-duration: 22s;
+}
+
+/* 2 copies identiques → déplacement -50% */
 @keyframes scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== CONTENU ===== */
+.group {
+  display: flex;
+  align-items: center;
 }
 
 .item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
   font-weight: 800;
-  color: #000;
+  white-space: nowrap;
+  padding: 0 18px;
 }
 
-.logo {
-  height: 30px;
+/* Point parfaitement centré */
+.sep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  font-weight: 900;
+  opacity: 0.7;
+}
+
+/* Logos équipes */
+.team {
+  height: 26px;
   width: auto;
   vertical-align: middle;
 }
 
-.score { color: #111; }
-.dot { opacity: .6; }
+.score {
+  font-weight: 900;
+}
 
+/* Tag fictif */
 .tag {
-  background: rgba(0,0,0,.15);
-  padding: 2px 6px;
-  border-radius: 999px;
   font-size: 12px;
+  font-weight: 900;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 2px 8px;
+  border-radius: 999px;
 }
 
-/* ========= LOGO x6 (FORCÉ) ========= */
-header .topbar-logo,
-.topbar .topbar-logo,
-img.topbar-logo {
-  height: 228px !important;
-  width: auto !important;
-  display: block;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  header .topbar-logo,
-  .topbar .topbar-logo,
-  img.topbar-logo {
-    height: 140px !important;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .banners {
+    max-width: 65%;
   }
 }
 
+@media (max-width: 900px) {
+  .label {
+    display: none;
+  }
 
+  .logo {
+    height: 150px;
+  }
+
+  .topbar {
+    gap: 2cm;
+  }
+
+  .sep {
+    width: 54px;
+  }
+}
