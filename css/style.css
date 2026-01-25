@@ -1,124 +1,61 @@
-/* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* PAGE */
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg,#ff9800,#ffcc00);
-  min-height: 100vh;
-  color:#111;
-}
-
-/* TOPBAR : réserve une vraie colonne logo */
-.topbar{
+/* ===== MENU FULL WIDTH ===== */
+.menu{
   display: grid;
-  grid-template-columns: 1fr 360px;  /* ✅ colonne logo FIXE */
-  gap: 4cm;                          /* ✅ espace 4cm garanti */
-  align-items: start;
-  padding: 20px 24px;
-}
-
-/* Zone logo */
-.logo-slot{
-  width: 360px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-
-/* Logo */
-.logo{
-  height: 210px;
-  width: auto;
-  display: block;
-}
-
-/* BANNIÈRES : prend toute la largeur de la colonne 1 (donc s’arrête avant le gap) */
-.banners{
-  display:flex;
-  flex-direction: column;
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  min-width: 0;
+  margin-top: 12px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 10px 18px rgba(0,0,0,.12);
 }
 
-/* BANNIÈRES 2x moins épaisses */
-.banner{
-  height: 28px !important;          /* ✅ force la hauteur */
-  display:flex;
-  align-items:center;
-  overflow:hidden;
+.menu a{
+  text-align: center;
+  font-weight: 900;
+  text-decoration: none;
+  color: #111;
+  padding: 10px 0;
   border-radius: 12px;
-  background: linear-gradient(90deg,#ff9800,#ffcc00);
-  box-shadow: 0 4px 10px rgba(0,0,0,.14);
 }
 
-/* Label */
-.label{
-  font-weight: 900;
-  padding: 0 10px;
-  white-space: nowrap;
-  font-size: 14px;
+.menu a:hover{
+  background: rgba(0,0,0,.12);
 }
 
-/* Marquee */
-.track{ flex: 1; overflow:hidden; min-width: 0; }
-.marquee{
-  display:flex;
-  width: max-content;
-  animation: scroll 18s linear infinite;
-}
-.banner.transfers .marquee{ animation-duration: 22s; }
-
-@keyframes scroll{
-  from{ transform: translateX(0); }
-  to  { transform: translateX(-50%); }
+/* ===== NEWS GRID ===== */
+.news-grid{
+  margin: 40px 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: repeat(2, 240px);
+  gap: 18px;
 }
 
-/* Contenu */
-.group{ display:flex; align-items:center; }
-
-.item{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 0 14px;
-  font-weight: 800;
-  white-space: nowrap;
-  font-size: 14px;
+.news{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 22px rgba(0,0,0,.18);
 }
 
-/* Points centrés */
-.sep{
-  width: 52px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-weight: 900;
-  opacity: .7;
+.news.big{
+  grid-row: span 2;
 }
 
-/* Logos équipes */
-.team{ height: 18px; width:auto; }
-
-/* Score */
-.score{ font-weight: 900; }
-
-/* Tag fictif */
-.tag{
-  font-size: 11px;
-  font-weight: 900;
-  background: rgba(0,0,0,.15);
-  padding: 1px 6px;
-  border-radius: 999px;
+.news img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Responsive (si écran petit) */
-@media (max-width: 980px){
-  .topbar{
-    grid-template-columns: 1fr 260px;
-    gap: 2cm;
-  }
-  .logo-slot{ width: 260px; }
-  .logo{ height: 160px; }
+.news h3{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  font-size: 18px;
+  color: white;
+  background: linear-gradient(transparent, rgba(0,0,0,.75));
 }
