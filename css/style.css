@@ -1,114 +1,253 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+/* ============ RESET ============ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg,#ff9800,#ffcc00);
+  color:#111;
 }
 
-body {
-  background: linear-gradient(180deg, #ff9f00, #ffd500);
-  min-height: 100vh;
+/* ============ TOPBAR LAYOUT ============ */
+.topbar{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap: 3.5cm;                 /* espace avant le logo */
+  align-items:start;
+  padding: 18px 24px 10px;
 }
 
-/* TOPBAR */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 30px;
+.left{min-width:0}
+
+/* Logo plus gros + centré dans son espace */
+.logo-wrap{
+  width: 320px;               /* zone du logo */
+  height: 160px;              /* hauteur de la zone top droite */
+  display:flex;
+  align-items:center;         /* centre vertical */
+  justify-content:center;     /* centre horizontal */
+}
+.logo{
+  width: 240px;               /* LOGO PLUS GROS */
+  height:auto;
+  display:block;
 }
 
-/* BANNERS */
-.banners {
-  flex: 1;
-  max-width: calc(100% - 260px);
-}
-
-.banner {
-  background: rgba(255,255,255,0.35);
+/* ============ BANNERS ============ */
+.banner{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  align-items:center;
+  background: rgba(255,255,255,.22);
   border-radius: 18px;
-  padding: 12px 20px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+  overflow:hidden;
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
-.label {
-  margin-right: 15px;
+.label{
+  padding: 16px 16px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-size: 18px;
+  background: rgba(0,0,0,.06);
+  white-space:nowrap;
 }
 
-/* MENU */
-.menu {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
+.track{
+  overflow:hidden;
+  padding: 10px 14px;
 }
 
-.menu-left {
-  font-size: 20px;
-  margin-right: 20px;
-  cursor: pointer;
+/* boucle parfaite : 2 groupes identiques */
+.marquee{
+  display:flex;
+  width:max-content;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  animation: scroll 22s linear infinite;
+}
+.marquee-transfers{ animation-duration: 26s; }
+
+.group{
+  display:inline-flex;
+  align-items:center;
+  gap: 18px;
+  padding-right: 18px;
 }
 
-.menu-items {
-  list-style: none;
-  display: flex;
-  gap: 40px;
+.item{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  white-space: nowrap;
 }
 
-.menu-items li {
-  padding: 10px 22px;
-  border-radius: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
+.team{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
-/* HOVER UNIQUEMENT */
-.menu-items li:hover {
-  background: rgba(255,255,255,0.45);
+.score{font-weight:900}
+.tag{
+  font-weight:800;
+  font-size: 13px;
+  opacity:.85;
 }
 
-/* LOGO */
-.logo-container {
-  width: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sep{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 20px;
+  font-weight: 900;
+  opacity:.75;
 }
 
-.logo-container img {
-  width: 180px;
+@keyframes scroll{
+  from{transform: translate3d(0,0,0);}
+  to{transform: translate3d(-50%,0,0);}
 }
 
-/* NEWS */
-.news {
-  display: grid;
+/* ============ MENU (sans barre visible) ============ */
+.menu{
+  margin-top: 8px;
+  display:grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;  /* loupe + 4 items */
+  gap: 14px;
+  align-items:center;
+
+  /* PAS de barre visible */
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Recherche */
+.search{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.search-toggle{ display:none; }
+
+.search-btn{
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.18);
+  box-shadow: 0 10px 18px rgba(0,0,0,.12);
+  cursor:pointer;
+  color:#111;
+}
+.search-btn svg{ width:22px; height:22px; }
+
+.search-input{
+  height: 46px;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 10px 18px rgba(0,0,0,.12);
+
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  transition: width .25s ease, opacity .2s ease, padding .25s ease;
+}
+
+/* ouverture via checkbox */
+.search-toggle:checked ~ .search-input{
+  width: 240px;
+  opacity: 1;
+  padding: 0 14px;
+}
+
+/* Items menu (texte seul) */
+.menu-item{
+  text-decoration:none;
+  color:#111;
+  font-weight: 900;
+  font-size: 22px;        /* texte plus large */
+  text-align:center;
+  padding: 14px 10px;
+  border-radius: 999px;
+  background: transparent; /* invisible */
+  transition: background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+/* Rectangle uniquement au hover */
+.menu-item:hover{
+  background: rgba(255,255,255,.22);
+  box-shadow: 0 10px 18px rgba(0,0,0,.12);
+  transform: translateY(-1px);
+}
+
+/* ============ NEWS GRID (5 fenêtres) ============ */
+.main{
+  padding: 12px 24px 28px;
+}
+
+.news-grid{
+  margin-top: 14px;
+  display:grid;
   grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
-  padding: 30px;
+  grid-template-rows: 240px 240px;
+  gap: 18px;
 }
 
-.card {
-  position: relative;
+/* 1 grande à gauche */
+.card.big{
+  grid-row: 1 / span 2;
+  min-height: 498px;
+}
+
+.card{
+  position:relative;
   border-radius: 22px;
+  overflow:hidden;
+  background-color: rgba(255,255,255,.18);
   background-size: cover;
   background-position: center;
-  min-height: 230px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 14px 26px rgba(0,0,0,.22);
 }
 
-.card.main {
-  grid-row: span 2;
+.card-gradient{
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.58) 100%);
 }
 
-.card span {
-  position: absolute;
-  bottom: 15px;
-  left: 15px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+.card-title{
+  position:absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  color:#fff;
+  font-weight: 900;
+  font-size: 26px;
+  text-shadow: 0 3px 10px rgba(0,0,0,.55);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px){
+  .topbar{ grid-template-columns: 1fr; gap: 16px; }
+  .logo-wrap{ width:auto; height:auto; justify-content:flex-start; }
+  .logo{ width: 200px; }
+
+  .menu{ grid-template-columns: auto 1fr; grid-auto-rows: auto; }
+  .menu-item{ text-align:left; }
+
+  .news-grid{
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 220px 220px 220px 220px;
+  }
+  .card.big{ grid-row:auto; min-height: 260px; }
 }
