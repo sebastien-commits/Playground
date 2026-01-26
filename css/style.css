@@ -1,122 +1,235 @@
-* {
+/* =========================================================
+   PLAYGROUND - CSS COMPLET UNIQUE
+   (Tout le style est ici. AUCUN <style> dans index.html)
+   ========================================================= */
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
-  background: linear-gradient(180deg, #ffa500, #ffd200);
-  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: linear-gradient(180deg, #ff9a00 0%, #ffd200 100%);
 }
 
-/* TOPBAR */
+/* Empêche les images cassées d'exploser le layout */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- TOP BAR LAYOUT ---------- */
 .topbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 260px; /* gauche | zone logo */
+  column-gap: 24px;
+  align-items: start;
+  padding: 20px 24px;
 }
 
-/* LEFT */
+/* Zone gauche (bannières + menu) */
 .top-left {
-  flex: 1;
+  min-width: 0; /* important pour éviter overflow */
 }
 
-/* BANNERS */
+/* Zone droite (logo) */
+.top-right {
+  width: 260px;
+  height: 150px;                 /* espace en haut à droite */
+  display: flex;
+  align-items: center;           /* centre vertical */
+  justify-content: center;       /* centre horizontal */
+}
+
+/* Logo réduit (si tu veux encore plus petit : 110px) */
+.top-right img {
+  width: 130px;                  /* logo réduit (÷2 vs trop gros) */
+  height: auto;
+}
+
+/* ---------- BANNIÈRES (SCORES / TRANSFERTS) ---------- */
 .banner {
-  background: rgba(255,255,255,0.35);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
   border-radius: 18px;
-  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
   margin-bottom: 10px;
-  font-weight: bold;
+  overflow: hidden;              /* cache le texte qui dépasse */
+  white-space: nowrap;           /* une ligne */
 }
 
 .banner .label {
-  margin-right: 12px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  flex: 0 0 auto;
 }
 
-/* MENU */
+/* Texte qui défile (si tu veux juste statique, laisse comme ça) */
+.banner {
+  position: relative;
+}
+
+/* ---------- MENU (pas de barre visible, hover seulement) ---------- */
 .menu {
   display: flex;
   align-items: center;
-  gap: 35px;
-  margin-top: 15px;
-  padding-left: 10px;
+  gap: 30px;
+  padding: 10px 6px;
+  margin-top: 10px;
+
+  /* IMPORTANT: pas de fond => "barre invisible" */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.menu a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 700;
-  font-size: 18px;
-  padding: 10px 18px;
-  border-radius: 16px;
-  transition: all 0.2s ease;
-}
-
-.menu a:hover {
-  background: rgba(255,255,255,0.45);
-}
-
-.search {
+/* Loupe */
+.menu .search {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
   font-size: 18px;
   cursor: pointer;
+  user-select: none;
 }
 
-/* LOGO */
-.top-right {
-  width: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Liens menu */
+.menu a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+
+  /* pas de rectangle par défaut */
+  background: transparent;
+
+  /* zone "large" comme tu veux */
+  padding: 10px 22px;
+  border-radius: 16px;
+
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
-.top-right img {
-  width: 130px; /* LOGO DIVISÉ PAR 2 */
+/* Rectangle visible au hover seulement */
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
 }
 
-/* CONTENT */
+/* ---------- MAIN CONTENT ---------- */
 .content {
-  padding: 30px;
+  padding: 10px 24px 30px;
 }
 
-/* NEWS GRID */
+/* ---------- 5 FENÊTRES ACTUS (1 grande + 4 petites) ---------- */
 .news-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 20px;
+  align-items: stretch;
 }
 
-/* CARDS */
+/* Carte */
 .news {
   position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+
+  /* image en background via style="background-image:url(...)" */
   background-size: cover;
   background-position: center;
-  border-radius: 22px;
+
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
   height: 220px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  overflow: hidden;
 }
 
+/* Grande carte à gauche */
 .news.main {
   grid-row: span 2;
   height: 460px;
 }
 
+/* Overlay sombre en bas pour texte */
 .news::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.60), rgba(0,0,0,0.0) 55%);
 }
 
+/* Titre */
 .news .title {
   position: absolute;
-  bottom: 15px;
-  left: 20px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
+  left: 18px;
+  bottom: 14px;
   z-index: 1;
+
+  color: #fff;
+  font-weight: 900;
+  font-size: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+}
+
+/* ---------- RESPONSIVE (mobile/tablette) ---------- */
+@media (max-width: 1100px) {
+  .topbar {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
+  }
+
+  .top-right {
+    width: 100%;
+    height: auto;
+    justify-content: flex-end;
+  }
+
+  .top-right img {
+    width: 120px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .news.main {
+    grid-column: span 2;
+    grid-row: auto;
+    height: 360px;
+  }
+}
+
+@media (max-width: 680px) {
+  .menu {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news.main {
+    grid-column: auto;
+    height: 320px;
+  }
+
+  .news {
+    height: 220px;
+  }
 }
