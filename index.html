@@ -1,186 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Playground</title>
+  <meta charset="UTF-8">
+  <title>Playground NBA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="logo-playground.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css?v=999">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/logo-playground.png">
 </head>
 
 <body>
 
-<header class="topbar">
+<!-- ================= HEADER ================= -->
+<header class="header">
 
-  <!-- LOGO À GAUCHE (cliquable => accueil) -->
-  <div class="top-right">
-    <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
-      <img src="logo-playground.png" alt="Playground">
-    </a>
+  <div class="logo">
+    <img src="images/logo-playground.png" alt="Playground">
   </div>
 
-  <!-- BANNIÈRES + MENU À DROITE -->
-  <div class="top-left">
-
-    <!-- SCORES -->
-    <div class="banner scores" role="status" aria-live="polite">
-      <span class="label">SCORES</span>
-
-      <div class="marquee" aria-label="Scores en défilement">
-        <div class="marquee__track">
-
-          <div class="marquee__content">
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Bulls">
-              Bulls 104–99 Heat
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
-              Lakers 112–108 Suns
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Suns">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Celtics">
-              Celtics 120–114 Knicks
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="Knicks">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-          <!-- duplication -->
-          <div class="marquee__content" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="">
-              Bulls 104–99 Heat
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
-              Lakers 112–108 Suns
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="">
-              Celtics 120–114 Knicks
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-        </div>
-      </div>
+  <div class="banners">
+    <div class="banner scores">
+      <strong>SCORES</strong>
+      Lakers 112–108 Suns • Bulls 104–99 Heat • Celtics 120–114 Knicks
     </div>
 
-    <!-- TRANSFERTS -->
-    <div class="banner transfers" role="status" aria-live="polite">
-      <span class="label">TRANSFERTS</span>
-
-      <div class="marquee" aria-label="Transferts en défilement">
-        <div class="marquee__track marquee__track--slow">
-
-          <div class="marquee__content">
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Mavericks">
-              Luka Dončić → Lakers (fictif)
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Bucks">
-              Giannis → Heat (fictif)
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-          <div class="marquee__content" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="">
-              Luka Dončić → Lakers (fictif)
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="">
-              Giannis → Heat (fictif)
-              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-        </div>
-      </div>
+    <div class="banner transfers">
+      <strong>TRANSFERTS</strong>
+      Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)
     </div>
-
-    <!-- MENU -->
-    <nav class="menu" aria-label="Navigation principale">
-      <button class="search-btn" type="button" aria-label="Rechercher">
-        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-      </button>
-
-      <a href="actus.html" data-nav="actus">Actus</a>
-      <a href="equipes.html" data-nav="equipes">Équipes</a>
-      <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
-      <a href="classement.html" data-nav="classement">Classement</a>
-    </nav>
-
   </div>
+
+  <nav class="menu">
+    <a class="active" href="index.html">Actus</a>
+    <a href="#">Équipes</a>
+    <a href="#">Calendrier</a>
+    <a href="#">Classement</a>
+  </nav>
+
 </header>
 
-<main class="content">
-  <section class="news-grid" aria-label="Dernières actualités">
+<!-- ================= MAIN ================= -->
+<main class="home">
 
-    <article class="news main"
-      data-bg="assets/news/actu1.jpg"
-      data-href="articles/article-1.html"
-      data-title="La grande soirée de Derrick Rose">
-      <span class="title"></span>
-    </article>
+  <h1>Actus</h1>
 
-    <article class="news"
-      data-bg="assets/news/actu2.jpg"
-      data-href="articles/article-2.html"
-      data-title="Domantas Sabonis enfin de retour pour les Kings">
-      <span class="title"></span>
-    </article>
+  <section class="actus-grid">
 
-    <article class="news"
-      data-bg="assets/news/actu3.jpg"
-      data-href="articles/article-3.html"
-      data-title="Les Hornets repoussent la classe biberon des Wizards">
-      <span class="title"></span>
-    </article>
+    <!-- ACTU 1 -->
+    <a href="articles/article-1.html" class="actu-card">
+      <img src="images/actu1.jpg" alt="Actu 1">
+      <div class="actu-title">
+        La grande soirée de Derrick Rose
+      </div>
+    </a>
 
-    <article class="news"
-      data-bg="assets/news/actu4.jpg"
-      data-href="articles/article-4.html"
-      data-title="Le grand bonheur des Pacers">
-      <span class="title"></span>
-    </article>
+    <!-- ACTU 2 -->
+    <a href="articles/article-2.html" class="actu-card">
+      <img src="images/actu2.jpg" alt="Actu 2">
+      <div class="actu-title">
+        Domantas Sabonis enfin de retour
+      </div>
+    </a>
 
-    <article class="news"
-      data-bg="assets/news/actu5.jpg"
-      data-href="articles/article-5.html"
-      data-title="Un record à 21 points mais un lancer-franc qui coûte cher pour Nolan Traoré">
-      <span class="title"></span>
-    </article>
+    <!-- ACTU 3 -->
+    <a href="articles/article-3.html" class="actu-card">
+      <img src="images/actu3.jpg" alt="Actu 3">
+      <div class="actu-title">
+        Duel intense à l’Ouest
+      </div>
+    </a>
+
+    <!-- ACTU 4 -->
+    <a href="articles/article-4.html" class="actu-card">
+      <img src="images/actu4.jpg" alt="Actu 4">
+      <div class="actu-title">
+        Une célébration inoubliable
+      </div>
+    </a>
+
+    <!-- ACTU 5 -->
+    <a href="articles/article-5.html" class="actu-card">
+      <img src="images/actu5.jpg" alt="Actu 5">
+      <div class="actu-title">
+        Brooklyn frappe fort
+      </div>
+    </a>
 
   </section>
+
 </main>
 
-<script src="js/main.js"></script>
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <p>© 2026 Playground NBA — Projet personnel</p>
+</footer>
+
 </body>
 </html>
