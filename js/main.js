@@ -1,13 +1,22 @@
-// Background images via data-bg (marche avec <a class="news"> aussi)
+// Background images via data-bg (accueil)
 document.querySelectorAll(".news[data-bg]").forEach(card => {
   const url = card.getAttribute("data-bg");
   if (url) card.style.backgroundImage = `url('${url}')`;
+});
+
+// (Option) rendre les blocs .news cliquables si data-href existe
+document.querySelectorAll(".news[data-href]").forEach(card => {
+  card.addEventListener("click", () => {
+    const href = card.getAttribute("data-href");
+    if (href) window.location.href = href;
+  });
 });
 
 // Menu actif automatiquement selon la page
 (function setActiveNav() {
   const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const map = {
+    "index.html": null,
     "actus.html": "actus",
     "equipes.html": "equipes",
     "calendrier.html": "calendrier",
@@ -30,14 +39,4 @@ document.querySelectorAll(".news[data-bg]").forEach(card => {
     if (!q) return;
     window.location.href = `actus.html?q=${encodeURIComponent(q.trim())}`;
   });
-})();
-
-// Page article : affiche l'id (placeholder)
-(function articlePage() {
-  const el = document.getElementById("article-id");
-  if (!el) return;
-
-  const params = new URLSearchParams(location.search);
-  const id = params.get("id") || "inconnu";
-  el.textContent = `Article : ${id}`;
 })();
