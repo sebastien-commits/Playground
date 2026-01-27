@@ -32,7 +32,7 @@ img{ max-width:100%; display:block; }
   justify-content:center;
 }
 
-/* LOGO PLUS GROS MAIS SANS CASSER */
+/* LOGO */
 .top-right img{
   width: 190px;
   height:auto;
@@ -67,11 +67,16 @@ img{ max-width:100%; display:block; }
   height: 22px;
   display:inline-block;
   vertical-align: middle;
-  margin: 0 6px;
+  margin: 0; /* on gère tout l'écart via gap/padding */
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
 }
 
-/* MARQUEE PARFAIT */
+/* =======================
+   MARQUEE PARFAIT (ZÉRO TROU / ZÉRO SACCADE)
+   On n'utilise PLUS -50% (qui peut faire des décalages).
+   On anime de -var(--shift) exactement, calculé par JS.
+   ======================= */
+
 .marquee{ flex:1; min-width:0; overflow:hidden; }
 
 .marquee__track{
@@ -79,35 +84,47 @@ img{ max-width:100%; display:block; }
   width:max-content;
   will-change: transform;
   transform: translate3d(0,0,0);
-  animation: marquee 18s linear infinite;
+
+  /* valeurs injectées par JS */
+  animation: marquee var(--duration, 18s) linear infinite;
 }
 
-.marquee__track--slow{ animation-duration: 26s; }
+@keyframes marquee{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(calc(-1 * var(--shift, 600px)),0,0); }
+}
 
+@media (prefers-reduced-motion: reduce){
+  .marquee__track{ animation:none; transform:none; }
+}
+
+/* Conteneur "ligne" */
 .marquee__content{
   display:inline-flex;
   align-items:center;
 }
 
+/* ===== ESPACEMENT 100% CONSTANT =====
+   - chaque bloc info (.item) a un padding fixe
+   - le séparateur (.sep) a une largeur fixe (point centré)
+*/
 .marquee .item{
   display:inline-flex;
   align-items:center;
+  gap: 10px;              /* écart constant logo/texte */
   font-weight:800;
+  padding: 0 18px;        /* écart constant entre infos */
+  white-space: nowrap;
 }
 
 .marquee .sep{
-  margin: 0 12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 26px;            /* point parfaitement au milieu */
   opacity:0.9;
   font-weight:900;
-}
-
-@keyframes marquee{
-  from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
-}
-
-@media (prefers-reduced-motion: reduce){
-  .marquee__track{ animation:none; }
+  margin: 0;              /* plus de margin variable */
 }
 
 /* MENU : pleine largeur des bannières */
@@ -138,7 +155,7 @@ img{ max-width:100%; display:block; }
   background: rgba(255,255,255,0.35);
 }
 
-/* Liens menu (s’étirent jusqu’au bout) */
+/* Liens menu */
 .menu a{
   flex:1;
   text-align:center;
@@ -234,12 +251,8 @@ img{ max-width:100%; display:block; }
 
 @media (max-width: 680px){
   .menu{ flex-wrap:wrap; }
-
   .menu a{ flex: 1 1 45%; }
-
   .news-grid{ grid-template-columns:1fr; }
-
   .news.main{ height:320px; }
-
   .news{ height:220px; }
 }
