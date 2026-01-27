@@ -1,54 +1,140 @@
-/* ===== RESET ===== */
+/* =========================
+   RESET & BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #ff9f00, #ffd400);
-  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #ffa500, #ffd200);
+  color: #000;
 }
 
-/* ===== HEADER ===== */
+img {
+  display: block;
+}
+
+/* =========================
+   HEADER
+========================= */
 header {
-  padding: 20px 40px;
+  width: 100%;
+  padding: 20px;
 }
 
-.logo {
-  width: 160px;
+.logo img {
+  width: 180px;
 }
 
-/* ===== MENU ===== */
+/* =========================
+   TICKERS (SCORES / TRANSFERTS)
+========================= */
+.ticker {
+  width: 100%;
+  background: #ffd199;
+  border-radius: 30px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 12px 25px;
+  white-space: nowrap;
+}
+
+.ticker .label {
+  font-weight: 900;
+  margin-right: 20px;
+}
+
+/* élément score / transfert */
+.score {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.score img {
+  width: 28px;
+  height: auto;
+}
+
+/* =========================
+   MENU
+========================= */
 .menu {
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 60px;
-  margin-top: 20px;
+  margin: 25px 0;
 }
 
 .menu a {
   text-decoration: none;
   font-weight: bold;
-  color: #111;
+  color: #000;
 }
 
 .menu a.active {
   background: #ffd199;
   padding: 10px 30px;
-  border-radius: 30px;
+  border-radius: 25px;
 }
 
-/* ===== ARTICLE PAGE ===== */
-.article-page {
-  max-width: 1200px;
+/* =========================
+   PAGE ACTUS (LISTE)
+========================= */
+.actus-container {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.actus-item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.actus-item img {
+  width: 260px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.actus-text h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.actus-text .date {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.actus-text p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* =========================
+   PAGE ARTICLE (1 → 5)
+========================= */
+.article-container {
+  width: 85%;
   margin: 60px auto;
-  padding: 0 40px;
 }
 
-/* Bloc image + titre */
+/* bloc image + titre */
 .article-header {
   display: flex;
   align-items: flex-start;
@@ -56,38 +142,45 @@ header {
   margin-bottom: 30px;
 }
 
-/* ✅ TAILLE FIXE DES IMAGES (IMPORTANT) */
+/* IMAGE → TAILLE UNIQUE POUR TOUS */
 .article-header img {
-  width: 320px;       /* taille identique pour TOUS */
-  height: auto;
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 20px;
-  flex-shrink: 0;
 }
 
-/* Texte à droite de l’image */
-.article-meta h1 {
-  font-size: 28px;
+/* texte à droite de l’image */
+.article-info h1 {
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
-.article-meta .date {
+.article-info .date {
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-/* Contenu texte */
+/* texte principal démarre APRÈS la photo */
 .article-content {
-  max-width: 800px;
-  margin-left: 350px; /* démarre après la photo */
-}
-
-.article-content p {
-  margin-bottom: 20px;
+  margin-left: 330px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
-/* Responsive */
+.article-content h2 {
+  margin: 30px 0 10px;
+}
+
+/* =========================
+   RESPONSIVE (optionnel)
+========================= */
 @media (max-width: 900px) {
+  .actus-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .article-header {
     flex-direction: column;
   }
@@ -98,6 +191,6 @@ header {
 
   .article-header img {
     width: 100%;
-    max-width: 400px;
+    height: auto;
   }
 }
