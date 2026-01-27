@@ -8,6 +8,7 @@ document.querySelectorAll(".news[data-bg]").forEach(card => {
 (function setActiveNav() {
   const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const map = {
+    "index.html": "actus",     // accueil = actus
     "actus.html": "actus",
     "equipes.html": "equipes",
     "calendrier.html": "calendrier",
@@ -31,29 +32,3 @@ document.querySelectorAll(".news[data-bg]").forEach(card => {
     window.location.href = `actus.html?q=${encodeURIComponent(q.trim())}`;
   });
 })();
-
-/* ===============================
-   TITRES + CLICS (ACCUEIL / ACTUS)
-   =============================== */
-
-// Accueil : injecte le titre depuis data-title
-document.querySelectorAll(".news[data-title]").forEach(card => {
-  const title = card.getAttribute("data-title");
-  const titleEl = card.querySelector(".title");
-  if (title && titleEl) titleEl.textContent = title;
-});
-
-// Accueil : clic => ouvre l'article (data-href)
-document.querySelectorAll(".news[data-href]").forEach(card => {
-  card.addEventListener("click", () => {
-    const href = card.getAttribute("data-href");
-    if (href) window.location.href = href;
-  });
-});
-
-// Actus : injecte le titre depuis data-title
-document.querySelectorAll(".article[data-title]").forEach(article => {
-  const title = article.getAttribute("data-title");
-  const titleEl = article.querySelector(".article__title");
-  if (title && titleEl) titleEl.textContent = title;
-});
