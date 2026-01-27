@@ -1,1 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>PLAYGROUND – Actus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="css/style.css?v=99">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="top-left">
+    <div class="banner scores" role="status" aria-live="polite">
+      <span class="label">SCORES</span>
+      <span class="banner-text">Celtics 120–114 Knicks • Bulls 104–99 Heat • Lakers 112–108 Suns</span>
+    </div>
+
+    <div class="banner transfers" role="status" aria-live="polite">
+      <span class="label">TRANSFERTS</span>
+      <span class="banner-text">Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)</span>
+    </div>
+
+    <nav class="menu" aria-label="Navigation principale">
+      <form class="search" role="search">
+        <label class="sr-only" for="q">Rechercher</label>
+        <input id="q" name="q" type="search" placeholder="Rechercher…" />
+        <button type="submit" aria-label="Lancer la recherche">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <a href="/actus.html">Actus</a>
+      <a href="/equipes.html">Équipes</a>
+      <a href="/calendrier.html">Calendrier</a>
+      <a href="/classement.html">Classement</a>
+    </nav>
+  </div>
+
+  <div class="top-right">
+    <img src="logo-playground.png" alt="Logo Playground">
+  </div>
+
+</header>
+
+<main class="content">
+  <h1 class="page-title">Actus</h1>
+
+  <section class="news-grid">
+    <!-- Tu pourras remettre tes cartes ici -->
+  </section>
+</main>
+
+
+<script>
+  // applique les backgrounds via data-bg (plus simple à alimenter depuis une API plus tard)
+  document.querySelectorAll(".news[data-bg]").forEach(card => {
+    const url = card.getAttribute("data-bg");
+    card.style.backgroundImage = `url('${url}')`;
+  });
+</script>
+
+</body>
+</html>
