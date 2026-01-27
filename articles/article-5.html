@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Playground – Actu 5</title>
+  <meta charset="UTF-8" />
+  <title>Playground — Actu 5</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" href="../logo-playground.png">
+  <link rel="stylesheet" href="../css/style.css?v=1">
 </head>
 
 <body>
@@ -13,27 +12,24 @@
 <header class="topbar">
   <div class="top-right">
     <a href="../index.html">
-      <img src="../logo-playground.png" alt="Playground">
+      <img src="../logo-playground.png" alt="PLAYGROUND">
     </a>
-  </div>
-  <div class="top-left">
-    <div class="banner scores"><span class="label">SCORES</span></div>
-    <div class="banner transfers"><span class="label">TRANSFERTS</span></div>
-    <nav class="menu">
-      <a href="../actus.html" class="active">Actus</a>
-      <a href="../equipes.html">Équipes</a>
-      <a href="../calendrier.html">Calendrier</a>
-      <a href="../classement.html">Classement</a>
-    </nav>
   </div>
 </header>
 
-<main class="content article-page">
-  <h1>Actu 5 – Titre de l’article</h1>
-  <img src="../assets/news/actu5.jpg" alt="Actu 5" class="article-image">
-  <p>Contenu de l’article 5.</p>
+<main class="article">
+  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;">
+    <img src="../assets/news/actu5.jpg" style="width:280px;border-radius:18px;">
+    <div>
+      <h1>Actu 5 — Titre de l’article</h1>
+      <div class="date">Publié le 24 janvier 2026</div>
+    </div>
+
+    <div style="grid-column:2;">
+      <p>Contenu de l’article 5 à venir.</p>
+    </div>
+  </section>
 </main>
 
 </body>
 </html>
-
