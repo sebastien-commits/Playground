@@ -5,34 +5,27 @@
   <title>Playground</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/style.css?v=701">
+  <link rel="icon" href="logo-playground.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css?v=999">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Favicon (option simple avec ton logo en PNG) -->
-  <link rel="icon" type="image/png" href="logo-playground.png">
 </head>
 
 <body>
 
 <header class="topbar">
-
-  <!-- LOGO À GAUCHE (clic => accueil) -->
   <div class="top-right">
-    <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
+    <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
       <img src="logo-playground.png" alt="Playground">
     </a>
   </div>
 
-  <!-- BANNIÈRES + MENU À DROITE -->
   <div class="top-left">
 
     <!-- SCORES -->
     <div class="banner scores" role="status" aria-live="polite">
       <span class="label">SCORES</span>
-
-      <div class="marquee" aria-label="Scores en défilement">
+      <div class="marquee">
         <div class="marquee__track">
-
           <div class="marquee__content">
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Bulls">
@@ -40,14 +33,12 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
             </span>
             <span class="sep">•</span>
-
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
               Lakers 112–108 Suns
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Suns">
             </span>
             <span class="sep">•</span>
-
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Celtics">
               Celtics 120–114 Knicks
@@ -56,7 +47,6 @@
             <span class="sep">•</span>
           </div>
 
-          <!-- duplication -->
           <div class="marquee__content" aria-hidden="true">
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="">
@@ -64,14 +54,12 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
             </span>
             <span class="sep">•</span>
-
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
               Lakers 112–108 Suns
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="">
             </span>
             <span class="sep">•</span>
-
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="">
               Celtics 120–114 Knicks
@@ -79,7 +67,6 @@
             </span>
             <span class="sep">•</span>
           </div>
-
         </div>
       </div>
     </div>
@@ -87,10 +74,8 @@
     <!-- TRANSFERTS -->
     <div class="banner transfers" role="status" aria-live="polite">
       <span class="label">TRANSFERTS</span>
-
-      <div class="marquee" aria-label="Transferts en défilement">
+      <div class="marquee">
         <div class="marquee__track marquee__track--slow">
-
           <div class="marquee__content">
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Mavericks">
@@ -98,7 +83,6 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
             </span>
             <span class="sep">•</span>
-
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Bucks">
               Giannis → Heat (fictif)
@@ -114,7 +98,6 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
             </span>
             <span class="sep">•</span>
-
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="">
               Giannis → Heat (fictif)
@@ -122,7 +105,6 @@
             </span>
             <span class="sep">•</span>
           </div>
-
         </div>
       </div>
     </div>
@@ -145,62 +127,50 @@
 <main class="content">
   <h1 class="page-title">Actus</h1>
 
-  <!-- LISTE VERTICALE -->
-  <section class="articles" aria-label="Liste des actualités">
+  <section class="articles-list" aria-label="Liste des actualités">
 
-    <!-- Chaque carte renvoie vers une page article (à créer plus tard) -->
-    <a class="article" href="article-1.html">
+    <a class="article" href="articles/article-1.html" data-title="Les Pistons poussent la candidature de Jalen Duren">
       <div class="article__img" style="background-image:url('assets/news/actu1.jpg')"></div>
       <div class="article__body">
-        <h2 class="article__title">Actu 1</h2>
-        <p class="article__meta">Le 27 janvier 2026</p>
-        <p class="article__excerpt">
-          Petit résumé de l'article (tu pourras modifier le texte plus tard).
-        </p>
+        <h2 class="article__title"></h2>
+        <p class="article__meta">27 janvier 2026</p>
+        <p class="article__excerpt">Résumé à écrire plus tard.</p>
       </div>
     </a>
 
-    <a class="article" href="article-2.html">
+    <a class="article" href="articles/article-2.html" data-title="Lakers 112–108 Suns : LeBron décisif">
       <div class="article__img" style="background-image:url('assets/news/actu2.jpg')"></div>
       <div class="article__body">
-        <h2 class="article__title">Actu 2</h2>
-        <p class="article__meta">Le 27 janvier 2026</p>
-        <p class="article__excerpt">
-          Petit résumé de l'article (tu pourras modifier le texte plus tard).
-        </p>
+        <h2 class="article__title"></h2>
+        <p class="article__meta">27 janvier 2026</p>
+        <p class="article__excerpt">Résumé à écrire plus tard.</p>
       </div>
     </a>
 
-    <a class="article" href="article-3.html">
+    <a class="article" href="articles/article-3.html" data-title="Doncic en feu face aux Knicks">
       <div class="article__img" style="background-image:url('assets/news/actu3.jpg')"></div>
       <div class="article__body">
-        <h2 class="article__title">Actu 3</h2>
-        <p class="article__meta">Le 27 janvier 2026</p>
-        <p class="article__excerpt">
-          Petit résumé de l'article (tu pourras modifier le texte plus tard).
-        </p>
+        <h2 class="article__title"></h2>
+        <p class="article__meta">27 janvier 2026</p>
+        <p class="article__excerpt">Résumé à écrire plus tard.</p>
       </div>
     </a>
 
-    <a class="article" href="article-4.html">
+    <a class="article" href="articles/article-4.html" data-title="Une accolade qui vaut cher">
       <div class="article__img" style="background-image:url('assets/news/actu4.jpg')"></div>
       <div class="article__body">
-        <h2 class="article__title">Actu 4</h2>
-        <p class="article__meta">Le 27 janvier 2026</p>
-        <p class="article__excerpt">
-          Petit résumé de l'article (tu pourras modifier le texte plus tard).
-        </p>
+        <h2 class="article__title"></h2>
+        <p class="article__meta">27 janvier 2026</p>
+        <p class="article__excerpt">Résumé à écrire plus tard.</p>
       </div>
     </a>
 
-    <a class="article" href="article-5.html">
+    <a class="article" href="articles/article-5.html" data-title="Duel intense jusqu’au buzzer">
       <div class="article__img" style="background-image:url('assets/news/actu5.jpg')"></div>
       <div class="article__body">
-        <h2 class="article__title">Actu 5</h2>
-        <p class="article__meta">Le 27 janvier 2026</p>
-        <p class="article__excerpt">
-          Petit résumé de l'article (tu pourras modifier le texte plus tard).
-        </p>
+        <h2 class="article__title"></h2>
+        <p class="article__meta">27 janvier 2026</p>
+        <p class="article__excerpt">Résumé à écrire plus tard.</p>
       </div>
     </a>
 
