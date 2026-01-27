@@ -2,201 +2,116 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playground</title>
 
-  <!-- FAVICON -->
   <link rel="icon" href="logo-playground.png">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(180deg, #ff9f00, #ffd200);
-      color: #111;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER */
-    header {
-      padding: 20px;
-    }
-
-    .logo {
-      width: 180px;
-    }
-
-    /* TICKERS */
-    .ticker {
-      background: #ffd199;
-      border-radius: 30px;
-      padding: 12px 20px;
-      margin: 10px 0;
-      font-weight: bold;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 30px 0;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    nav a.active {
-      background: #ffd199;
-      padding: 10px 30px;
-      border-radius: 30px;
-    }
-
-    /* ACTUS */
-    main {
-      padding: 40px;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 30px;
-    }
-
-    .actus-list {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .actu-card {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      background: rgba(255,255,255,0.15);
-      padding: 20px;
-      border-radius: 20px;
-    }
-
-    .actu-card img {
-      width: 260px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 16px;
-      flex-shrink: 0;
-    }
-
-    .actu-content h2 {
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .date {
-      font-size: 14px;
-      opacity: 0.7;
-      margin-bottom: 8px;
-    }
-
-    .resume {
-      font-size: 16px;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 30px;
-      text-align: center;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-  <img src="logo-playground.png" alt="Playground" class="logo">
+  <header class="topbar">
+    <!-- LOGO À GAUCHE (clic = accueil) -->
+    <div class="top-right">
+      <a href="index.html">
+        <img src="logo-playground.png" alt="Playground">
+      </a>
+    </div>
 
-  <div class="ticker">
-    SCORES · Lakers 112–108 Suns · Bulls 104–99 Heat · Celtics 120–114 Knicks
-  </div>
+    <!-- COLONNE DROITE -->
+    <div class="top-left">
+      <!-- BANNIÈRE SCORES -->
+      <div class="banner">
+        <span class="label">SCORES</span>
 
-  <div class="ticker">
-    TRANSFERTS · Luka Dončić → Lakers (fictif) · Giannis → Heat (fictif)
-  </div>
+        <div class="marquee">
+          <div class="marquee__track">
+            <div class="marquee__content">
+              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
+              <span class="item">Celtics 120–114 Knicks</span><span class="sep">•</span>
+              <span class="item">Bulls 104–99 Heat</span><span class="sep">•</span>
+              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
+            </div>
 
-  <nav>
-    <a href="index.html" class="active">Actus</a>
-    <a href="equipes.html">Équipes</a>
-    <a href="calendrier.html">Calendrier</a>
-    <a href="classement.html">Classement</a>
-  </nav>
-</header>
-
-<main>
-  <h1>Actus</h1>
-
-  <div class="actus-list">
-
-    <a href="articles/article-1.html" class="actu-card">
-      <img src="images/actu1.jpg" alt="">
-      <div class="actu-content">
-        <h2>La grande soirée de Derrick Rose</h2>
-        <div class="date">27 janvier 2026</div>
-        <div class="resume">Les Bulls retirent le numéro 1 de leur ancien MVP.</div>
+            <!-- DUPLICATION POUR BOUCLE PARFAITE -->
+            <div class="marquee__content" aria-hidden="true">
+              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
+              <span class="item">Celtics 120–114 Knicks</span><span class="sep">•</span>
+              <span class="item">Bulls 104–99 Heat</span><span class="sep">•</span>
+              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </a>
 
-    <a href="articles/article-2.html" class="actu-card">
-      <img src="images/actu2.jpg" alt="">
-      <div class="actu-content">
-        <h2>Domantas Sabonis enfin de retour</h2>
-        <div class="date">27 janvier 2026</div>
-        <div class="resume">Le pivot lituanien signe un comeback solide.</div>
+      <!-- BANNIÈRE TRANSFERTS -->
+      <div class="banner">
+        <span class="label">TRANSFERTS</span>
+
+        <div class="marquee">
+          <div class="marquee__track marquee__track--slow">
+            <div class="marquee__content">
+              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
+              <span class="item">Giannis → Heat (fictif)</span><span class="sep">•</span>
+              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
+            </div>
+
+            <div class="marquee__content" aria-hidden="true">
+              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
+              <span class="item">Giannis → Heat (fictif)</span><span class="sep">•</span>
+              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </a>
 
-    <a href="articles/article-3.html" class="actu-card">
-      <img src="images/actu3.jpg" alt="">
-      <div class="actu-content">
-        <h2>Duel intense à l’Ouest</h2>
-        <div class="date">27 janvier 2026</div>
-        <div class="resume">Un match accroché jusqu’au money time.</div>
-      </div>
-    </a>
+      <!-- MENU -->
+      <nav class="menu">
+        <button class="search-btn" aria-label="Rechercher">🔍</button>
+        <a href="actus.html" data-nav="actus">Actus</a>
+        <a href="equipes.html" data-nav="equipes">Équipes</a>
+        <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
+        <a href="classement.html" data-nav="classement">Classement</a>
+      </nav>
+    </div>
+  </header>
 
-    <a href="articles/article-4.html" class="actu-card">
-      <img src="images/actu4.jpg" alt="">
-      <div class="actu-content">
-        <h2>Une célébration inoubliable</h2>
-        <div class="date">27 janvier 2026</div>
-        <div class="resume">Une soirée pleine d’émotion pour les fans.</div>
-      </div>
-    </a>
+  <main class="content">
+    <section class="news-grid">
 
-    <a href="articles/article-5.html" class="actu-card">
-      <img src="images/actu5.jpg" alt="">
-      <div class="actu-content">
-        <h2>Brooklyn frappe fort</h2>
-        <div class="date">27 janvier 2026</div>
-        <div class="resume">Les Nets dominent dans un match référence.</div>
-      </div>
-    </a>
+      <a class="news-link" href="articles/article-1.html">
+        <div class="news main" data-bg="images/actu1.jpg">
+          <div class="title">La grande soirée de Derrick Rose</div>
+        </div>
+      </a>
 
-  </div>
-</main>
+      <a class="news-link" href="articles/article-2.html">
+        <div class="news" data-bg="images/actu2.jpg">
+          <div class="title">Domantas Sabonis enfin de retour</div>
+        </div>
+      </a>
 
-<footer>
-  © 2026 Playground NBA — Projet personnel
-</footer>
+      <a class="news-link" href="articles/article-3.html">
+        <div class="news" data-bg="images/actu3.jpg">
+          <div class="title">Duel intense à l’Ouest</div>
+        </div>
+      </a>
 
+      <a class="news-link" href="articles/article-4.html">
+        <div class="news" data-bg="images/actu4.jpg">
+          <div class="title">Une célébration inoubliable</div>
+        </div>
+      </a>
+
+      <a class="news-link" href="articles/article-5.html">
+        <div class="news" data-bg="images/actu5.jpg">
+          <div class="title">Brooklyn frappe fort</div>
+        </div>
+      </a>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
