@@ -2,30 +2,34 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground</title>
+  <title>Playground — Actus</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="logo-playground.png" type="image/png">
-  <link rel="stylesheet" href="css/style.css?v=999">
+  <link rel="stylesheet" href="css/style.css?v=900">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
 <header class="topbar">
+
+  <!-- LOGO À GAUCHE (clic => accueil) -->
   <div class="top-right">
-    <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
-      <img src="logo-playground.png" alt="Playground">
+    <a href="index.html" aria-label="Retour à l'accueil">
+      <img src="logo-playground.png" alt="PLAYGROUND">
     </a>
   </div>
 
+  <!-- BANNIÈRES + MENU À DROITE -->
   <div class="top-left">
 
     <!-- SCORES -->
     <div class="banner scores" role="status" aria-live="polite">
       <span class="label">SCORES</span>
-      <div class="marquee">
+
+      <div class="marquee" aria-label="Scores en défilement">
         <div class="marquee__track">
+
           <div class="marquee__content">
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Bulls">
@@ -33,12 +37,14 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
             </span>
             <span class="sep">•</span>
+
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
               Lakers 112–108 Suns
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Suns">
             </span>
             <span class="sep">•</span>
+
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Celtics">
               Celtics 120–114 Knicks
@@ -54,12 +60,14 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
             </span>
             <span class="sep">•</span>
+
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
               Lakers 112–108 Suns
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="">
             </span>
             <span class="sep">•</span>
+
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="">
               Celtics 120–114 Knicks
@@ -67,6 +75,7 @@
             </span>
             <span class="sep">•</span>
           </div>
+
         </div>
       </div>
     </div>
@@ -74,8 +83,10 @@
     <!-- TRANSFERTS -->
     <div class="banner transfers" role="status" aria-live="polite">
       <span class="label">TRANSFERTS</span>
-      <div class="marquee">
+
+      <div class="marquee" aria-label="Transferts en défilement">
         <div class="marquee__track marquee__track--slow">
+
           <div class="marquee__content">
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Mavericks">
@@ -83,6 +94,7 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
             </span>
             <span class="sep">•</span>
+
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Bucks">
               Giannis → Heat (fictif)
@@ -98,6 +110,7 @@
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
             </span>
             <span class="sep">•</span>
+
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="">
               Giannis → Heat (fictif)
@@ -105,6 +118,7 @@
             </span>
             <span class="sep">•</span>
           </div>
+
         </div>
       </div>
     </div>
@@ -127,50 +141,51 @@
 <main class="content">
   <h1 class="page-title">Actus</h1>
 
-  <section class="articles-list" aria-label="Liste des actualités">
+  <!-- LISTE VERTICALE : photo gauche + texte droite -->
+  <section class="actus-list" aria-label="Liste des actus">
 
-    <a class="article" href="articles/article-1.html" data-title="La grande soirée de Derrick Rose">
-      <div class="article__img" style="background-image:url('assets/news/actu1.jpg')"></div>
-      <div class="article__body">
-        <h2 class="article__title"></h2>
-        <p class="article__meta">27 janvier 2026</p>
-        <p class="article__excerpt">NBA – En marge de la rencontre entre les Bulls et les Celtics, la franchise va retirer le numéro 1 de Derrick Rose, plus jeune MVP de l’histoire.</p>
+    <a class="actus-card" href="articles/article-1.html">
+      <img class="actus-thumb" src="assets/news/actu1.jpg" alt="Actu 1">
+      <div class="actus-body">
+        <h2 class="actus-title">La grande soirée de Derrick Rose</h2>
+        <div class="actus-meta">27 janvier 2026</div>
+        <p class="actus-excerpt">NBA — En marge de la rencontre entre les Bulls et les Celtics, la franchise va retirer le numéro 1 de Derrick Rose…</p>
       </div>
     </a>
 
-    <a class="article" href="articles/article-2.html" data-title="Domantas Sabonis enfin de retour pour les Kings">
-      <div class="article__img" style="background-image:url('assets/news/actu2.jpg')"></div>
-      <div class="article__body">
-        <h2 class="article__title"></h2>
-        <p class="article__meta">27 janvier 2026</p>
-        <p class="article__excerpt">NBA – Deux mois après son dernier match, le Lituanien revenait d’une blessure au genou. Il a enfin rejoué face aux Wizards et signé un bon retour.</p>
+    <a class="actus-card" href="articles/article-2.html">
+      <img class="actus-thumb" src="assets/news/actu2.jpg" alt="Actu 2">
+      <div class="actus-body">
+        <h2 class="actus-title">Domantas Sabonis enfin de retour pour les Kings</h2>
+        <div class="actus-meta">27 janvier 2026</div>
+        <p class="actus-excerpt">NBA — Deux mois après son dernier match, le Lituanien revenait d’une blessure au genou. Il a rejoué face aux Wizards…</p>
       </div>
     </a>
 
-    <a class="article" href="articles/article-3.html" data-title="Les Hornets repoussent la classe biberon des Wizards">
-      <div class="article__img" style="background-image:url('assets/news/actu3.jpg')"></div>
-      <div class="article__body">
-        <h2 class="article__title"></h2>
-        <p class="article__meta">27 janvier 2026</p>
-        <p class="article__excerpt">NBA – Avec trois joueurs à 20 points et plus, les Hornets résistent au comeback des Wizards dans le “money time”.</p>
+    <a class="actus-card" href="articles/article-3.html">
+      <img class="actus-thumb" src="assets/news/actu3.jpg" alt="Actu 3">
+      <div class="actus-body">
+        <h2 class="actus-title">Les Hornets repoussent la classe biberon des Wizards</h2>
+        <div class="actus-meta">27 janvier 2026</div>
+        <p class="actus-excerpt">NBA — Avec trois joueurs à 20 points et plus, Charlotte résiste au comeback de Washington dans le “money time”…</p>
       </div>
     </a>
 
-    <a class="article" href="articles/article-4.html" data-title="Le grand bonheur des Pacers">
-      <div class="article__img" style="background-image:url('assets/news/actu4.jpg')"></div>
-      <div class="article__body">
-        <h2 class="article__title"></h2>
-        <p class="article__meta">27 janvier 2026</p>
-        <p class="article__excerpt">Vainqueurs à OKC, les Pacers ont pris à la gorge les champions NBA avec un plan de jeu audacieux, et ils ont tenu bon jusqu’au bout.</p>
+    <a class="actus-card" href="articles/article-4.html">
+      <img class="actus-thumb" src="assets/news/actu4.jpg" alt="Actu 4">
+      <div class="actus-body">
+        <h2 class="actus-title">Actu 4 — Titre à personnaliser</h2>
+        <div class="actus-meta">27 janvier 2026</div>
+        <p class="actus-excerpt">Résumé de l’actu 4 à venir…</p>
       </div>
     </a>
 
-    <a class="article" href="articles/article-5.html" data-title="Un record à 21 points mais un lancer-franc qui coûte cher pour Nolan Traoré">
-      <div class="article__img" style="background-image:url('assets/news/actu5.jpg')"></div>
-      <div class="article__body">
-        <h2 class="article__title"></h2>
-        <p class="article__meta">27 janvier 2026</p>
-        <p class="article__excerpt">Malgré son record en NBA avec 21 points à 7/13 au tir, Nolan Traoré regrettait son ultime lancer-franc raté, qui a coûté cher aux Nets dans la prolongation.</p>
+    <a class="actus-card" href="articles/article-5.html">
+      <img class="actus-thumb" src="assets/news/actu5.jpg" alt="Actu 5">
+      <div class="actus-body">
+        <h2 class="actus-title">Actu 5 — Titre à personnaliser</h2>
+        <div class="actus-meta">27 janvier 2026</div>
+        <p class="actus-excerpt">Résumé de l’actu 5 à venir…</p>
       </div>
     </a>
 
