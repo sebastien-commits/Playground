@@ -1,101 +1,201 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Playground NBA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Playground</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- FAVICON -->
+  <link rel="icon" href="logo-playground.png">
 
-  <!-- Favicon -->
-  <link rel="icon" href="images/logo-playground.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #ff9f00, #ffd200);
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      padding: 20px;
+    }
+
+    .logo {
+      width: 180px;
+    }
+
+    /* TICKERS */
+    .ticker {
+      background: #ffd199;
+      border-radius: 30px;
+      padding: 12px 20px;
+      margin: 10px 0;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      background: #ffd199;
+      padding: 10px 30px;
+      border-radius: 30px;
+    }
+
+    /* ACTUS */
+    main {
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 30px;
+    }
+
+    .actus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .actu-card {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .actu-card img {
+      width: 260px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+
+    .actu-content h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .resume {
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header">
+<header>
+  <img src="logo-playground.png" alt="Playground" class="logo">
 
-  <div class="logo">
-    <img src="images/logo-playground.png" alt="Playground">
+  <div class="ticker">
+    SCORES · Lakers 112–108 Suns · Bulls 104–99 Heat · Celtics 120–114 Knicks
   </div>
 
-  <div class="banners">
-    <div class="banner scores">
-      <strong>SCORES</strong>
-      Lakers 112–108 Suns • Bulls 104–99 Heat • Celtics 120–114 Knicks
-    </div>
-
-    <div class="banner transfers">
-      <strong>TRANSFERTS</strong>
-      Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)
-    </div>
+  <div class="ticker">
+    TRANSFERTS · Luka Dončić → Lakers (fictif) · Giannis → Heat (fictif)
   </div>
 
-  <nav class="menu">
-    <a class="active" href="index.html">Actus</a>
-    <a href="#">Équipes</a>
-    <a href="#">Calendrier</a>
-    <a href="#">Classement</a>
+  <nav>
+    <a href="index.html" class="active">Actus</a>
+    <a href="equipes.html">Équipes</a>
+    <a href="calendrier.html">Calendrier</a>
+    <a href="classement.html">Classement</a>
   </nav>
-
 </header>
 
-<!-- ================= MAIN ================= -->
-<main class="home">
-
+<main>
   <h1>Actus</h1>
 
-  <section class="actus-grid">
+  <div class="actus-list">
 
-    <!-- ACTU 1 -->
     <a href="articles/article-1.html" class="actu-card">
-      <img src="images/actu1.jpg" alt="Actu 1">
-      <div class="actu-title">
-        La grande soirée de Derrick Rose
+      <img src="images/actu1.jpg" alt="">
+      <div class="actu-content">
+        <h2>La grande soirée de Derrick Rose</h2>
+        <div class="date">27 janvier 2026</div>
+        <div class="resume">Les Bulls retirent le numéro 1 de leur ancien MVP.</div>
       </div>
     </a>
 
-    <!-- ACTU 2 -->
     <a href="articles/article-2.html" class="actu-card">
-      <img src="images/actu2.jpg" alt="Actu 2">
-      <div class="actu-title">
-        Domantas Sabonis enfin de retour
+      <img src="images/actu2.jpg" alt="">
+      <div class="actu-content">
+        <h2>Domantas Sabonis enfin de retour</h2>
+        <div class="date">27 janvier 2026</div>
+        <div class="resume">Le pivot lituanien signe un comeback solide.</div>
       </div>
     </a>
 
-    <!-- ACTU 3 -->
     <a href="articles/article-3.html" class="actu-card">
-      <img src="images/actu3.jpg" alt="Actu 3">
-      <div class="actu-title">
-        Duel intense à l’Ouest
+      <img src="images/actu3.jpg" alt="">
+      <div class="actu-content">
+        <h2>Duel intense à l’Ouest</h2>
+        <div class="date">27 janvier 2026</div>
+        <div class="resume">Un match accroché jusqu’au money time.</div>
       </div>
     </a>
 
-    <!-- ACTU 4 -->
     <a href="articles/article-4.html" class="actu-card">
-      <img src="images/actu4.jpg" alt="Actu 4">
-      <div class="actu-title">
-        Une célébration inoubliable
+      <img src="images/actu4.jpg" alt="">
+      <div class="actu-content">
+        <h2>Une célébration inoubliable</h2>
+        <div class="date">27 janvier 2026</div>
+        <div class="resume">Une soirée pleine d’émotion pour les fans.</div>
       </div>
     </a>
 
-    <!-- ACTU 5 -->
     <a href="articles/article-5.html" class="actu-card">
-      <img src="images/actu5.jpg" alt="Actu 5">
-      <div class="actu-title">
-        Brooklyn frappe fort
+      <img src="images/actu5.jpg" alt="">
+      <div class="actu-content">
+        <h2>Brooklyn frappe fort</h2>
+        <div class="date">27 janvier 2026</div>
+        <div class="resume">Les Nets dominent dans un match référence.</div>
       </div>
     </a>
 
-  </section>
-
+  </div>
 </main>
 
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <p>© 2026 Playground NBA — Projet personnel</p>
+<footer>
+  © 2026 Playground NBA — Projet personnel
 </footer>
 
 </body>
