@@ -1,79 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>PLAYGROUND – equipes</title>
-
+  <title>PLAYGROUND - Équipes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/style.css?v=99">
+  <link rel="stylesheet" href="css/style.css?v=700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
 <header class="topbar">
+  <div class="top-right">
+    <a href="index.html" aria-label="Retour à l'accueil">
+      <img src="logo-playground.png" alt="PLAYGROUND">
+    </a>
+  </div>
 
   <div class="top-left">
-
-    <!-- BANNER SCORES (marquee parfait + logos) -->
     <div class="banner scores" role="status" aria-live="polite">
       <span class="label">SCORES</span>
-
       <div class="marquee" aria-label="Scores en défilement">
         <div class="marquee__track">
-          <!-- bloc 1 -->
           <div class="marquee__content">
             <span class="item">
-              <img class="team-logo" src="assets/logos/celtics.png" alt="Celtics">
-              Celtics 120–114 Knicks
-              <img class="team-logo" src="assets/logos/knicks.png" alt="Knicks">
-            </span>
-            <span class="sep">•</span>
-            <span class="item">
-              <img class="team-logo" src="assets/logos/bulls.png" alt="Bulls">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Bulls">
               Bulls 104–99 Heat
-              <img class="team-logo" src="assets/logos/heat.png" alt="Heat">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
             </span>
             <span class="sep">•</span>
             <span class="item">
-              <img class="team-logo" src="assets/logos/lakers.png" alt="Lakers">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
               Lakers 112–108 Suns
-              <img class="team-logo" src="assets/logos/suns.png" alt="Suns">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Suns">
             </span>
             <span class="sep">•</span>
             <span class="item">
-              <img class="team-logo" src="assets/logos/celtics.png" alt="Celtics">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Celtics">
               Celtics 120–114 Knicks
-              <img class="team-logo" src="assets/logos/knicks.png" alt="Knicks">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="Knicks">
             </span>
             <span class="sep">•</span>
           </div>
 
-          <!-- bloc 2 (copie parfaite pour boucle sans saccade) -->
           <div class="marquee__content" aria-hidden="true">
             <span class="item">
-              <img class="team-logo" src="assets/logos/celtics.png" alt="">
-              Celtics 120–114 Knicks
-              <img class="team-logo" src="assets/logos/knicks.png" alt="">
-            </span>
-            <span class="sep">•</span>
-            <span class="item">
-              <img class="team-logo" src="assets/logos/bulls.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="">
               Bulls 104–99 Heat
-              <img class="team-logo" src="assets/logos/heat.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
             </span>
             <span class="sep">•</span>
             <span class="item">
-              <img class="team-logo" src="assets/logos/lakers.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
               Lakers 112–108 Suns
-              <img class="team-logo" src="assets/logos/suns.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="">
             </span>
             <span class="sep">•</span>
             <span class="item">
-              <img class="team-logo" src="assets/logos/celtics.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="">
               Celtics 120–114 Knicks
-              <img class="team-logo" src="assets/logos/knicks.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="">
             </span>
             <span class="sep">•</span>
           </div>
@@ -81,38 +68,36 @@
       </div>
     </div>
 
-    <!-- BANNER TRANSFERTS (marquee parfait + logos) -->
     <div class="banner transfers" role="status" aria-live="polite">
       <span class="label">TRANSFERTS</span>
-
       <div class="marquee" aria-label="Transferts en défilement">
         <div class="marquee__track marquee__track--slow">
           <div class="marquee__content">
             <span class="item">
-              <img class="team-logo" src="assets/logos/mavs.png" alt="Mavericks">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Mavericks">
               Luka Dončić → Lakers (fictif)
-              <img class="team-logo" src="assets/logos/lakers.png" alt="Lakers">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
             </span>
             <span class="sep">•</span>
             <span class="item">
-              <img class="team-logo" src="assets/logos/bucks.png" alt="Bucks">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Bucks">
               Giannis → Heat (fictif)
-              <img class="team-logo" src="assets/logos/heat.png" alt="Heat">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
             </span>
             <span class="sep">•</span>
           </div>
 
           <div class="marquee__content" aria-hidden="true">
             <span class="item">
-              <img class="team-logo" src="assets/logos/mavs.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="">
               Luka Dončić → Lakers (fictif)
-              <img class="team-logo" src="assets/logos/lakers.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
             </span>
             <span class="sep">•</span>
             <span class="item">
-              <img class="team-logo" src="assets/logos/bucks.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="">
               Giannis → Heat (fictif)
-              <img class="team-logo" src="assets/logos/heat.png" alt="">
+              <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
             </span>
             <span class="sep">•</span>
           </div>
@@ -120,7 +105,6 @@
       </div>
     </div>
 
-    <!-- MENU (pleine largeur + loupe seule à gauche) -->
     <nav class="menu" aria-label="Navigation principale">
       <button class="search-btn" type="button" aria-label="Rechercher">
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -131,33 +115,14 @@
       <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
       <a href="classement.html" data-nav="classement">Classement</a>
     </nav>
-
   </div>
-
-  <div class="top-right">
-  <a href="index.html">
-    <img src="logo-playground.png" alt="PLAYGROUND">
-  </a>
-</div>
-
-
 </header>
 
-<title>PLAYGROUND – Équipes</title>
-
 <main class="content">
-  <h1 class="page-title">Équipes</h1>
-  <p>Page équipes à venir.</p>
+  <h1>Équipes</h1>
+  <p>Ici tu mettras ton contenu Équipes.</p>
 </main>
 
-
-<script>
-  // applique les backgrounds via data-bg (plus simple à alimenter depuis une API plus tard)
-  document.querySelectorAll(".news[data-bg]").forEach(card => {
-    const url = card.getAttribute("data-bg");
-    card.style.backgroundImage = `url('${url}')`;
-  });
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
