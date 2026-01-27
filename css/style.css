@@ -319,3 +319,35 @@ a{ color: inherit; }
     flex-basis:auto;
   }
 }
+/* =========================
+   PAGES ARTICLES
+========================= */
+
+.article-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.article-page h1 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.article-image {
+  width: 100%;
+  max-width: 420px;   /* ← taille réduite */
+  height: auto;
+  border-radius: 16px;
+  margin: 0 0 20px 0;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.article-page p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+
