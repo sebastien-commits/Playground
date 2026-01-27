@@ -506,6 +506,14 @@
   user-select: none;
 }
 
+/* Aligne le menu sur la largeur des bannières dans .top-left */
+.top-left .menu {
+  width: 100%;
+  display: flex;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+
 /* Accessibilité : réduit l’animation si demandé */
 @media (prefers-reduced-motion: reduce) {
   .ticker-content {
