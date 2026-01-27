@@ -5,7 +5,8 @@
   <title>Playground</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/style.css?v=701">
+  <link rel="icon" href="logo-playground.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css?v=999">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -13,10 +14,12 @@
 
 <header class="topbar">
 
-  <!-- LOGO À GAUCHE (clic = accueil) -->
-  <a class="top-right" href="index.html" aria-label="Retour à l'accueil">
-    <img src="logo-playground.png" alt="PLAYGROUND">
-  </a>
+  <!-- LOGO À GAUCHE (cliquable => accueil) -->
+  <div class="top-right">
+    <a href="index.html" class="logo-link" aria-label="Retour à l'accueil">
+      <img src="logo-playground.png" alt="Playground">
+    </a>
+  </div>
 
   <!-- BANNIÈRES + MENU À DROITE -->
   <div class="top-left">
@@ -51,7 +54,7 @@
             <span class="sep">•</span>
           </div>
 
-          <!-- duplication pour boucle -->
+          <!-- duplication -->
           <div class="marquee__content" aria-hidden="true">
             <span class="item">
               <img class="team-logo" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="">
@@ -140,26 +143,40 @@
 <main class="content">
   <section class="news-grid" aria-label="Dernières actualités">
 
-    <!-- IMPORTANT : ce sont maintenant des liens cliquables -->
-    <a class="news main" href="article.html?id=actu1" data-bg="assets/news/actu1.jpg" aria-label="Ouvrir l'article Actu principale">
-      <span class="title">Actu principale</span>
-    </a>
+    <article class="news main"
+      data-bg="assets/news/actu1.jpg"
+      data-href="articles/article-1.html"
+      data-title="La grande soirée de Derrick Rose">
+      <span class="title"></span>
+    </article>
 
-    <a class="news" href="article.html?id=actu2" data-bg="assets/news/actu2.jpg" aria-label="Ouvrir l'article Actu 2">
-      <span class="title">Actu 2</span>
-    </a>
+    <article class="news"
+      data-bg="assets/news/actu2.jpg"
+      data-href="articles/article-2.html"
+      data-title="Domantas Sabonis enfin de retour pour les Kings">
+      <span class="title"></span>
+    </article>
 
-    <a class="news" href="article.html?id=actu3" data-bg="assets/news/actu3.jpg" aria-label="Ouvrir l'article Actu 3">
-      <span class="title">Actu 3</span>
-    </a>
+    <article class="news"
+      data-bg="assets/news/actu3.jpg"
+      data-href="articles/article-3.html"
+      data-title="Les Hornets repoussent la classe biberon des Wizards">
+      <span class="title"></span>
+    </article>
 
-    <a class="news" href="article.html?id=actu4" data-bg="assets/news/actu4.jpg" aria-label="Ouvrir l'article Actu 4">
-      <span class="title">Actu 4</span>
-    </a>
+    <article class="news"
+      data-bg="assets/news/actu4.jpg"
+      data-href="articles/article-4.html"
+      data-title="Le grand bonheur des Pacers">
+      <span class="title"></span>
+    </article>
 
-    <a class="news" href="article.html?id=actu5" data-bg="assets/news/actu5.jpg" aria-label="Ouvrir l'article Actu 5">
-      <span class="title">Actu 5</span>
-    </a>
+    <article class="news"
+      data-bg="assets/news/actu5.jpg"
+      data-href="articles/article-5.html"
+      data-title="Un record à 21 points mais un lancer-franc qui coûte cher pour Nolan Traoré">
+      <span class="title"></span>
+    </article>
 
   </section>
 </main>
