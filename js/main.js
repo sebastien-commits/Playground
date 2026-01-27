@@ -1,22 +1,13 @@
-// Background images via data-bg (accueil)
+// Background images via data-bg
 document.querySelectorAll(".news[data-bg]").forEach(card => {
   const url = card.getAttribute("data-bg");
   if (url) card.style.backgroundImage = `url('${url}')`;
-});
-
-// (Option) rendre les blocs .news cliquables si data-href existe
-document.querySelectorAll(".news[data-href]").forEach(card => {
-  card.addEventListener("click", () => {
-    const href = card.getAttribute("data-href");
-    if (href) window.location.href = href;
-  });
 });
 
 // Menu actif automatiquement selon la page
 (function setActiveNav() {
   const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const map = {
-    "index.html": null,
     "actus.html": "actus",
     "equipes.html": "equipes",
     "calendrier.html": "calendrier",
@@ -40,3 +31,29 @@ document.querySelectorAll(".news[data-href]").forEach(card => {
     window.location.href = `actus.html?q=${encodeURIComponent(q.trim())}`;
   });
 })();
+
+/* ===============================
+   TITRES + CLICS (ACCUEIL / ACTUS)
+   =============================== */
+
+// Accueil : injecte le titre depuis data-title
+document.querySelectorAll(".news[data-title]").forEach(card => {
+  const title = card.getAttribute("data-title");
+  const titleEl = card.querySelector(".title");
+  if (title && titleEl) titleEl.textContent = title;
+});
+
+// Accueil : clic => ouvre l'article (data-href)
+document.querySelectorAll(".news[data-href]").forEach(card => {
+  card.addEventListener("click", () => {
+    const href = card.getAttribute("data-href");
+    if (href) window.location.href = href;
+  });
+});
+
+// Actus : injecte le titre depuis data-title
+document.querySelectorAll(".article[data-title]").forEach(article => {
+  const title = article.getAttribute("data-title");
+  const titleEl = article.querySelector(".article__title");
+  if (title && titleEl) titleEl.textContent = title;
+});
