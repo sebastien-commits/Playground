@@ -5,7 +5,7 @@
   <title>PLAYGROUND</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/style.css?v=99">
+  <link rel="stylesheet" href="css/style.css?v=200">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -14,30 +14,123 @@
 <header class="topbar">
 
   <div class="top-left">
+
+    <!-- BANNER SCORES (marquee parfait + logos) -->
     <div class="banner scores" role="status" aria-live="polite">
       <span class="label">SCORES</span>
-      <span class="banner-text">Celtics 120–114 Knicks • Bulls 104–99 Heat • Lakers 112–108 Suns</span>
+
+      <div class="marquee" aria-label="Scores en défilement">
+        <div class="marquee__track">
+          <!-- bloc 1 -->
+          <div class="marquee__content">
+            <span class="item">
+              <img class="team-logo" src="assets/logos/celtics.png" alt="Celtics">
+              Celtics 120–114 Knicks
+              <img class="team-logo" src="assets/logos/knicks.png" alt="Knicks">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/bulls.png" alt="Bulls">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="assets/logos/heat.png" alt="Heat">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/lakers.png" alt="Lakers">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="assets/logos/suns.png" alt="Suns">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/celtics.png" alt="Celtics">
+              Celtics 120–114 Knicks
+              <img class="team-logo" src="assets/logos/knicks.png" alt="Knicks">
+            </span>
+            <span class="sep">•</span>
+          </div>
+
+          <!-- bloc 2 (copie parfaite pour boucle sans saccade) -->
+          <div class="marquee__content" aria-hidden="true">
+            <span class="item">
+              <img class="team-logo" src="assets/logos/celtics.png" alt="">
+              Celtics 120–114 Knicks
+              <img class="team-logo" src="assets/logos/knicks.png" alt="">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/bulls.png" alt="">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="assets/logos/heat.png" alt="">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/lakers.png" alt="">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="assets/logos/suns.png" alt="">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/celtics.png" alt="">
+              Celtics 120–114 Knicks
+              <img class="team-logo" src="assets/logos/knicks.png" alt="">
+            </span>
+            <span class="sep">•</span>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- BANNER TRANSFERTS (marquee parfait + logos) -->
     <div class="banner transfers" role="status" aria-live="polite">
       <span class="label">TRANSFERTS</span>
-      <span class="banner-text">Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)</span>
+
+      <div class="marquee" aria-label="Transferts en défilement">
+        <div class="marquee__track marquee__track--slow">
+          <div class="marquee__content">
+            <span class="item">
+              <img class="team-logo" src="assets/logos/mavs.png" alt="Mavericks">
+              Luka Dončić → Lakers (fictif)
+              <img class="team-logo" src="assets/logos/lakers.png" alt="Lakers">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/bucks.png" alt="Bucks">
+              Giannis → Heat (fictif)
+              <img class="team-logo" src="assets/logos/heat.png" alt="Heat">
+            </span>
+            <span class="sep">•</span>
+          </div>
+
+          <div class="marquee__content" aria-hidden="true">
+            <span class="item">
+              <img class="team-logo" src="assets/logos/mavs.png" alt="">
+              Luka Dončić → Lakers (fictif)
+              <img class="team-logo" src="assets/logos/lakers.png" alt="">
+            </span>
+            <span class="sep">•</span>
+            <span class="item">
+              <img class="team-logo" src="assets/logos/bucks.png" alt="">
+              Giannis → Heat (fictif)
+              <img class="team-logo" src="assets/logos/heat.png" alt="">
+            </span>
+            <span class="sep">•</span>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- MENU (pleine largeur + loupe seule à gauche) -->
     <nav class="menu" aria-label="Navigation principale">
-      <form class="search" role="search">
-        <label class="sr-only" for="q">Rechercher</label>
-        <input id="q" name="q" type="search" placeholder="Rechercher…" />
-        <button type="submit" aria-label="Lancer la recherche">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-        </button>
-      </form>
+      <button class="search-btn" type="button" aria-label="Rechercher">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </button>
 
-      <a href="/actus.html">Actus</a>
-      <a href="/equipes.html">Équipes</a>
-      <a href="/calendrier.html">Calendrier</a>
-      <a href="/classement.html">Classement</a>
+      <a href="actus.html" data-nav="actus">Actus</a>
+      <a href="equipes.html" data-nav="equipes">Équipes</a>
+      <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
+      <a href="classement.html" data-nav="classement">Classement</a>
     </nav>
+
   </div>
 
   <div class="top-right">
@@ -47,40 +140,31 @@
 </header>
 
 <main class="content">
-
   <section class="news-grid" aria-label="Dernières actualités">
 
     <article class="news main" data-bg="assets/news/actu1.jpg">
-      <h2 class="title">Actu principale</h2>
+      <span class="title">Actu principale</span>
     </article>
 
     <article class="news" data-bg="assets/news/actu2.jpg">
-      <h2 class="title">Actu 2</h2>
+      <span class="title">Actu 2</span>
     </article>
 
     <article class="news" data-bg="assets/news/actu3.jpg">
-      <h2 class="title">Actu 3</h2>
+      <span class="title">Actu 3</span>
     </article>
 
     <article class="news" data-bg="assets/news/actu4.jpg">
-      <h2 class="title">Actu 4</h2>
+      <span class="title">Actu 4</span>
     </article>
 
     <article class="news" data-bg="assets/news/actu5.jpg">
-      <h2 class="title">Actu 5</h2>
+      <span class="title">Actu 5</span>
     </article>
 
   </section>
-
 </main>
 
-<script>
-  // applique les backgrounds via data-bg (plus simple à alimenter depuis une API plus tard)
-  document.querySelectorAll(".news[data-bg]").forEach(card => {
-    const url = card.getAttribute("data-bg");
-    card.style.backgroundImage = `url('${url}')`;
-  });
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
