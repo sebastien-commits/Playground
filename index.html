@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -11,69 +11,76 @@
 
 <body>
 
-<!-- TOP BAR -->
 <header class="topbar">
 
-  <!-- LEFT -->
   <div class="top-left">
-    <div class="banner scores">
+    <div class="banner scores" role="status" aria-live="polite">
       <span class="label">SCORES</span>
-      Celtics 120–114 Knicks • Bulls 104–99 Heat • Lakers 112–108 Suns
+      <span class="banner-text">Celtics 120–114 Knicks • Bulls 104–99 Heat • Lakers 112–108 Suns</span>
     </div>
 
-    <div class="banner transfers">
+    <div class="banner transfers" role="status" aria-live="polite">
       <span class="label">TRANSFERTS</span>
-      Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)
+      <span class="banner-text">Luka Dončić → Lakers (fictif) • Giannis → Heat (fictif)</span>
     </div>
 
-    <!-- MENU -->
-    <nav class="menu">
-      <div class="search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
+    <nav class="menu" aria-label="Navigation principale">
+      <form class="search" role="search">
+        <label class="sr-only" for="q">Rechercher</label>
+        <input id="q" name="q" type="search" placeholder="Rechercher…" />
+        <button type="submit" aria-label="Lancer la recherche">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+      </form>
 
-      <a href="#">Actus</a>
-      <a href="#">Équipes</a>
-      <a href="#">Calendrier</a>
-      <a href="#">Classement</a>
+      <a href="/actus.html">Actus</a>
+      <a href="/equipes.html">Équipes</a>
+      <a href="/calendrier.html">Calendrier</a>
+      <a href="/classement.html">Classement</a>
     </nav>
   </div>
 
-  <!-- RIGHT LOGO -->
   <div class="top-right">
-    <img src="logo-playground.png" alt="PLAYGROUND">
+    <img src="logo-playground.png" alt="Logo Playground">
   </div>
 
 </header>
 
-<!-- CONTENT -->
 <main class="content">
 
-  <section class="news-grid">
+  <section class="news-grid" aria-label="Dernières actualités">
 
-    <article class="news main" style="background-image:url('assets/news/actu1.jpg')">
-      <span class="title">Actu principale</span>
+    <article class="news main" data-bg="assets/news/actu1.jpg">
+      <h2 class="title">Actu principale</h2>
     </article>
 
-    <article class="news" style="background-image:url('assets/news/actu2.jpg')">
-      <span class="title">Actu 2</span>
+    <article class="news" data-bg="assets/news/actu2.jpg">
+      <h2 class="title">Actu 2</h2>
     </article>
 
-    <article class="news" style="background-image:url('assets/news/actu3.jpg')">
-      <span class="title">Actu 3</span>
+    <article class="news" data-bg="assets/news/actu3.jpg">
+      <h2 class="title">Actu 3</h2>
     </article>
 
-    <article class="news" style="background-image:url('assets/news/actu4.jpg')">
-      <span class="title">Actu 4</span>
+    <article class="news" data-bg="assets/news/actu4.jpg">
+      <h2 class="title">Actu 4</h2>
     </article>
 
-    <article class="news" style="background-image:url('assets/news/actu5.jpg')">
-      <span class="title">Actu 5</span>
+    <article class="news" data-bg="assets/news/actu5.jpg">
+      <h2 class="title">Actu 5</h2>
     </article>
 
   </section>
 
 </main>
+
+<script>
+  // applique les backgrounds via data-bg (plus simple à alimenter depuis une API plus tard)
+  document.querySelectorAll(".news[data-bg]").forEach(card => {
+    const url = card.getAttribute("data-bg");
+    card.style.backgroundImage = `url('${url}')`;
+  });
+</script>
 
 </body>
 </html>
