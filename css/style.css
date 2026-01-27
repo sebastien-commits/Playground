@@ -1,17 +1,13 @@
 /* =========================================================
-   PLAYGROUND - CSS COMPLET (STABLE WEB APP)
+   PLAYGROUND - CSS COMPLET (HEADER CENTRÉ, MENU LARGE)
    ========================================================= */
 
-/* ---------- RESET ---------- */
+/* RESET */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   margin: 0;
@@ -21,41 +17,33 @@ body {
   overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+img { max-width: 100%; display: block; }
 
-/* ---------- TOP BAR LAYOUT ---------- */
+/* HEADER */
 .topbar {
-  display: grid;
-  grid-template-columns: 200px 1fr; /* LOGO | CONTENU */
-  column-gap: 24px;
-  align-items: center;
   padding: 20px 24px;
 }
 
-/* ---------- LOGO ---------- */
+.top-left {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* LOGO */
 .brand {
-  width: 200px;
-  height: 120px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
 }
 
 .brand img {
-  max-width: 180px; /* TAILLE MAÎTRISÉE */
+  max-width: 240px;
   width: 100%;
   height: auto;
 }
 
-/* ---------- COLONNE DROITE ---------- */
-.top-left {
-  min-width: 0;
-}
-
-/* ---------- BANNIÈRES ---------- */
+/* BANNIÈRES */
 .banner {
   display: flex;
   align-items: center;
@@ -76,18 +64,7 @@ img {
   flex: 0 0 auto;
 }
 
-/* ---------- LOGOS NBA ---------- */
-.team-logo {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 6px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
-}
-
-/* ---------- MARQUEE PARFAIT ---------- */
+/* MARQUEE (boucle parfaite sans saccades) */
 .marquee {
   flex: 1;
   min-width: 0;
@@ -102,9 +79,7 @@ img {
   animation: marquee 18s linear infinite;
 }
 
-.marquee__track--slow {
-  animation-duration: 26s;
-}
+.marquee__track--slow { animation-duration: 26s; }
 
 .marquee__content {
   display: inline-flex;
@@ -129,12 +104,10 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee__track {
-    animation: none;
-  }
+  .marquee__track { animation: none; }
 }
 
-/* ---------- MENU (PLEINE LARGEUR) ---------- */
+/* MENU (doit faire toute la largeur des bannières) */
 .menu {
   display: flex;
   align-items: center;
@@ -144,7 +117,7 @@ img {
   gap: 12px;
 }
 
-/* ---------- LOUPE ---------- */
+/* Loupe */
 .search-btn {
   flex: 0 0 44px;
   width: 44px;
@@ -162,9 +135,9 @@ img {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* ---------- LIENS MENU ---------- */
+/* Liens menu : ils s'étirent jusqu'au bout */
 .menu a {
-  flex: 1;                 /* PREND TOUTE LA LARGEUR */
+  flex: 1;
   text-align: center;
   text-decoration: none;
   color: #111;
@@ -185,17 +158,18 @@ img {
   background: rgba(255, 255, 255, 0.45);
 }
 
-/* ---------- MAIN CONTENT ---------- */
+/* MAIN */
 .content {
   padding: 10px 24px 30px;
 }
 
-/* ---------- GRID ACTUS ---------- */
+/* GRID ACTUS */
 .news-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 20px;
+  align-items: stretch;
 }
 
 .news {
@@ -225,53 +199,35 @@ img {
   left: 18px;
   bottom: 14px;
   z-index: 1;
+  max-width: calc(100% - 36px);
   color: #fff;
   font-weight: 900;
   font-size: 20px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.55);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
-  .topbar {
-    grid-template-columns: 1fr;
-    row-gap: 16px;
-  }
-
-  .brand {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .brand img {
-    max-width: 160px;
-  }
+  .brand img { max-width: 180px; }
 
   .news-grid {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
   }
 
   .news.main {
     grid-column: span 2;
+    grid-row: auto;
     height: 360px;
   }
 }
 
 @media (max-width: 680px) {
-  .menu {
-    flex-wrap: wrap;
-  }
+  .menu { flex-wrap: wrap; }
 
-  .menu a {
-    flex: 1 1 45%;
-  }
+  .menu a { flex: 1 1 45%; }
 
-  .news-grid {
-    grid-template-columns: 1fr;
-  }
+  .news-grid { grid-template-columns: 1fr; }
 
-  .news.main {
-    height: 320px;
-  }
+  .news.main { height: 320px; }
 }
-
