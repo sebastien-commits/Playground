@@ -5,64 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playground</title>
 
-  <!-- Favicon -->
   <link rel="icon" href="logo-playground.png" type="image/png" />
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header class="topbar">
     <!-- LOGO -->
     <div class="top-right">
-      <a href="index.html">
-        <img src="logo-playground.png" alt="Playground">
+      <a href="index.html" class="logo-link">
+        <img src="logo-playground.png" alt="Playground" class="logo-img">
       </a>
     </div>
 
-    <!-- COLONNE DROITE -->
+    <!-- BANNIÈRES + MENU -->
     <div class="top-left">
-      <!-- BANNIÈRE SCORES -->
+
+      <!-- SCORES -->
       <div class="banner">
         <span class="label">SCORES</span>
 
         <div class="marquee">
           <div class="marquee__track">
             <div class="marquee__content">
-              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
-              <span class="item">Celtics 120–114 Knicks</span><span class="sep">•</span>
-              <span class="item">Bulls 104–99 Heat</span><span class="sep">•</span>
-              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
+              <span class="item">
+                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+                Lakers 112–108 Suns
+                <img class="team-logo" src="assets/teams/suns.png" alt="Suns">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/celtics.png" alt="Celtics">
+                Celtics 120–114 Knicks
+                <img class="team-logo" src="assets/teams/knicks.png" alt="Knicks">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/bulls.png" alt="Bulls">
+                Bulls 104–99 Heat
+                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+              </span>
+              <span class="sep">•</span>
             </div>
 
+            <!-- duplication pour boucle infinie -->
             <div class="marquee__content" aria-hidden="true">
-              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
-              <span class="item">Celtics 120–114 Knicks</span><span class="sep">•</span>
-              <span class="item">Bulls 104–99 Heat</span><span class="sep">•</span>
-              <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
+              <span class="item">
+                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+                Lakers 112–108 Suns
+                <img class="team-logo" src="assets/teams/suns.png" alt="Suns">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/celtics.png" alt="Celtics">
+                Celtics 120–114 Knicks
+                <img class="team-logo" src="assets/teams/knicks.png" alt="Knicks">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/bulls.png" alt="Bulls">
+                Bulls 104–99 Heat
+                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+              </span>
+              <span class="sep">•</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- BANNIÈRE TRANSFERTS -->
+      <!-- TRANSFERTS -->
       <div class="banner">
         <span class="label">TRANSFERTS</span>
 
         <div class="marquee">
           <div class="marquee__track marquee__track--slow">
             <div class="marquee__content">
-              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
-              <span class="item">Giannis → Heat (fictif)</span><span class="sep">•</span>
-              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
+              <span class="item">
+                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
+                Luka Dončić → Lakers (fictif)
+                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/bucks.png" alt="Bucks">
+                Giannis → Heat (fictif)
+                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
+                Luka Dončić → Lakers (fictif)
+                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+              </span>
+              <span class="sep">•</span>
             </div>
 
             <div class="marquee__content" aria-hidden="true">
-              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
-              <span class="item">Giannis → Heat (fictif)</span><span class="sep">•</span>
-              <span class="item">Luka Dončić → Lakers (fictif)</span><span class="sep">•</span>
+              <span class="item">
+                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
+                Luka Dončić → Lakers (fictif)
+                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/bucks.png" alt="Bucks">
+                Giannis → Heat (fictif)
+                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
+                Luka Dončić → Lakers (fictif)
+                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+              </span>
+              <span class="sep">•</span>
             </div>
           </div>
         </div>
@@ -76,47 +142,48 @@
         <a href="calendrier.html">Calendrier</a>
         <a href="classement.html">Classement</a>
       </nav>
+
     </div>
   </header>
 
+  <!-- CONTENU -->
   <main class="content">
-    <!-- ✅ 4 petites à gauche / 1 grosse à droite -->
     <section class="home-grid">
-      <!-- 4 petites -->
-      <a class="card small a2" href="articles/article-2.html" style="background-image:url('assets/actu2.jpg');">
+
+      <!-- 1 grande à gauche -->
+      <a class="card big" href="articles/article-1.html" style="background-image:url('assets/actu1.jpg');">
+        <div class="card__overlay">
+          <h3>La grande soirée de Derrick Rose</h3>
+        </div>
+      </a>
+
+      <!-- 4 petites à droite -->
+      <a class="card small" href="articles/article-2.html" style="background-image:url('assets/actu2.jpg');">
         <div class="card__overlay">
           <h3>Domantas Sabonis enfin de retour</h3>
         </div>
       </a>
 
-      <a class="card small a3" href="articles/article-3.html" style="background-image:url('assets/actu3.jpg');">
+      <a class="card small" href="articles/article-3.html" style="background-image:url('assets/actu3.jpg');">
         <div class="card__overlay">
           <h3>Duel intense à l’Ouest</h3>
         </div>
       </a>
 
-      <a class="card small a4" href="articles/article-4.html" style="background-image:url('assets/actu4.jpg');">
+      <a class="card small" href="articles/article-4.html" style="background-image:url('assets/actu4.jpg');">
         <div class="card__overlay">
           <h3>Une célébration inoubliable</h3>
         </div>
       </a>
 
-      <a class="card small a5" href="articles/article-5.html" style="background-image:url('assets/actu5.jpg');">
+      <a class="card small" href="articles/article-5.html" style="background-image:url('assets/actu5.jpg');">
         <div class="card__overlay">
           <h3>Brooklyn frappe fort</h3>
         </div>
       </a>
 
-      <!-- 1 grosse à droite -->
-      <a class="card big a1" href="articles/article-1.html" style="background-image:url('assets/actu1.jpg');">
-        <div class="card__overlay">
-          <h3>La grande soirée de Derrick Rose</h3>
-        </div>
-      </a>
     </section>
   </main>
 
-  <!-- ✅ ton JS réel est dans /js -->
-  <script src="js/main.js"></script>
 </body>
 </html>
