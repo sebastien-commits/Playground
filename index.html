@@ -5,131 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playground</title>
 
+  <!-- Favicon -->
   <link rel="icon" href="logo-playground.png" type="image/png" />
-  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header class="topbar">
-    <!-- LOGO -->
+    <!-- LOGO À GAUCHE -->
     <div class="top-right">
-      <a href="index.html" class="logo-link">
+      <a href="index.html">
         <img src="logo-playground.png" alt="Playground" class="logo-img">
       </a>
     </div>
 
-    <!-- BANNIÈRES + MENU -->
+    <!-- COLONNE DROITE -->
     <div class="top-left">
 
-      <!-- SCORES -->
+      <!-- BANNIÈRE SCORES -->
       <div class="banner">
         <span class="label">SCORES</span>
 
         <div class="marquee">
           <div class="marquee__track">
+
+            <!-- 1ère boucle -->
             <div class="marquee__content">
               <span class="item">
-                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
-                Lakers 112–108 Suns
-                <img class="team-logo" src="assets/teams/suns.png" alt="Suns">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers 112–108
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/5/57/Phoenix_Suns_logo.svg" alt="">
+                Suns
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/celtics.png" alt="Celtics">
-                Celtics 120–114 Knicks
-                <img class="team-logo" src="assets/teams/knicks.png" alt="Knicks">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/65/Boston_Celtics_logo.svg" alt="">
+                Celtics 120–114
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/2/25/New_York_Knicks_logo.svg" alt="">
+                Knicks
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/bulls.png" alt="Bulls">
-                Bulls 104–99 Heat
-                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/8/88/Chicago_Bulls_logo.svg" alt="">
+                Bulls 104–99
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/1b/Miami_Heat_logo.svg" alt="">
+                Heat
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers 112–108
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/5/57/Phoenix_Suns_logo.svg" alt="">
+                Suns
               </span>
               <span class="sep">•</span>
             </div>
 
-            <!-- duplication pour boucle infinie -->
+            <!-- duplication pour boucle parfaite -->
             <div class="marquee__content" aria-hidden="true">
               <span class="item">
-                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
-                Lakers 112–108 Suns
-                <img class="team-logo" src="assets/teams/suns.png" alt="Suns">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers 112–108
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/5/57/Phoenix_Suns_logo.svg" alt="">
+                Suns
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/celtics.png" alt="Celtics">
-                Celtics 120–114 Knicks
-                <img class="team-logo" src="assets/teams/knicks.png" alt="Knicks">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/65/Boston_Celtics_logo.svg" alt="">
+                Celtics 120–114
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/2/25/New_York_Knicks_logo.svg" alt="">
+                Knicks
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/bulls.png" alt="Bulls">
-                Bulls 104–99 Heat
-                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/8/88/Chicago_Bulls_logo.svg" alt="">
+                Bulls 104–99
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/1b/Miami_Heat_logo.svg" alt="">
+                Heat
+              </span>
+              <span class="sep">•</span>
+
+              <span class="item">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers 112–108
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/5/57/Phoenix_Suns_logo.svg" alt="">
+                Suns
               </span>
               <span class="sep">•</span>
             </div>
+
           </div>
         </div>
       </div>
 
-      <!-- TRANSFERTS -->
+      <!-- BANNIÈRE TRANSFERTS -->
       <div class="banner">
         <span class="label">TRANSFERTS</span>
 
         <div class="marquee">
           <div class="marquee__track marquee__track--slow">
+
             <div class="marquee__content">
               <span class="item">
-                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
-                Luka Dončić → Lakers (fictif)
-                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/12/Dallas_Mavericks_logo.svg" alt="">
+                Luka Dončić →
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers (fictif)
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/bucks.png" alt="Bucks">
-                Giannis → Heat (fictif)
-                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/9/9a/Milwaukee_Bucks_logo.svg" alt="">
+                Giannis →
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/1b/Miami_Heat_logo.svg" alt="">
+                Heat (fictif)
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
-                Luka Dončić → Lakers (fictif)
-                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/12/Dallas_Mavericks_logo.svg" alt="">
+                Luka Dončić →
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers (fictif)
               </span>
               <span class="sep">•</span>
             </div>
 
             <div class="marquee__content" aria-hidden="true">
               <span class="item">
-                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
-                Luka Dončić → Lakers (fictif)
-                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/12/Dallas_Mavericks_logo.svg" alt="">
+                Luka Dončić →
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers (fictif)
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/bucks.png" alt="Bucks">
-                Giannis → Heat (fictif)
-                <img class="team-logo" src="assets/teams/heat.png" alt="Heat">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/9/9a/Milwaukee_Bucks_logo.svg" alt="">
+                Giannis →
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/1b/Miami_Heat_logo.svg" alt="">
+                Heat (fictif)
               </span>
               <span class="sep">•</span>
 
               <span class="item">
-                <img class="team-logo" src="assets/teams/mavs.png" alt="Mavs">
-                Luka Dončić → Lakers (fictif)
-                <img class="team-logo" src="assets/teams/lakers.png" alt="Lakers">
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/1/12/Dallas_Mavericks_logo.svg" alt="">
+                Luka Dončić →
+                <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/fr/6/67/Los_Angeles_Lakers_logo.svg" alt="">
+                Lakers (fictif)
               </span>
               <span class="sep">•</span>
             </div>
+
           </div>
         </div>
       </div>
@@ -146,44 +181,51 @@
     </div>
   </header>
 
-  <!-- CONTENU -->
   <main class="content">
-    <section class="home-grid">
 
-      <!-- 1 grande à gauche -->
-      <a class="card big" href="articles/article-1.html" style="background-image:url('assets/actu1.jpg');">
-        <div class="card__overlay">
-          <h3>La grande soirée de Derrick Rose</h3>
+    <!-- 5 fenêtres : 1 grande à gauche + 4 petites à droite -->
+    <section class="home-news-layout">
+
+      <!-- grande -->
+      <a class="home-card home-card--big" href="articles/article-1.html" style="background-image:url('assets/news/actu1.jpg');">
+        <div class="home-card__overlay">
+          <div class="home-card__title">La grande soirée de Derrick Rose</div>
         </div>
       </a>
 
-      <!-- 4 petites à droite -->
-      <a class="card small" href="articles/article-2.html" style="background-image:url('assets/actu2.jpg');">
-        <div class="card__overlay">
-          <h3>Domantas Sabonis enfin de retour</h3>
-        </div>
-      </a>
+      <!-- colonne droite (4 petites) -->
+      <div class="home-card-col">
 
-      <a class="card small" href="articles/article-3.html" style="background-image:url('assets/actu3.jpg');">
-        <div class="card__overlay">
-          <h3>Duel intense à l’Ouest</h3>
-        </div>
-      </a>
+        <a class="home-card home-card--small" href="articles/article-2.html" style="background-image:url('assets/news/actu2.jpg');">
+          <div class="home-card__overlay">
+            <div class="home-card__title">Domantas Sabonis enfin de retour</div>
+          </div>
+        </a>
 
-      <a class="card small" href="articles/article-4.html" style="background-image:url('assets/actu4.jpg');">
-        <div class="card__overlay">
-          <h3>Une célébration inoubliable</h3>
-        </div>
-      </a>
+        <a class="home-card home-card--small" href="articles/article-3.html" style="background-image:url('assets/news/actu3.jpg');">
+          <div class="home-card__overlay">
+            <div class="home-card__title">Duel intense à l’Ouest</div>
+          </div>
+        </a>
 
-      <a class="card small" href="articles/article-5.html" style="background-image:url('assets/actu5.jpg');">
-        <div class="card__overlay">
-          <h3>Brooklyn frappe fort</h3>
-        </div>
-      </a>
+        <a class="home-card home-card--small" href="articles/article-4.html" style="background-image:url('assets/news/actu4.jpg');">
+          <div class="home-card__overlay">
+            <div class="home-card__title">Une célébration inoubliable</div>
+          </div>
+        </a>
 
+        <a class="home-card home-card--small" href="articles/article-5.html" style="background-image:url('assets/news/actu5.jpg');">
+          <div class="home-card__overlay">
+            <div class="home-card__title">Brooklyn frappe fort</div>
+          </div>
+        </a>
+
+      </div>
     </section>
+
   </main>
 
+  <!-- JS (si tu as un fichier dans /js, remplace par js/main.js) -->
+  <script src="js/main.js"></script>
 </body>
 </html>
