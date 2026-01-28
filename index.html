@@ -8,14 +8,14 @@
   <!-- Favicon -->
   <link rel="icon" href="logo-playground.png" type="image/png" />
 
-  <!-- CSS (IMPORTANT : ton fichier est dans /css) -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
   <header class="topbar">
-    <!-- LOGO À GAUCHE (clic = accueil) -->
+    <!-- LOGO -->
     <div class="top-right">
       <a href="index.html">
         <img src="logo-playground.png" alt="Playground">
@@ -37,7 +37,6 @@
               <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
             </div>
 
-            <!-- DUPLICATION POUR BOUCLE PARFAITE -->
             <div class="marquee__content" aria-hidden="true">
               <span class="item">Lakers 112–108 Suns</span><span class="sep">•</span>
               <span class="item">Celtics 120–114 Knicks</span><span class="sep">•</span>
@@ -72,50 +71,52 @@
       <!-- MENU -->
       <nav class="menu">
         <button class="search-btn" aria-label="Rechercher">🔍</button>
-        <a href="actus.html" data-nav="actus">Actus</a>
-        <a href="equipes.html" data-nav="equipes">Équipes</a>
-        <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
-        <a href="classement.html" data-nav="classement">Classement</a>
+        <a href="actus.html">Actus</a>
+        <a href="equipes.html">Équipes</a>
+        <a href="calendrier.html">Calendrier</a>
+        <a href="classement.html">Classement</a>
       </nav>
     </div>
   </header>
 
   <main class="content">
-    <section class="news-grid">
-
-      <a class="news-link" href="articles/article-1.html">
-        <div class="news main" data-bg="images/actu1.jpg">
-          <div class="title">La grande soirée de Derrick Rose</div>
+    <!-- ✅ 4 petites à gauche / 1 grosse à droite -->
+    <section class="home-grid">
+      <!-- 4 petites -->
+      <a class="card small a2" href="articles/article-2.html" style="background-image:url('assets/actu2.jpg');">
+        <div class="card__overlay">
+          <h3>Domantas Sabonis enfin de retour</h3>
         </div>
       </a>
 
-      <a class="news-link" href="articles/article-2.html">
-        <div class="news" data-bg="images/actu2.jpg">
-          <div class="title">Domantas Sabonis enfin de retour</div>
+      <a class="card small a3" href="articles/article-3.html" style="background-image:url('assets/actu3.jpg');">
+        <div class="card__overlay">
+          <h3>Duel intense à l’Ouest</h3>
         </div>
       </a>
 
-      <a class="news-link" href="articles/article-3.html">
-        <div class="news" data-bg="images/actu3.jpg">
-          <div class="title">Duel intense à l’Ouest</div>
+      <a class="card small a4" href="articles/article-4.html" style="background-image:url('assets/actu4.jpg');">
+        <div class="card__overlay">
+          <h3>Une célébration inoubliable</h3>
         </div>
       </a>
 
-      <a class="news-link" href="articles/article-4.html">
-        <div class="news" data-bg="images/actu4.jpg">
-          <div class="title">Une célébration inoubliable</div>
+      <a class="card small a5" href="articles/article-5.html" style="background-image:url('assets/actu5.jpg');">
+        <div class="card__overlay">
+          <h3>Brooklyn frappe fort</h3>
         </div>
       </a>
 
-      <a class="news-link" href="articles/article-5.html">
-        <div class="news" data-bg="images/actu5.jpg">
-          <div class="title">Brooklyn frappe fort</div>
+      <!-- 1 grosse à droite -->
+      <a class="card big a1" href="articles/article-1.html" style="background-image:url('assets/actu1.jpg');">
+        <div class="card__overlay">
+          <h3>La grande soirée de Derrick Rose</h3>
         </div>
       </a>
-
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <!-- ✅ ton JS réel est dans /js -->
+  <script src="js/main.js"></script>
 </body>
 </html>
