@@ -55,28 +55,67 @@ body{
   white-space: nowrap;
 }
 
-.marquee{
+/* =========================
+   MARQUEE – DÉFILEMENT PARFAIT
+========================= */
+
+.marquee {
   overflow: hidden;
-  flex: 1;
-  min-width: 0;
+  position: relative;
+  width: 100%;
 }
 
-.marquee__track{
+.marquee__track {
   display: flex;
-  gap: 40px;
   width: max-content;
-  animation: scroll 18s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
-.marquee__track--slow{
-  animation-duration: 26s;
+.marquee__track--slow {
+  animation-duration: 35s;
 }
 
-.marquee__content{
+.marquee__content {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* espace TOTAL entre infos */
+  padding-right: 28px;
+  white-space: nowrap;
+}
+
+/* Élément texte + logo */
+.marquee__content .item {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  font-weight: 600;
 }
+
+/* Logos */
+.marquee__content img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Séparateur point parfaitement centré */
+.marquee__content .sep {
+  display: inline-block;
+  width: 6px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* Animation sans coupure */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
 .item{
   display: inline-flex;
@@ -278,4 +317,5 @@ body{
   .small-grid{ grid-template-columns: 1fr; }
   .card.big{ min-height: 420px; }
 }
+
 
