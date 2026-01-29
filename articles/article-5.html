@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground — Actu 5</title>
+  <title>Playground — Actu 8</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../css/style.css?v=1">
@@ -25,15 +25,15 @@
       <div class="marquee">
         <div class="marquee__track">
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg"> Nets 125–129 Celtics <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg"></span>
             <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg"> Pacers 121–118 Thunder <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/okc.svg"></span>
             <span class="sep">•</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg"> Nets 125–129 Celtics <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg"></span>
             <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg"> Pacers 121–118 Thunder <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/okc.svg"></span>
             <span class="sep">•</span>
           </div>
         </div>
@@ -45,11 +45,11 @@
       <div class="marquee">
         <div class="marquee__track marquee__track--slow">
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers (fictif) <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg"> Nolan Traoré brille mais Brooklyn craque</span>
             <span class="sep">•</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers (fictif) <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg"> Nolan Traoré brille mais Brooklyn craque</span>
             <span class="sep">•</span>
           </div>
         </div>
@@ -67,15 +67,71 @@
 </header>
 
 <main class="article">
-  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;">
-    <img src="../assets/news/actu5.jpg" style="width:280px;border-radius:18px;">
-    <div>
-      <h1>Actu 5 — Titre de l’article</h1>
+
+  <!-- Header article : grid pour aligner le texte sous la photo -->
+  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
+    <img src="../assets/news/actu5.jpg" alt="Illustration actu 5" style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
+
+    <div class="article-meta">
+      <h1>Un record à 21 points mais un lancer-franc qui coûte cher pour Nolan Traoré</h1>
       <div class="date">Publié le 24 janvier 2026</div>
     </div>
 
-    <div style="grid-column:2;">
-      <p>Contenu de l’article 5 à venir.</p>
+    <!-- Le texte commence “sous le bloc” meta, aligné avec le bas photo -->
+    <div class="article-content" style="grid-column:2;">
+      <p>
+        Malgré son record en NBA avec 21 points à 7/13 au tir, Nolan Traoré avait le visage fermé après la rencontre.
+        Le jeune Français regrettait surtout son ultime lancer-franc manqué, un détail qui a coûté cher aux Nets
+        dans une défaite au bout de la prolongation face aux Celtics.
+      </p>
+
+      <h2>Une performance référence malgré l’amertume</h2>
+      <p>
+        En conférence de presse, Nolan Traoré n’a pas cherché à masquer sa déception.
+        Pourtant, sa ligne de statistiques avait de quoi impressionner : 21 points, son nouveau record en NBA,
+        avec 2/4 à trois points et un solide 5/6 sur la ligne des lancers-francs.
+      </p>
+
+      <p>
+        Mais ce seul lancer raté sur la ligne de réparation a pesé lourd.
+        Lors de la première prolongation, Brooklyn aurait pu se mettre à l’abri,
+        mais ce manqué a laissé Boston à trois points (118-115), permettant à Hugo Gonzalez
+        d’égaliser et d’envoyer les deux équipes dans une deuxième prolongation.
+      </p>
+
+      <h2>Une défaite cruelle mais riche d’enseignements</h2>
+      <p>
+        Dans ce deuxième « overtime », ce sont finalement les joueurs de Joe Mazzulla
+        qui feront la différence. Une issue frustrante pour les Nets,
+        et un apprentissage douloureux pour leur jeune meneur.
+      </p>
+
+      <p>
+        « Tu apprends que chaque détail compte. Et chaque erreur se paie cash :
+        c’est ça qui nous a coûté le match », résume lucidement Nolan Traoré,
+        conscient de l’exigence du plus haut niveau.
+      </p>
+
+      <h2>La confiance du coach malgré les axes de progression</h2>
+      <p>
+        À chaud, la déception domine, même si le contexte reste celui d’une saison de reconstruction.
+        Fait notable, c’est encore Traoré qui a terminé la rencontre sur le parquet,
+        devant le meneur titulaire Egor Demin.
+      </p>
+
+      <p>
+        « Nolan a joué des minutes importantes et il a répondu présent », souligne son entraîneur Jordi Fernandez.
+        À seulement 19 ans, le Français a apporté sa capacité à attaquer le cercle,
+        à créer dans le pick-and-roll et à mettre la pression sur la défense,
+        tout en sanctionnant derrière l’arc.
+      </p>
+
+      <p>
+        Le coach attend désormais davantage de leadership vocal :
+        « Évidemment, il y a encore des erreurs, et on a besoin qu’il progresse dans son rôle de meneur,
+        notamment en parlant plus, en utilisant davantage sa voix. Mais c’est un processus,
+        étape par étape, et je lui fais confiance. »
+      </p>
     </div>
   </section>
 </main>
