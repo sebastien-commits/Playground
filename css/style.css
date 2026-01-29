@@ -377,6 +377,53 @@ PATCH MARQUEE (SCORES + TRANSFERTS)
   to  { transform: translate3d(-50%,0,0); }
 }
 
+/* ===== MARQUEE FIX (loop parfait + espacements) ===== */
+
+.marquee{
+  overflow: hidden;
+}
+
+.marquee__track{
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  animation: marqueeLoop 26s linear infinite;
+}
+
+/* si tu veux une vitesse différente sur transferts,
+   tu peux ajouter une classe à la track et changer duration */
+.marquee__track.slow{ animation-duration: 30s; }
+
+.marquee__content{
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* items */
+.item{
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* points : espace identique partout */
+.dot{
+  display: inline-block;
+  margin: 0 18px;
+  white-space: nowrap;
+  opacity: .95;
+}
+
+/* IMPORTANT : boucle parfaite = 2 contenus identiques */
+@keyframes marqueeLoop{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
+
 
 
 
