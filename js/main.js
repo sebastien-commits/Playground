@@ -12,7 +12,7 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
 (function setActiveNav() {
   const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const map = {
-    "index.html": "actus", // accueil = actus
+    "index.html": "actus",
     "actus.html": "actus",
     "equipes.html": "equipes",
     "calendrier.html": "calendrier",
@@ -39,15 +39,9 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
 
 /* =========================================================
    BANNERS PARTIAL + MARQUEE FIX (points + loop sans vide)
-   - injecte partials/banner sur TOUTES les pages
-   - normalise: item • item • item (pas de point en fin)
-   - copie stricte du contenu A vers B (aria-hidden)
-   - distance EXACTE = largeur du bloc A (en px) => zéro trou
 ========================================================= */
 
 (() => {
-  // 👉 Ton fichier: /partials/banner (sans extension)
-  // Si tu l'as renommé en banners.html => remplace par "partials/banners.html"
   function getBannersPath() {
     // pages dans /articles/ => remonter d'un niveau
     return location.pathname.includes("/articles/") ? "../partials/banner" : "partials/banner";
@@ -63,7 +57,6 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
       console.warn("Banners partial introuvable:", url, res.status);
       return;
     }
-
     host.innerHTML = await res.text();
   }
 
@@ -75,11 +68,9 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
   };
 
   function normalizeContent(content) {
-    // On prend UNIQUEMENT les .item (dans l’ordre)
     const items = Array.from(content.querySelectorAll(":scope > .item, :scope > span.item"));
     if (!items.length) return;
 
-    // Reconstruit: item • item • item (PAS de dot final)
     content.replaceChildren();
     items.forEach((item, idx) => {
       if (idx > 0) content.appendChild(makeDot());
@@ -94,21 +85,20 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
     const contents = Array.from(track.querySelectorAll(".marquee__content"));
     if (contents.length < 2) return;
 
-    // 1) Normalise A (premier bloc)
+    // A
     normalizeContent(contents[0]);
 
-    // 2) Copie STRICTE vers B (aria-hidden)
+    // B = copie stricte de A
     for (let i = 1; i < contents.length; i++) {
       contents[i].innerHTML = contents[0].innerHTML;
     }
 
-    // 3) Distance = largeur EXACTE du bloc A (px) => boucle parfaite
+    // distance exacte (px) => 0 vide
     const distance = contents[0].scrollWidth;
 
-    // vitesse (px/s)
     const slow = track.classList.contains("marquee__track--slow");
-    const speed = slow ? 55 : 75;
-    const duration = Math.max(8, distance / speed); // min 8s
+    const speed = slow ? 55 : 75; // px/sec
+    const duration = Math.max(8, distance / speed);
 
     track.style.setProperty("--marquee-distance", distance + "px");
     track.style.setProperty("--marquee-duration", duration + "s");
@@ -119,12 +109,12 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
   }
 
   async function initAll() {
-    // 1) Injecte les bannières (si placeholder présent)
     await injectBanners();
 
-    // 2) Recalcule après chargement complet (logos inclus)
-    //    On lance tout de suite une fois, puis au load.
+    // 1er calcul tout de suite
     initMarquees();
+
+    // recalcul après chargement complet (logos)
     window.addEventListener("load", initMarquees);
   }
 
@@ -134,7 +124,6 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
     initAll();
   }
 
-  // Recalc au resize (debounce)
   window.addEventListener("resize", () => {
     clearTimeout(window.__mq_t);
     window.__mq_t = setTimeout(initMarquees, 150);
