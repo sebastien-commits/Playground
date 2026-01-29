@@ -32,3 +32,31 @@ document.querySelectorAll(".news[data-bg]").forEach(card => {
     window.location.href = `actus.html?q=${encodeURIComponent(q.trim())}`;
   });
 })();
+(function () {
+  function initMarquees() {
+    document.querySelectorAll('.marquee').forEach((marquee) => {
+      const track = marquee.querySelector('.marquee__track');
+      const contents = track ? track.querySelectorAll('.marquee__content') : null;
+      if (!track || !contents || contents.length < 2) return;
+
+      // Distance = largeur EXACTE du 1er bloc (donc zéro trou)
+      const distance = contents[0].scrollWidth;
+
+      // Vitesse en px/s (ajuste si tu veux)
+      const slow = track.classList.contains('marquee__track--slow');
+      const speed = slow ? 55 : 75; // px/sec
+      const duration = distance / speed;
+
+      track.style.setProperty('--marquee-distance', distance + 'px');
+      track.style.setProperty('--marquee-duration', duration + 's');
+    });
+  }
+
+  // au chargement + après le rendu des images
+  window.addEventListener('load', initMarquees);
+  window.addEventListener('resize', () => {
+    // petit debounce simple
+    clearTimeout(window.__mq_t);
+    window.__mq_t = setTimeout(initMarquees, 150);
+  });
+})();
