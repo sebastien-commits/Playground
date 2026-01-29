@@ -1,26 +1,49 @@
 <!-- =========================
-ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
+ARTICLE 1 (ACTU 1) — FIX MARQUEE SCORES/TRANSFERTS
 ========================= -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground — Actu 4</title>
+  <title>Playground — Actu 1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../css/style.css?v=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Override : loop “parfait” (sans vide, sans saccade) + anti double points -->
   <style>
-    /* Patch fluidité bannière SCORES */
-    .banner.scores .marquee__track{
+    /* Loop parfait: contenu doublé + translateX(-50%) */
+    .marquee { overflow: hidden; }
+    .marquee__track {
+      display: flex;
+      width: max-content;
       will-change: transform;
       transform: translate3d(0,0,0);
       backface-visibility: hidden;
+      animation: marqueeScroll 26s linear infinite;
+    }
+    .banner.transfers .marquee__track { animation-duration: 30s; } /* un peu plus lent si tu veux */
+
+    /* Les 2 blocs doivent être identiques et se suivre sans shrink */
+    .marquee__content{
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
 
-    /* Séparateur toujours "espace • espace" même si le CSS change */
-    .sep { white-space: nowrap; }
+    /* Séparateur: espace • espace */
+    .sep{
+      display: inline-block;
+      padding: 0 14px; /* ajuste si besoin */
+      white-space: nowrap;
+    }
+
+    @keyframes marqueeScroll {
+      from { transform: translate3d(0,0,0); }
+      to   { transform: translate3d(-50%,0,0); }
+    }
   </style>
 </head>
 
@@ -39,10 +62,17 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
     <div class="banner scores">
       <span class="label">SCORES</span>
       <div class="marquee">
-        <div class="marquee__track marquee__track--slow">
+        <div class="marquee__track">
 
+          <!-- Bloc 1 -->
           <div class="marquee__content">
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
+            </span>
+
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
@@ -50,19 +80,24 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
             </span>
 
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
               Lakers 112–108 Suns
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
             </span>
-
-            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
+          <!-- Bloc 2 (copie STRICTE du bloc 1, SANS sep au début/fin) -->
           <div class="marquee__content" aria-hidden="true">
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
+            </span>
+
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
@@ -70,15 +105,13 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
             </span>
 
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
               Lakers 112–108 Suns
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
             </span>
-
-            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
         </div>
@@ -89,10 +122,17 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
     <div class="banner transfers">
       <span class="label">TRANSFERTS</span>
       <div class="marquee">
-        <div class="marquee__track marquee__track--slow">
+        <div class="marquee__track">
 
+          <!-- Bloc 1 -->
           <div class="marquee__content">
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+            </span>
+
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
@@ -100,27 +140,24 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
             </span>
 
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
               LeBron James → Cavaliers
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
             </span>
-
-            <span class="sep">&nbsp;•&nbsp;</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
-              Luka Dončić → Lakers
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-            </span>
-
-            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
+          <!-- Bloc 2 (copie STRICTE) -->
           <div class="marquee__content" aria-hidden="true">
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+            </span>
+
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
@@ -128,30 +165,19 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
             </span>
 
-            <span class="sep">&nbsp;•&nbsp;</span>
+            <span class="sep">•</span>
 
             <span class="item">
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
               LeBron James → Cavaliers
               <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
             </span>
-
-            <span class="sep">&nbsp;•&nbsp;</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
-              Luka Dončić → Lakers
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-            </span>
-
-            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
         </div>
       </div>
     </div>
 
-    <!-- ================= MENU ================= -->
     <nav class="menu">
       <a href="../actus.html" class="active">Actus</a>
       <a href="../equipes.html">Équipes</a>
@@ -162,7 +188,6 @@ ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
   </div>
 </header>
 
-<!-- ================= ARTICLE ================= -->
 <main class="article">
   <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
     <img src="../assets/news/actu1.jpg" alt="Illustration actu 1" style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
