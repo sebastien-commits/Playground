@@ -55,9 +55,7 @@ body{
   white-space: nowrap;
 }
 
-/* =========================
-   MARQUEE – DÉFILEMENT PARFAIT
-========================= */
+/* ===== MARQUEE BANNIÈRES (SCORES + TRANSFERTS) ===== */
 
 .marquee {
   overflow: hidden;
@@ -68,46 +66,49 @@ body{
 .marquee__track {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  animation: scroll 25s linear infinite;
 }
 
 .marquee__track--slow {
   animation-duration: 35s;
 }
 
+/* duplication obligatoire pour boucle parfaite */
 .marquee__content {
   display: flex;
   align-items: center;
-  gap: 28px; /* espace TOTAL entre infos */
-  padding-right: 28px;
-  white-space: nowrap;
+  gap: 40px; /* ESPACE ÉGAL ENTRE CHAQUE INFO */
+  padding-right: 40px;
 }
 
-/* Élément texte + logo */
+/* item (texte + logo) */
 .marquee__content .item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  white-space: nowrap;
   font-weight: 600;
 }
 
-/* Logos */
+/* logos */
 .marquee__content img {
-  width: 22px;
   height: 22px;
-  object-fit: contain;
+  width: auto;
+  flex-shrink: 0;
 }
 
-/* Séparateur point parfaitement centré */
+/* séparateur POINT */
 .marquee__content .sep {
-  display: inline-block;
-  width: 6px;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  font-weight: bold;
   opacity: 0.8;
 }
 
-/* Animation sans coupure */
-@keyframes marquee {
+/* animation continue sans blanc */
+@keyframes scroll {
   from {
     transform: translateX(0);
   }
@@ -317,5 +318,6 @@ body{
   .small-grid{ grid-template-columns: 1fr; }
   .card.big{ min-height: 420px; }
 }
+
 
 
