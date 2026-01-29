@@ -55,34 +55,48 @@ body{
   white-space: nowrap;
 }
 
-/* ===== MARQUEE BANNIÈRES (SCORES + TRANSFERTS) ===== */
+/* =========================
+   MARQUEE (SCORES / TRANSFERTS)
+   - boucle sans trou
+   - espacement régulier
+   - point centré
+   ========================= */
 
-.marquee {
+.marquee{
   overflow: hidden;
-  position: relative;
   width: 100%;
+  position: relative;
 }
 
-.marquee__track {
+.marquee__track{
   display: flex;
   width: max-content;
-  animation: scroll 25s linear infinite;
+  will-change: transform;
+  animation: marqueeScroll linear infinite;
+  /* la distance et la durée sont fixées par JS */
+  --marquee-distance: 0px;
+  animation-duration: var(--marquee-duration, 25s);
 }
 
-.marquee__track--slow {
-  animation-duration: 35s;
+@keyframes marqueeScroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(calc(-1 * var(--marquee-distance))); }
 }
 
-/* duplication obligatoire pour boucle parfaite */
-.marquee__content {
+/* les 2 blocs dupliqués doivent être côte à côte */
+.marquee__content{
   display: flex;
   align-items: center;
-  gap: 40px; /* ESPACE ÉGAL ENTRE CHAQUE INFO */
-  padding-right: 40px;
+  flex-shrink: 0;
 }
 
-/* item (texte + logo) */
-.marquee__content .item {
+/* On neutralise tes séparateurs HTML si besoin */
+.marquee__content .sep{
+  display: none;
+}
+
+/* Item = logo + texte */
+.marquee__content .item{
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -90,32 +104,22 @@ body{
   font-weight: 600;
 }
 
-/* logos */
-.marquee__content img {
-  height: 22px;
+/* LOGOS */
+.marquee__content img{
+  height: 20px;
   width: auto;
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 
-/* séparateur POINT */
-.marquee__content .sep {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 12px;
-  font-weight: bold;
-  opacity: 0.8;
+/* Point + espace EXACTEMENT identique entre chaque info */
+.marquee__content .item:not(:last-child)::after{
+  content: "•";
+  display: inline-block;
+  margin: 0 22px;      /* ← espace gauche/droite du point (ajuste si tu veux) */
+  opacity: 0.85;
+  font-weight: 800;
 }
 
-/* animation continue sans blanc */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
 
 
 .item{
@@ -318,6 +322,7 @@ body{
   .small-grid{ grid-template-columns: 1fr; }
   .card.big{ min-height: 420px; }
 }
+
 
 
 
