@@ -1,5 +1,5 @@
 <!-- =========================
-ARTICLE 1 (ACTU 4) — FIX SCORES + TRANSFERTS
+ARTICLE 1 (ACTU 4) — FIX SEPARATORS + FLUIDITÉ SCORES
 ========================= -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,13 +11,16 @@ ARTICLE 1 (ACTU 4) — FIX SCORES + TRANSFERTS
   <link rel="stylesheet" href="../css/style.css?v=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Patch fluidité bannière SCORES -->
   <style>
+    /* Patch fluidité bannière SCORES */
     .banner.scores .marquee__track{
       will-change: transform;
       transform: translate3d(0,0,0);
       backface-visibility: hidden;
     }
+
+    /* Séparateur toujours "espace • espace" même si le CSS change */
+    .sep { white-space: nowrap; }
   </style>
 </head>
 
@@ -39,19 +42,43 @@ ARTICLE 1 (ACTU 4) — FIX SCORES + TRANSFERTS
         <div class="marquee__track marquee__track--slow">
 
           <div class="marquee__content">
-            <!-- ✅ espace après le point -->
-            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
-            <span class="sep">•</span>
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
           <div class="marquee__content" aria-hidden="true">
-            <!-- ✅ espace après le point -->
-            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
-            <span class="sep">•</span>
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
         </div>
@@ -65,23 +92,59 @@ ARTICLE 1 (ACTU 4) — FIX SCORES + TRANSFERTS
         <div class="marquee__track marquee__track--slow">
 
           <div class="marquee__content">
-            <!-- ✅ espace après le point -->
-            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg"> Giannis Antetokounmpo → Knicks <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> LeBron James → Cavaliers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg"></span>
-            <span class="sep">•</span>
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
+              Giannis Antetokounmpo → Knicks
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              LeBron James → Cavaliers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
           <div class="marquee__content" aria-hidden="true">
-            <!-- ✅ espace après le point -->
-            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg"> Giannis Antetokounmpo → Knicks <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> LeBron James → Cavaliers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg"></span>
-            <span class="sep">•</span>
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
+              Giannis Antetokounmpo → Knicks
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              LeBron James → Cavaliers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
+
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+            </span>
+
+            <span class="sep">&nbsp;•&nbsp;</span>
           </div>
 
         </div>
