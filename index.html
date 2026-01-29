@@ -4,104 +4,19 @@
   <meta charset="UTF-8" />
   <title>Playground — Accueil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS global -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="topbar">
-  <div class="top-right">
-    <a href="index.html">
-      <img src="logo-playground.png" alt="PLAYGROUND" class="logo-img">
-    </a>
-  </div>
+  <!-- HEADER injecté ici (UNIQUE) -->
+  <div id="site-header"></div>
 
-  <div class="top-left" data-banners></div>
-</header>
-
-<script src="js/main.js"></script>
-    <!-- Logo (colonne gauche) -->
-    <div class="top-right">
-      <a href="index.html">
-        <img src="logo-playground.png" alt="PLAYGROUND" class="logo-img">
-      </a>
-    </div>
-
-    <!-- Contenu header (colonne droite) -->
-    <div class="top-left">
-
-      <!-- ✅ BANNIÈRES : chargées automatiquement depuis /partials/banner -->
-      <!-- (le JS va fetch le fichier et l’injecter ici) -->
-      <div id="banners"></div>
-
-      <!-- MENU -->
-      <nav class="menu">
-        <button class="search-btn" aria-label="Rechercher">🔍</button>
-
-        <a href="actus.html" data-nav="actus">Actus</a>
-        <a href="equipes.html" data-nav="equipes">Équipes</a>
-        <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
-        <a href="classement.html" data-nav="classement">Classement</a>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- ================= CONTENU HOMEPAGE ================= -->
+  <!-- ✅ TON CONTENU ACCUEIL (ne touche pas si tu as déjà ta grid) -->
   <main class="content">
-
-    <!-- Grid home : 1 grande carte + 4 petites -->
-    <section class="home-grid">
-
-      <!-- Grande actu (gauche) -->
-      <a class="card big"
-         href="articles/article-1.html"
-         style="background-image:url('assets/news/actu1.jpg')">
-        <div class="card__overlay">
-          <h3>La grande soirée de Derrick Rose</h3>
-        </div>
-      </a>
-
-      <!-- Petites cartes (droite) -->
-      <a class="card small"
-         href="article.html"
-         style="background-image:url('assets/news/actu2.jpg')">
-        <div class="card__overlay">
-          <h3>Domantas Sabonis enfin de retour</h3>
-        </div>
-      </a>
-
-      <a class="card small"
-         href="article.html"
-         style="background-image:url('assets/news/actu3.jpg')">
-        <div class="card__overlay">
-          <h3>Duel intense à l’Ouest</h3>
-        </div>
-      </a>
-
-      <a class="card small"
-         href="article.html"
-         style="background-image:url('assets/news/actu4.jpg')">
-        <div class="card__overlay">
-          <h3>Une célébration inoubliable</h3>
-        </div>
-      </a>
-
-      <a class="card small"
-         href="article.html"
-         style="background-image:url('assets/news/actu5.jpg')">
-        <div class="card__overlay">
-          <h3>Brooklyn frappe fort</h3>
-        </div>
-      </a>
-
-    </section>
+    <!-- Mets ici ton HTML actuel de la homepage (home-grid + cards) -->
   </main>
 
-  <!-- JS global (inject banners + fixe marquee) -->
   <script src="js/main.js"></script>
 </body>
 </html>
