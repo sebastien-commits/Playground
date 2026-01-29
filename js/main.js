@@ -1,4 +1,8 @@
-// Background images via data-bg
+// ===============================
+// Playground - main.js
+// ===============================
+
+// Background images via data-bg (si tu utilises des cards en data-bg)
 document.querySelectorAll(".news[data-bg]").forEach((card) => {
   const url = card.getAttribute("data-bg");
   if (url) card.style.backgroundImage = `url('${url}')`;
@@ -33,10 +37,36 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
   });
 })();
 
-/* =========================
-   MARQUEE FIX (DOTS + LOOP SANS VIDE)
-   ========================= */
+/* =========================================================
+   BANNERS PARTIAL + MARQUEE FIX (points + loop sans vide)
+   - injecte partials/banner sur TOUTES les pages
+   - normalise: item • item • item (pas de point en fin)
+   - copie stricte du contenu A vers B (aria-hidden)
+   - distance EXACTE = largeur du bloc A (en px) => zéro trou
+========================================================= */
+
 (() => {
+  // 👉 Ton fichier: /partials/banner (sans extension)
+  // Si tu l'as renommé en banners.html => remplace par "partials/banners.html"
+  function getBannersPath() {
+    // pages dans /articles/ => remonter d'un niveau
+    return location.pathname.includes("/articles/") ? "../partials/banner" : "partials/banner";
+  }
+
+  async function injectBanners() {
+    const host = document.getElementById("banners");
+    if (!host) return;
+
+    const url = getBannersPath();
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) {
+      console.warn("Banners partial introuvable:", url, res.status);
+      return;
+    }
+
+    host.innerHTML = await res.text();
+  }
+
   const makeDot = () => {
     const dot = document.createElement("span");
     dot.className = "dot";
@@ -44,58 +74,69 @@ document.querySelectorAll(".news[data-bg]").forEach((card) => {
     return dot;
   };
 
-  const normalizeContent = (content) => {
-    // Récupère les .item dans l’ordre
-    const items = Array.from(content.querySelectorAll(".item"));
+  function normalizeContent(content) {
+    // On prend UNIQUEMENT les .item (dans l’ordre)
+    const items = Array.from(content.querySelectorAll(":scope > .item, :scope > span.item"));
     if (!items.length) return;
 
-    // Reconstruit: item + dot + item + dot...
+    // Reconstruit: item • item • item (PAS de dot final)
     content.replaceChildren();
     items.forEach((item, idx) => {
       if (idx > 0) content.appendChild(makeDot());
       content.appendChild(item.cloneNode(true));
     });
+  }
 
-    // IMPORTANT : PAS de point à la fin.
-    // Le raccord fin->début est assuré par la duplication du contenu.
-  };
-
-  const setupMarquee = (marquee) => {
+  function setupOneMarquee(marquee) {
     const track = marquee.querySelector(".marquee__track");
     if (!track) return;
 
     const contents = Array.from(track.querySelectorAll(".marquee__content"));
     if (contents.length < 2) return;
 
-    // 1) Normalise le contenu A
+    // 1) Normalise A (premier bloc)
     normalizeContent(contents[0]);
 
-    // 2) Force le contenu B (aria-hidden) à être une copie STRICTE de A
+    // 2) Copie STRICTE vers B (aria-hidden)
     for (let i = 1; i < contents.length; i++) {
       contents[i].innerHTML = contents[0].innerHTML;
     }
 
-    // 3) Calcule la distance exacte du bloc A => boucle parfaite sans vide
+    // 3) Distance = largeur EXACTE du bloc A (px) => boucle parfaite
     const distance = contents[0].scrollWidth;
 
-    // Vitesse en px/s (ajuste si tu veux)
+    // vitesse (px/s)
     const slow = track.classList.contains("marquee__track--slow");
-    const speed = slow ? 55 : 75; // px/sec
-    const duration = distance / speed;
+    const speed = slow ? 55 : 75;
+    const duration = Math.max(8, distance / speed); // min 8s
 
     track.style.setProperty("--marquee-distance", distance + "px");
     track.style.setProperty("--marquee-duration", duration + "s");
-  };
+  }
 
-  const init = () => {
-    document.querySelectorAll(".marquee").forEach(setupMarquee);
-  };
+  function initMarquees() {
+    document.querySelectorAll(".banner .marquee").forEach(setupOneMarquee);
+  }
 
-  // Après chargement complet (logos inclus) + recalcul au resize
-  window.addEventListener("load", init);
+  async function initAll() {
+    // 1) Injecte les bannières (si placeholder présent)
+    await injectBanners();
 
+    // 2) Recalcule après chargement complet (logos inclus)
+    //    On lance tout de suite une fois, puis au load.
+    initMarquees();
+    window.addEventListener("load", initMarquees);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAll);
+  } else {
+    initAll();
+  }
+
+  // Recalc au resize (debounce)
   window.addEventListener("resize", () => {
     clearTimeout(window.__mq_t);
-    window.__mq_t = setTimeout(init, 150);
+    window.__mq_t = setTimeout(initMarquees, 150);
   });
 })();
