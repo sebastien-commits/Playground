@@ -2,153 +2,36 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground</title>
+  <title>Playground — Classement</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo-playground.png">
 </head>
 
 <body>
 
 <header class="topbar">
-
-  <!-- LOGO À GAUCHE (clic = accueil) -->
   <div class="top-right">
     <a href="index.html">
-      <img src="logo-playground.png" alt="PLAYGROUND">
+      <img src="logo-playground.png" alt="PLAYGROUND" class="logo-img">
     </a>
   </div>
 
-  <!-- BANNIÈRES + MENU -->
   <div class="top-left">
+    <div id="banners"></div>
 
-    <!-- SCORES -->
-    <div class="banner scores">
-      <span class="label">SCORES</span>
-
-      <div class="marquee">
-        <div class="marquee__track">
-
-          <div class="marquee__content">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg">
-              Celtics 120–114 Knicks
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
-              Bulls 104–99 Heat
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-              Lakers 112–108 Suns
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-          <!-- DUPLICATION POUR BOUCLE PARFAITE -->
-          <div class="marquee__content" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg">
-              Celtics 120–114 Knicks
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
-              Bulls 104–99 Heat
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-              Lakers 112–108 Suns
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- TRANSFERTS -->
-    <div class="banner transfers">
-      <span class="label">TRANSFERTS</span>
-
-      <div class="marquee">
-        <div class="marquee__track marquee__track--slow">
-
-          <div class="marquee__content">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
-              Luka Dončić → Lakers (fictif)
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
-              Giannis → Heat (fictif)
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-          <!-- DUPLICATION -->
-          <div class="marquee__content" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
-              Luka Dončić → Lakers (fictif)
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-            </span>
-            <span class="sep">•</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
-              Giannis → Heat (fictif)
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
-            </span>
-            <span class="sep">•</span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- MENU -->
     <nav class="menu">
-      <button class="search-btn">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-
+      <button class="search-btn" aria-label="Rechercher">🔍</button>
       <a href="actus.html" data-nav="actus">Actus</a>
       <a href="equipes.html" data-nav="equipes">Équipes</a>
       <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
-      <a href="classement.html" data-nav="classement" class="active">Classement</a>
+      <a href="classement.html" data-nav="classement">Classement</a>
     </nav>
-
   </div>
 </header>
 
-<!-- CONTENU PAGE -->
 <main class="content">
   <h1>Classement</h1>
-  <p>Page classement à venir.</p>
+  <p>Contenu classement…</p>
 </main>
 
 <script src="js/main.js"></script>
