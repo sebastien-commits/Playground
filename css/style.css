@@ -1,17 +1,23 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
-/* FOND GLOBAL */
+/* =========================
+   FOND GLOBAL
+========================= */
 body{
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #ff9a00 0%, #ffc400 55%, #ffd400 100%);
   min-height: 100vh;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .topbar{
   display: flex;
   gap: 24px;
@@ -36,7 +42,9 @@ body{
   min-width: 0;
 }
 
-/* BANNIÈRES */
+/* =========================
+   BANNIÈRES
+========================= */
 .banner{
   display: flex;
   align-items: center;
@@ -57,11 +65,9 @@ body{
 
 /* =========================
    MARQUEE (SCORES / TRANSFERTS)
-   - boucle sans trou (2 contenus identiques)
-   - distance en px via --marquee-distance (calculée en JS)
-   - durée via --marquee-duration (calculée en JS)
-   ========================= */
-
+   - la boucle parfaite est gérée par JS via --marquee-distance / --marquee-duration
+   - ce CSS NE TOUCHE PAS la homepage
+========================= */
 .banner .marquee{
   overflow: hidden;
   width: 100%;
@@ -74,14 +80,13 @@ body{
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
 
-  /* valeurs par défaut (JS remplace par px et secondes) */
-  --marquee-distance: 0px;
+  /* valeurs par défaut si JS ne passe pas */
+  --marquee-distance: 50%;
   --marquee-duration: 25s;
 
-  animation: scroll var(--marquee-duration) linear infinite;
+  animation: marqueeScroll var(--marquee-duration) linear infinite;
 }
 
-/* IMPORTANT : pas de gap ici sinon tu crées un vide entre les 2 contenus */
 .banner .marquee__content{
   display: inline-flex;
   align-items: center;
@@ -98,9 +103,10 @@ body{
   font-weight: 700;
 }
 
-/* Séparateur (créé/normalisé par JS) */
+/* Séparateur */
 .banner .dot{
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin: 0 16px;
   opacity: 0.7;
   white-space: nowrap;
@@ -115,18 +121,18 @@ body{
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
 
-/* Boucle parfaite : translation = largeur exacte du contenu A (en px) */
-@keyframes scroll{
+@keyframes marqueeScroll{
   from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(calc(-1 * var(--marquee-distance, 0px)),0,0); }
+  to   { transform: translate3d(calc(-1 * var(--marquee-distance)), 0, 0); }
 }
 
-/* Accessibilité */
 @media (prefers-reduced-motion: reduce){
   .banner .marquee__track{ animation: none; }
 }
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
 .menu{
   display: flex;
   align-items: center;
@@ -147,6 +153,11 @@ body{
   background: rgba(255,255,255,.25);
 }
 
+.menu a.active{
+  background: rgba(255,255,255,.28);
+}
+
+/* Bouton recherche (si présent) */
 .search-btn{
   border: 0;
   background: rgba(255,255,255,.30);
@@ -157,12 +168,103 @@ body{
   box-shadow: 0 8px 18px rgba(0,0,0,.10);
 }
 
-/* CONTENU */
+/* =========================
+   CONTENU
+========================= */
 .content{
   padding: 18px 22px 40px;
 }
 
-/* NOTE:
-   Le layout homepage dépend de ton HTML et de tes règles existantes.
-   Je n’ajoute aucun “patch home-grid” ici pour éviter de casser l’accueil.
-*/
+/* =========================
+   HOMEPAGE GRID (LA BONNE : 1 grande + 4 petites)
+========================= */
+.home-grid{
+  display: grid;
+  grid-template-columns: 1.55fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* =========================
+   CARDS (UNE SEULE VERSION)
+========================= */
+.card{
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 16px 28px rgba(0,0,0,.18);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
+}
+
+.card__overlay{
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
+  color: #fff;
+}
+
+.card__overlay h3{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+/* La grande prend 2 lignes */
+.card.big{
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.card.small{
+  min-height: 0;
+}
+
+/* =========================
+   RESPONSIVE HOMEPAGE
+========================= */
+@media (max-width: 1100px){
+  .home-grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 200px 200px;
+  }
+  .card.big{
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+}
+
+@media (max-width: 680px){
+  .topbar{
+    flex-direction: column;
+  }
+  .top-right{
+    width: auto;
+    flex: 0 0 auto;
+  }
+  .menu{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .home-grid{
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 190px 190px 190px 190px;
+  }
+  .card.big{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
