@@ -1,5 +1,5 @@
 <!-- =========================
-ARTICLE 1 (ACTU 4) — MAJ TRANSFERTS
+ARTICLE 1 (ACTU 4) — FIX SCORES + TRANSFERTS
 ========================= -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,6 +10,15 @@ ARTICLE 1 (ACTU 4) — MAJ TRANSFERTS
 
   <link rel="stylesheet" href="../css/style.css?v=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Patch fluidité bannière SCORES -->
+  <style>
+    .banner.scores .marquee__track{
+      will-change: transform;
+      transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,50 +32,63 @@ ARTICLE 1 (ACTU 4) — MAJ TRANSFERTS
 
   <div class="top-left">
 
+    <!-- ================= SCORES ================= -->
     <div class="banner scores">
       <span class="label">SCORES</span>
       <div class="marquee">
-        <div class="marquee__track">
+        <div class="marquee__track marquee__track--slow">
+
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
+            <!-- ✅ espace après le point -->
+            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
             <span class="sep">•</span>
             <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
             <span class="sep">•</span>
           </div>
+
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
+            <!-- ✅ espace après le point -->
+            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
             <span class="sep">•</span>
             <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
             <span class="sep">•</span>
           </div>
+
         </div>
       </div>
     </div>
 
+    <!-- ================= TRANSFERTS ================= -->
     <div class="banner transfers">
       <span class="label">TRANSFERTS</span>
       <div class="marquee">
         <div class="marquee__track marquee__track--slow">
+
           <div class="marquee__content">
-            <span class="item">•<img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
+            <!-- ✅ espace après le point -->
+            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
             <span class="sep">•</span>
             <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg"> Giannis Antetokounmpo → Knicks <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg"></span>
             <span class="sep">•</span>
             <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> LeBron James → Cavaliers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg"></span>
             <span class="sep">•</span>
           </div>
+
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
+            <!-- ✅ espace après le point -->
+            <span class="item">• <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
             <span class="sep">•</span>
             <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg"> Giannis Antetokounmpo → Knicks <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg"></span>
             <span class="sep">•</span>
             <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> LeBron James → Cavaliers <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg"></span>
             <span class="sep">•</span>
           </div>
+
         </div>
       </div>
     </div>
 
+    <!-- ================= MENU ================= -->
     <nav class="menu">
       <a href="../actus.html" class="active">Actus</a>
       <a href="../equipes.html">Équipes</a>
@@ -77,9 +99,8 @@ ARTICLE 1 (ACTU 4) — MAJ TRANSFERTS
   </div>
 </header>
 
+<!-- ================= ARTICLE ================= -->
 <main class="article">
-
-  <!-- Header article : grid pour aligner le texte sous la photo -->
   <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
     <img src="../assets/news/actu1.jpg" alt="Illustration actu 1" style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
 
@@ -88,7 +109,6 @@ ARTICLE 1 (ACTU 4) — MAJ TRANSFERTS
       <div class="date">Publié le 24 janvier 2026</div>
     </div>
 
-    <!-- Le texte commence “sous le bloc” meta, aligné avec le bas photo -->
     <div class="article-content" style="grid-column:2;">
       <p>
         À l’occasion du match NBA entre les Chicago Bulls et les Boston Celtics, la franchise de Chicago
