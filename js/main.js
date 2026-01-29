@@ -60,3 +60,26 @@ document.querySelectorAll(".news[data-bg]").forEach(card => {
     window.__mq_t = setTimeout(initMarquees, 150);
   });
 })();
+document.addEventListener("DOMContentLoaded", () => {
+  // Normalise les bannières: enlève dot/sep existants et remet un dot propre entre chaque item.
+  const contents = document.querySelectorAll(".topbar .banner .marquee__content");
+
+  contents.forEach((content) => {
+    // 1) Récupère uniquement les items (dans l'ordre)
+    const items = Array.from(content.querySelectorAll(".item"));
+
+    // 2) Vide le contenu actuel (ça supprime les .dot, .sep, et les "•" mal placés)
+    content.textContent = "";
+    // Si tu as des images (logos) dans les items, il faut cloner les nodes, pas textContent:
+    // => On reconstruit en clonant les items.
+    items.forEach((item, idx) => {
+      if (idx > 0) {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.innerHTML = "&nbsp;•&nbsp;";
+        content.appendChild(dot);
+      }
+      content.appendChild(item.cloneNode(true));
+    });
+  });
+});
