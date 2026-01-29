@@ -9,67 +9,50 @@
 
 <body>
 
-<header class="topbar">
-  <div class="top-right">
-    <a href="../index.html">
-      <img src="../logo-playground.png" alt="PLAYGROUND" class="logo-img">
-    </a>
-  </div>
+  <!-- HEADER injecté ici -->
+  <div id="site-header"></div>
 
-  <div class="top-left" data-banners></div>
-</header>
+  <!-- ================= ARTICLE ================= -->
+  <main class="article">
 
-<script src="../js/main.js"></script>
-    <!-- ✅ BANNIÈRES PARTAGÉES -->
-    <div id="banners"></div>
+    <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
+      <img src="../assets/news/actu1.jpg" alt="Illustration actu 1"
+           style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
 
-    <nav class="menu">
-      <a href="../actus.html" data-nav="actus">Actus</a>
-      <a href="../equipes.html" data-nav="equipes">Équipes</a>
-      <a href="../calendrier.html" data-nav="calendrier">Calendrier</a>
-      <a href="../classement.html" data-nav="classement">Classement</a>
-    </nav>
-  </div>
-</header>
+      <div class="article-meta">
+        <h1>La grande soirée de Derrick Rose : les Bulls retirent le numéro 1</h1>
+        <div class="date">Publié le 24 janvier 2026</div>
+      </div>
 
-<main class="article">
-  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
-    <img src="../assets/news/actu1.jpg" alt="Illustration actu 1"
-         style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
+      <div class="article-content" style="grid-column:2;">
+        <p>
+          À l’occasion du match NBA entre les Chicago Bulls et les Boston Celtics, la franchise de Chicago
+          rendra un hommage historique à Derrick Rose en retirant officiellement son numéro 1.
+          Le plus jeune MVP de l’histoire de la NBA verra ainsi son maillot rejoindre les légendes du United Center.
+        </p>
 
-    <div class="article-meta">
-      <h1>La grande soirée de Derrick Rose : les Bulls retirent le numéro 1</h1>
-      <div class="date">Publié le 24 janvier 2026</div>
-    </div>
+        <h2>Le numéro 1 de Derrick Rose retiré au United Center</h2>
+        <p>
+          Le 24 janvier 2026 restera une date majeure dans l’histoire des Bulls. Le maillot de Derrick Rose
+          sera hissé au plafond du United Center aux côtés de ceux de Michael Jordan,
+          Scottie Pippen, Bob Love et Jerry Sloan.
+        </p>
 
-    <div class="article-content" style="grid-column:2;">
-      <p>
-        À l’occasion du match NBA entre les Chicago Bulls et les Boston Celtics, la franchise de Chicago
-        rendra un hommage historique à Derrick Rose en retirant officiellement son numéro 1.
-        Le plus jeune MVP de l’histoire de la NBA verra ainsi son maillot rejoindre les légendes du United Center.
-      </p>
+        <p>
+          Sur le parquet, les Bulls affronteront les Celtics, tandis que plusieurs anciens joueurs emblématiques
+          assisteront à la cérémonie. La présence de l’ancien entraîneur Tom Thibodeau est également attendue.
+        </p>
 
-      <h2>Le numéro 1 de Derrick Rose retiré au United Center</h2>
-      <p>
-        Le 24 janvier 2026 restera une date majeure dans l’histoire des Bulls. Le maillot de Derrick Rose
-        sera hissé au plafond du United Center aux côtés de ceux de Michael Jordan,
-        Scottie Pippen, Bob Love et Jerry Sloan.
-      </p>
+        <h2>Derrick Rose, un symbole fort pour Chicago</h2>
+        <p>
+          Originaire de Chicago, Derrick Rose a marqué le retour des Bulls au premier plan.
+          Son histoire reste l’une des plus marquantes pour les fans de la franchise.
+        </p>
+      </div>
+    </section>
 
-      <p>
-        Sur le parquet, les Bulls affronteront les Celtics, tandis que plusieurs anciens joueurs emblématiques
-        assisteront à la cérémonie. La présence de l’ancien entraîneur Tom Thibodeau est également attendue.
-      </p>
+  </main>
 
-      <h2>Derrick Rose, un symbole fort pour Chicago</h2>
-      <p>
-        Originaire de Chicago, Derrick Rose a marqué le retour des Bulls au premier plan.
-        Son histoire reste l’une des plus marquantes pour les fans de la franchise.
-      </p>
-    </div>
-  </section>
-</main>
-
-<script src="../js/main.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
