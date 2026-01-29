@@ -36,7 +36,6 @@ body{
   height: auto;
 }
 
-/* Zone droite header */
 .top-left{
   flex: 1;
   min-width: 0;
@@ -64,9 +63,7 @@ body{
 }
 
 /* =========================
-   MARQUEE (SCORES / TRANSFERTS)
-   - la boucle parfaite est gérée par JS via --marquee-distance / --marquee-duration
-   - ce CSS NE TOUCHE PAS la homepage
+   MARQUEE (animation gérée par JS)
 ========================= */
 .banner .marquee{
   overflow: hidden;
@@ -80,7 +77,6 @@ body{
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
 
-  /* valeurs par défaut si JS ne passe pas */
   --marquee-distance: 50%;
   --marquee-duration: 25s;
 
@@ -94,36 +90,29 @@ body{
   flex-shrink: 0;
 }
 
-/* Item (logo + texte + logo) */
 .banner .item{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  white-space: nowrap;
   font-weight: 700;
+  white-space: nowrap;
 }
 
-/* Séparateur */
 .banner .dot{
   display: inline-flex;
-  align-items: center;
   margin: 0 16px;
   opacity: 0.7;
-  white-space: nowrap;
-  line-height: 1;
 }
 
-/* Logos équipes */
 .team-logo{
   width: 20px;
   height: 20px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
 
 @keyframes marqueeScroll{
   from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(calc(-1 * var(--marquee-distance)), 0, 0); }
+  to   { transform: translate3d(calc(-1 * var(--marquee-distance)),0,0); }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -135,11 +124,9 @@ body{
 ========================= */
 .menu{
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  gap: 18px;
+  align-items: center;
   margin: 16px 0 10px;
-  padding: 14px 10px;
 }
 
 .menu a{
@@ -149,23 +136,9 @@ body{
   border-radius: 999px;
 }
 
-.menu a:hover{
-  background: rgba(255,255,255,.25);
-}
-
+.menu a:hover,
 .menu a.active{
-  background: rgba(255,255,255,.28);
-}
-
-/* Bouton recherche (si présent) */
-.search-btn{
-  border: 0;
-  background: rgba(255,255,255,.30);
-  border-radius: 999px;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 18px;
-  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+  background: rgba(255,255,255,.25);
 }
 
 /* =========================
@@ -175,15 +148,23 @@ body{
   padding: 18px 22px 40px;
 }
 
-/* =========================
-   HOMEPAGE GRID (LA BONNE : 1 grande + 4 petites)
-========================= */
+/* =====================================================
+   ✅ HOMEPAGE – VERSION CORRECTE (1 GRANDE + 4 PETITES)
+===================================================== */
 .home-grid{
+  width: min(1200px, calc(100% - 60px));
+  margin: 40px auto 60px;
   display: grid;
-  grid-template-columns: 1.55fr 1fr 1fr;
-  grid-template-rows: 220px 220px;
+  grid-template-columns: 1.3fr 1fr;
   gap: 22px;
-  align-items: stretch;
+}
+
+/* colonne droite */
+.small-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
 }
 
 /* =========================
@@ -196,8 +177,6 @@ body{
   box-shadow: 0 16px 28px rgba(0,0,0,.18);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  transform: translateZ(0);
 }
 
 .card::after{
@@ -207,64 +186,47 @@ body{
   background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
 }
 
+.card.big{
+  min-height: 520px;
+}
+
+.card.small{
+  min-height: 245px;
+}
+
 .card__overlay{
   position: absolute;
   left: 18px;
   right: 18px;
   bottom: 16px;
-  z-index: 2;
   color: #fff;
+  z-index: 2;
 }
 
 .card__overlay h3{
   margin: 0;
   font-size: 22px;
   font-weight: 900;
-  text-shadow: 0 2px 8px rgba(0,0,0,.35);
-}
-
-/* La grande prend 2 lignes */
-.card.big{
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-}
-
-.card.small{
-  min-height: 0;
 }
 
 /* =========================
-   RESPONSIVE HOMEPAGE
+   RESPONSIVE
 ========================= */
-@media (max-width: 1100px){
+@media (max-width: 980px){
   .home-grid{
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 240px 200px 200px;
+    grid-template-columns: 1fr;
   }
-  .card.big{
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
+  .small-grid{
+    grid-template-columns: 1fr;
   }
+  .card.big{ min-height: 420px; }
 }
 
 @media (max-width: 680px){
   .topbar{
     flex-direction: column;
   }
-  .top-right{
-    width: auto;
-    flex: 0 0 auto;
-  }
   .menu{
     flex-wrap: wrap;
-    justify-content: center;
-  }
-  .home-grid{
-    grid-template-columns: 1fr;
-    grid-template-rows: 260px 190px 190px 190px 190px;
-  }
-  .card.big{
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
   }
 }
