@@ -74,7 +74,9 @@ body{
   will-change: transform;
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
-  animation: scroll 25s linear infinite;
+  --marquee-distance: 50%;
+  --marquee-duration: 25s;
+  animation: scroll var(--marquee-duration, 25s) linear infinite;
 }
 
 /* IMPORTANT : pas de gap ici sinon tu crées un "vide" entre les 2 contenus */
@@ -111,10 +113,10 @@ body{
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
 
-/* Boucle parfaite : translate -50% (si 2 contenus identiques) */
+/* Boucle parfaite : translate de la largeur du 1er bloc */
 @keyframes scroll{
   from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
+  to   { transform: translate3d(calc(-1 * var(--marquee-distance, 50%)),0,0); }
 }
 
 /* MENU */
@@ -215,7 +217,9 @@ body{
   will-change:transform;
   transform:translate3d(0,0,0);
   backface-visibility:hidden;
-  animation: scroll 25s linear infinite;
+  --marquee-distance: 50%;
+  --marquee-duration: 25s;
+  animation: scroll var(--marquee-duration, 25s) linear infinite;
 }
 
 /* IMPORTANT : pas de gap ici */
@@ -244,7 +248,5 @@ body{
 /* boucle parfaite */
 @keyframes scroll{
   from{ transform: translate3d(0,0,0); }
-  to  { transform: translate3d(-50%,0,0); }
+  to  { transform: translate3d(calc(-1 * var(--marquee-distance, 50%)),0,0); }
 }
-
-
