@@ -206,4 +206,45 @@ body{
   .card.big{ min-height: 420px; }
 }
 
+/* ===== FIX MARQUEE (UNIQUEMENT DANS LE HEADER) ===== */
+.topbar .banner .marquee{ overflow:hidden; width:100%; }
+
+.topbar .banner .marquee__track{
+  display:flex;
+  width:max-content;
+  will-change:transform;
+  transform:translate3d(0,0,0);
+  backface-visibility:hidden;
+  animation: scroll 25s linear infinite;
+}
+
+/* IMPORTANT : pas de gap ici */
+.topbar .banner .marquee__content{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.topbar .banner .item{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  white-space:nowrap;
+  font-weight:700;
+}
+
+.topbar .banner .dot{
+  display:inline-block;
+  margin:0 16px;
+  opacity:.7;
+  white-space:nowrap;
+}
+
+/* boucle parfaite */
+@keyframes scroll{
+  from{ transform: translate3d(0,0,0); }
+  to  { transform: translate3d(-50%,0,0); }
+}
+
 
