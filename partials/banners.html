@@ -1,3 +1,6 @@
+<!-- partials/banners.html -->
+<!-- IMPORTANT : {{BASE}} sera remplacé par le JS ("" ou "..") -->
+
 <!-- ================= SCORES ================= -->
 <div class="banner">
   <span class="label">SCORES</span>
@@ -6,21 +9,25 @@
       <!-- CONTENU A -->
       <div class="marquee__content">
         <span class="item">
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
           Lakers 112–108 Suns
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
         </span>
 
+        <span class="dot">&nbsp;•&nbsp;</span>
+
         <span class="item">
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
           Bulls 104–99 Heat
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
         </span>
 
+        <span class="dot">&nbsp;•&nbsp;</span>
+
         <span class="item">
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg">
           Celtics 120–114 Knicks
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
         </span>
       </div>
 
@@ -38,21 +45,25 @@
       <!-- CONTENU A -->
       <div class="marquee__content">
         <span class="item">
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg">
+          Giannis Antetokounmpo → Knicks
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg">
+        </span>
+
+        <span class="dot">&nbsp;•&nbsp;</span>
+
+        <span class="item">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
           LeBron James → Cavaliers
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
         </span>
 
+        <span class="dot">&nbsp;•&nbsp;</span>
+
         <span class="item">
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
           Luka Dončić → Lakers
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="">
-        </span>
-
-        <span class="item">
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="">
-          Giannis → Heat
-          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="">
+          <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
         </span>
       </div>
 
@@ -61,3 +72,13 @@
     </div>
   </div>
 </div>
+
+<!-- MENU -->
+<nav class="menu">
+  <button class="search-btn" type="button" aria-label="Rechercher">🔍</button>
+
+  <a href="{{BASE}}/actus.html" data-nav="actus">Actus</a>
+  <a href="{{BASE}}/equipes.html" data-nav="equipes">Équipes</a>
+  <a href="{{BASE}}/calendrier.html" data-nav="calendrier">Calendrier</a>
+  <a href="{{BASE}}/classement.html" data-nav="classement">Classement</a>
+</nav>
