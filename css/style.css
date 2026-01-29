@@ -73,14 +73,11 @@ body{
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
 
-  /* valeurs par défaut si JS n’a pas encore calculé */
-  --marquee-distance: 800px;
-  --marquee-duration: 25s;
-
+  --marquee-distance: 800px; /* fallback */
+  --marquee-duration: 25s;   /* fallback */
   animation: scroll var(--marquee-duration) linear infinite;
 }
 
-/* IMPORTANT: pas de gap ici (sinon “trou” entre A et B) */
 .banner .marquee__content{
   display: inline-flex;
   align-items: center;
@@ -88,7 +85,6 @@ body{
   flex-shrink: 0;
 }
 
-/* item = logo + texte + logo */
 .banner .item{
   display: inline-flex;
   align-items: center;
@@ -97,7 +93,6 @@ body{
   font-weight: 700;
 }
 
-/* séparateur */
 .banner .dot{
   display: inline-flex;
   align-items: center;
@@ -107,7 +102,6 @@ body{
   line-height: 1;
 }
 
-/* Logos équipes */
 .team-logo{
   width: 20px;
   height: 20px;
@@ -141,13 +135,12 @@ body{
   background: rgba(255,255,255,.25);
 }
 
-/* (si tu veux un état actif) */
 .menu a.active{
   background: rgba(255,255,255,.30);
   box-shadow: 0 8px 18px rgba(0,0,0,.10);
 }
 
-/* Bouton loupe */
+/* bouton loupe */
 .search-btn{
   border: 0;
   background: rgba(255,255,255,.30);
@@ -164,42 +157,42 @@ body{
 }
 
 /* =========================
-   HOMEPAGE GRID (ORIGINAL)
-   1 grande à gauche + 4 petites à droite
+   HOMEPAGE GRID (5 fenêtres)
    ========================= */
 
 .home-grid{
+  width: min(1200px, calc(100% - 60px));
+  margin: 40px auto 60px;
+
   display: grid;
   grid-template-columns: 1.55fr 1fr 1fr;
   grid-template-rows: 220px 220px;
   gap: 22px;
   align-items: stretch;
-
-  width: min(1200px, calc(100% - 60px));
-  margin: 40px auto 60px;
 }
 
-/* CARDS */
 .card{
   position: relative;
   border-radius: 26px;
   overflow: hidden;
   box-shadow: 0 16px 28px rgba(0,0,0,.18);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transform: translateZ(0);
 }
 
-/* overlay sombre sur la photo (pour texte blanc) */
+/* voile sombre pour texte */
 .card::after{
   content:"";
   position:absolute;
   inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
+  pointer-events: none;
 }
 
-/* Texte SUR la photo */
+/* TEXTE SUR LA PHOTO */
 .card__overlay{
   position: absolute;
   left: 18px;
@@ -216,17 +209,13 @@ body{
   text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
-/* La grande prend 2 lignes */
+/* grande carte */
 .card.big{
   grid-column: 1 / 2;
   grid-row: 1 / 3;
 }
 
-.card.small{
-  min-height: 0;
-}
-
-/* RESPONSIVE */
+/* responsive */
 @media (max-width: 1100px){
   .home-grid{
     grid-template-columns: 1fr 1fr;
@@ -239,17 +228,10 @@ body{
 }
 
 @media (max-width: 680px){
-  .topbar{
-    flex-direction: column;
-  }
-  .top-right{
-    width: auto;
-    flex: 0 0 auto;
-  }
-  .menu{
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  .topbar{ flex-direction: column; }
+  .top-right{ width: auto; flex: 0 0 auto; }
+  .menu{ flex-wrap: wrap; justify-content: center; }
+
   .home-grid{
     grid-template-columns: 1fr;
     grid-template-rows: 260px 190px 190px 190px 190px;
@@ -260,7 +242,7 @@ body{
   }
 }
 
-/* Accessibilité : réduit l’animation si demandé */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   .banner .marquee__track{ animation: none; }
 }
