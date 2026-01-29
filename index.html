@@ -2,120 +2,97 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playground</title>
-  <link rel="icon" href="logo-playground.png" type="image/png" />
+  <title>Playground — Accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS global -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header class="topbar">
-  <div class="top-right">
-    <a href="index.html">
-      <img src="logo-playground.png" alt="Playground" class="logo-img">
-    </a>
-  </div>
+  <!-- ================= HEADER ================= -->
+  <header class="topbar">
 
-  <div class="top-left">
-    <div class="banner">
-  <span class="label">SCORES</span>
-
-  <div class="marquee">
-    <div class="marquee__track">
-      
-      <div class="marquee__content">
-        <span class="item">🏀 Lakers 112–108 Suns</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-        <span class="item">☘️ Celtics 120–114 Knicks</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-        <span class="item">🐂 Bulls 104–99 Heat</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-      </div>
-
-      <!-- DUPLICATA STRICT -->
-      <div class="marquee__content" aria-hidden="true">
-        <span class="item">🏀 Lakers 112–108 Suns</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-        <span class="item">☘️ Celtics 120–114 Knicks</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-        <span class="item">🐂 Bulls 104–99 Heat</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-    <!-- BANNIÈRE TRANSFERTS -->
-<div class="banner">
-  <span class="label">TRANSFERTS</span>
-
-  <div class="marquee">
-    <div class="marquee__track marquee__track--slow">
-
-      <div class="marquee__content">
-        <span class="item">🦌 Giannis → Heat 🔥</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-        <span class="item">🐎 Luka Dončić → Lakers 💛</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-      </div>
-
-      <!-- DUPLICATA STRICT -->
-      <div class="marquee__content" aria-hidden="true">
-        <span class="item">🦌 Giannis → Heat 🔥</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-        <span class="item">🐎 Luka Dončić → Lakers 💛</span>
-        <span class="dot">&nbsp;•&nbsp;</span>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-    <nav class="menu">
-      <button class="search-btn" aria-label="Rechercher">🔍</button>
-      <a href="actus.html">Actus</a>
-      <a href="equipes.html">Équipes</a>
-      <a href="calendrier.html">Calendrier</a>
-      <a href="classement.html">Classement</a>
-    </nav>
-  </div>
-</header>
-
-<main class="content">
-  <section class="home-grid">
-    <a class="card big" href="articles/article-1.html">
-      <img src="assets/news/actu1.jpg" alt="">
-      <span class="card-title">La grande soirée de Derrick Rose</span>
-    </a>
-
-    <div class="small-grid">
-      <a class="card small" href="articles/article-2.html">
-        <img src="assets/news/actu2.jpg" alt="">
-        <span class="card-title">Domantas Sabonis enfin de retour</span>
-      </a>
-
-      <a class="card small" href="articles/article-3.html">
-        <img src="assets/news/actu3.jpg" alt="">
-        <span class="card-title">Duel intense à l’Ouest</span>
-      </a>
-
-      <a class="card small" href="articles/article-4.html">
-        <img src="assets/news/actu4.jpg" alt="">
-        <span class="card-title">Une célébration inoubliable</span>
-      </a>
-
-      <a class="card small" href="articles/article-5.html">
-        <img src="assets/news/actu5.jpg" alt="">
-        <span class="card-title">Brooklyn frappe fort</span>
+    <!-- Logo (colonne gauche) -->
+    <div class="top-right">
+      <a href="index.html">
+        <img src="logo-playground.png" alt="PLAYGROUND" class="logo-img">
       </a>
     </div>
-  </section>
-</main>
 
-<script src="js/main.js"></script>
+    <!-- Contenu header (colonne droite) -->
+    <div class="top-left">
+
+      <!-- ✅ BANNIÈRES : chargées automatiquement depuis /partials/banner -->
+      <!-- (le JS va fetch le fichier et l’injecter ici) -->
+      <div id="banners"></div>
+
+      <!-- MENU -->
+      <nav class="menu">
+        <button class="search-btn" aria-label="Rechercher">🔍</button>
+
+        <a href="actus.html" data-nav="actus">Actus</a>
+        <a href="equipes.html" data-nav="equipes">Équipes</a>
+        <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
+        <a href="classement.html" data-nav="classement">Classement</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ================= CONTENU HOMEPAGE ================= -->
+  <main class="content">
+
+    <!-- Grid home : 1 grande carte + 4 petites -->
+    <section class="home-grid">
+
+      <!-- Grande actu (gauche) -->
+      <a class="card big"
+         href="articles/article-1.html"
+         style="background-image:url('assets/news/actu1.jpg')">
+        <div class="card__overlay">
+          <h3>La grande soirée de Derrick Rose</h3>
+        </div>
+      </a>
+
+      <!-- Petites cartes (droite) -->
+      <a class="card small"
+         href="article.html"
+         style="background-image:url('assets/news/actu2.jpg')">
+        <div class="card__overlay">
+          <h3>Domantas Sabonis enfin de retour</h3>
+        </div>
+      </a>
+
+      <a class="card small"
+         href="article.html"
+         style="background-image:url('assets/news/actu3.jpg')">
+        <div class="card__overlay">
+          <h3>Duel intense à l’Ouest</h3>
+        </div>
+      </a>
+
+      <a class="card small"
+         href="article.html"
+         style="background-image:url('assets/news/actu4.jpg')">
+        <div class="card__overlay">
+          <h3>Une célébration inoubliable</h3>
+        </div>
+      </a>
+
+      <a class="card small"
+         href="article.html"
+         style="background-image:url('assets/news/actu5.jpg')">
+        <div class="card__overlay">
+          <h3>Brooklyn frappe fort</h3>
+        </div>
+      </a>
+
+    </section>
+  </main>
+
+  <!-- JS global (inject banners + fixe marquee) -->
+  <script src="js/main.js"></script>
 </body>
 </html>
