@@ -59,33 +59,34 @@ body{
    MARQUEE (SCORES / TRANSFERTS)
    - boucle sans trou (2 contenus identiques)
    - animation fluide
-   - espacement régulier via .dot
+   - espaces réguliers via .dot (&nbsp;•&nbsp;)
    ========================= */
 
-.marquee{
+/* Important: on scope pour ne rien casser ailleurs */
+.banner .marquee{
   overflow: hidden;
   width: 100%;
 }
 
-.marquee__track{
+.banner .marquee__track{
   display: flex;
-  width: max-content;                 /* largeur du contenu */
+  width: max-content;
   will-change: transform;
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
   animation: scroll 25s linear infinite;
 }
 
-/* IMPORTANT : pas de gap ici, sinon tu crées un "vide" entre les 2 blocs */
-.marquee__content{
+/* IMPORTANT : pas de gap ici sinon tu crées un "vide" entre les 2 contenus */
+.banner .marquee__content{
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-/* item = logo + texte + logo */
-.item{
+/* Item (logo + texte + logo) */
+.banner .item{
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -93,15 +94,16 @@ body{
   font-weight: 700;
 }
 
-/* séparateur : espace uniforme entre les infos */
-.dot{
+/* Séparateur (utilise dans le HTML: <span class="dot">&nbsp;•&nbsp;</span>) */
+.banner .dot{
   display: inline-block;
-  margin: 0 16px;      /* ajuste si tu veux plus/moins d’air */
+  margin: 0 16px; /* augmente à 18/20 si tu veux plus d'air */
   opacity: 0.7;
   white-space: nowrap;
+  line-height: 1;
 }
 
-/* logos équipes */
+/* Logos équipes */
 .team-logo{
   width: 20px;
   height: 20px;
@@ -109,7 +111,7 @@ body{
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
 
-/* boucle parfaite : translate -50% (avec 2 blocs identiques) */
+/* Boucle parfaite : translate -50% (si 2 contenus identiques) */
 @keyframes scroll{
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
@@ -151,7 +153,7 @@ body{
   padding: 18px 22px 40px;
 }
 
-/* ✅ GRID HOMEPAGE : 1 grande à gauche + 4 petites à droite */
+/* ✅ GRID HOMEPAGE : 1 grande à gauche + 4 petites à droite (TA VERSION ORIGINALE) */
 .home-grid{
   display: grid;
   grid-template-columns: 1.55fr 1fr 1fr;
@@ -160,7 +162,7 @@ body{
   align-items: stretch;
 }
 
-/* CARDS */
+/* CARDS (TA VERSION ORIGINALE) */
 .card{
   position: relative;
   border-radius: 26px;
@@ -205,7 +207,7 @@ body{
   min-height: 0;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE (TA VERSION ORIGINALE) */
 @media (max-width: 1100px){
   .home-grid{
     grid-template-columns: 1fr 1fr;
@@ -238,5 +240,3 @@ body{
     grid-row: 1 / 2;
   }
 }
-
-
