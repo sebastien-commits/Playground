@@ -424,6 +424,55 @@ PATCH MARQUEE (SCORES + TRANSFERTS)
   to   { transform: translate3d(-50%,0,0); }
 }
 
+/* ===== FIX: relancer l'animation des bannières ===== */
+
+/* on s'assure que le conteneur masque bien */
+.marquee { overflow: hidden !important; }
+
+/* on FORCE l'animation (si ton CSS avait animation:none) */
+.marquee__track{
+  display: flex !important;
+  width: max-content !important;
+  will-change: transform !important;
+  transform: translate3d(0,0,0) !important;
+
+  animation-name: marqueeLoop !important;
+  animation-duration: 26s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+
+  /* sécurité au cas où un style mettrait pause */
+  animation-play-state: running !important;
+}
+
+/* contenu doublé */
+.marquee__content{
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* items */
+.item{
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+/* séparateur : espace uniforme */
+.dot{
+  display: inline-block !important;
+  margin: 0 18px !important;
+  white-space: nowrap !important;
+}
+
+/* l'animation */
+@keyframes marqueeLoop{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
+}
+
 
 
 
