@@ -1,539 +1,164 @@
-/workspace/PLAYGROUND$ /bin/bash -lc ls -a /workspace/PLAYGROUND
-.
-..
-.git
-.gitkeep
-index.html
-logo-playground.png
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PLAYGROUND</title>
-    <style>
-      :root {
-        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-        --bg-1: #f4f6fb;
-        --bg-2: #eef2ff;
-        --text: #1f2a44;
-        --muted: #4b5a74;
-        --card: rgba(255, 255, 255, 0.78);
-        --card-border: rgba(255, 255, 255, 0.5);
-        --shadow: 0 24px 60px rgba(20, 30, 60, 0.14);
-        --ring: rgba(60, 120, 255, 0.25);
-        --accent: #3b82f6;
-        --accent-2: #8b5cf6;
-        color-scheme: light dark;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>Playground — Actu 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg-1: #0b1020;
-          --bg-2: #0f1a34;
-          --text: #e8eeff;
-          --muted: #b8c2e0;
-          --card: rgba(18, 26, 52, 0.55);
-          --card-border: rgba(255, 255, 255, 0.08);
-          --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
-          --ring: rgba(120, 160, 255, 0.18);
-          --accent: #60a5fa;
-          --accent-2: #a78bfa;
-        }
-      }
+  <link rel="stylesheet" href="../css/style.css">
+</head>
 
-      html,
-      body {
-        height: 100%;
-      }
+<body>
 
-      body {
-        margin: 0;
-        display: grid;
-        place-items: center;
-        background: radial-gradient(1200px 800px at 15% 10%, var(--bg-2), transparent 55%),
-          radial-gradient(900px 700px at 85% 30%, rgba(139, 92, 246, 0.18), transparent 55%),
-          radial-gradient(900px 700px at 50% 100%, rgba(59, 130, 246, 0.16), transparent 55%),
-          linear-gradient(180deg, var(--bg-1), var(--bg-2));
-        overflow: hidden;
-      }
-
-      /* petits "blobs" décoratifs */
-      body::before,
-      body::after {
-        content: "";
-        position: absolute;
-        inset: auto;
-        width: 520px;
-        height: 520px;
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.6;
-        z-index: 0;
-        transform: translate3d(0, 0, 0);
-        animation: float 10s ease-in-out infinite;
-      }
-
-      body::before {
-        left: -120px;
-        top: -140px;
-        background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.55), transparent 60%),
-          radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.45), transparent 55%);
-      }
-
-      body::after {
-        right: -160px;
-        bottom: -180px;
-        background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.55), transparent 60%),
-          radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.45), transparent 55%);
-        animation-delay: -3s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate3d(0, 0, 0) scale(1);
-        }
-        50% {
-          transform: translate3d(0, 18px, 0) scale(1.03);
-        }
-      }
-
-      .card {
-        position: relative;
-        z-index: 1;
-        background: var(--card);
-        padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
-        border-radius: 26px;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--card-border);
-        text-align: center;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        transform: translateY(0);
-        animation: pop 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-      }
-
-      @keyframes pop {
-        from {
-          opacity: 0;
-          transform: translateY(10px) scale(0.98);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .card:focus-within,
-      .card:hover {
-        box-shadow: 0 28px 80px rgba(20, 30, 60, 0.18);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(2.4rem, 6vw, 4rem);
-        letter-spacing: 0.32rem;
-        color: var(--text);
-        line-height: 1.05;
-      }
-
-      /* petit accent “néon” sur le titre */
-      .title-accent {
-        display: inline-block;
-        position: relative;
-      }
-      .title-accent::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -0.35rem;
-        width: 78%;
-        height: 0.55rem;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        opacity: 0.18;
-        filter: blur(1px);
-        pointer-events: none;
-      }
-
-      p {
-        margin: 1rem 0 0;
-        font-size: 1.05rem;
-        color: var(--muted);
-      }
-
-      /* Accessibilité : focus visible si on ajoute des éléments interactifs plus tard */
-      :focus-visible {
-        outline: 3px solid var(--ring);
-        outline-offset: 6px;
-        border-radius: 16px;
-      }
-
-.logo {
-  position: absolute;
-  top: 94px; }
-  left: 24px;
-  width: 120px;
-  height: auto;
-  z-index: 10;
-}
-.subtitle {
-  margin-top: 1.2rem;
-  font-size: 1.15rem;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-}
-<div class="score-ticker theme-orange" aria-label="Scores sport imaginaires">
-  <div class="ticker-top">
-    <span class="badge-live">LIVE</span>
-    <span class="ticker-title">SCORES • UNIVERS PLAYGROUND</span>
+<header class="topbar">
+  <div class="top-right">
+    <a href="../index.html">
+      <img src="../logo-playground.png" alt="PLAYGROUND" class="logo-img">
+    </a>
   </div>
 
-  <div class="ticker-track">
-    <div class="ticker-content">
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Orions</span><span class="score win">92</span>
-        <span class="sep">–</span>
-        <span class="score">88</span><span class="team">Valkyries</span>
-        <span class="status live">Q4 • 01:12</span>
-      </span>
+  <div class="top-left">
 
-      <span class="dot">•</span>
+    <!-- ================= SCORES ================= -->
+    <div class="banner">
+      <span class="label">SCORES</span>
+      <div class="marquee">
+        <div class="marquee__track">
 
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Neon Sharks</span><span class="score">2</span>
-        <span class="sep">–</span>
-        <span class="score win">3</span><span class="team">Crimson Foxes</span>
-        <span class="status live">90’+4</span>
-      </span>
+          <!-- CONTENU A -->
+          <div class="marquee__content">
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
+            </span>
 
-      <span class="dot">•</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
 
-      <span class="chip cat">🏈 FOOT US</span>
-      <span class="match">
-        <span class="team">Solar Titans</span><span class="score win">27</span>
-        <span class="sep">–</span>
-        <span class="score">24</span><span class="team">Iron Wolves</span>
-        <span class="status">Final</span>
-      </span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
+            </span>
+          </div>
 
-      <span class="dot">•</span>
+          <!-- CONTENU B (COPIE STRICTE) -->
+          <div class="marquee__content" aria-hidden="true">
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
+            </span>
 
-      <span class="chip cat">🏒 HOCKEY</span>
-      <span class="match">
-        <span class="team">Glacier Kings</span><span class="score win">5</span>
-        <span class="sep">–</span>
-        <span class="score">3</span><span class="team">Storm Riders</span>
-        <span class="status">Final</span>
-      </span>
+            <span class="dot">&nbsp;•&nbsp;</span>
 
-      <span class="dot">•</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
+            </span>
+          </div>
 
-      <span class="chip cat">🎾 TENNIS</span>
-      <span class="match">
-        <span class="team">Nova Ace</span><span class="score win">6</span><span class="sep">–</span><span class="score">4</span>
-        <span class="score win">7</span><span class="sep">–</span><span class="score">6</span>
-        <span class="team">Cobalt Spin</span>
-        <span class="status live">TB • 5–3</span>
-      </span>
-
-      <span class="dot">•</span>
-
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Metro Giants</span><span class="score">71</span>
-        <span class="sep">–</span>
-        <span class="score win">79</span><span class="team">Amber Sparks</span>
-        <span class="status live">Q3 • 00:29</span>
-      </span>
-
-      <span class="dot">•</span>
-
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Aurora FC</span><span class="score">1</span>
-        <span class="sep">–</span>
-        <span class="score">1</span><span class="team">Metro United</span>
-        <span class="status">Mi-temps</span>
-      </span>
+        </div>
+      </div>
     </div>
 
-    <!-- duplication pour une boucle fluide -->
-    <div class="ticker-content" aria-hidden="true">
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Orions</span><span class="score win">92</span>
-        <span class="sep">–</span>
-        <span class="score">88</span><span class="team">Valkyries</span>
-        <span class="status live">Q4 • 01:12</span>
-      </span>
+    <!-- ================= TRANSFERTS ================= -->
+    <div class="banner">
+      <span class="label">TRANSFERTS</span>
+      <div class="marquee">
+        <div class="marquee__track">
 
-      <span class="dot">•</span>
+          <!-- CONTENU A -->
+          <div class="marquee__content">
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              LeBron James → Cavaliers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
+            </span>
 
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Neon Sharks</span><span class="score">2</span>
-        <span class="sep">–</span>
-        <span class="score win">3</span><span class="team">Crimson Foxes</span>
-        <span class="status live">90’+4</span>
-      </span>
+            <span class="dot">&nbsp;•&nbsp;</span>
 
-      <span class="dot">•</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+            </span>
+          </div>
 
-      <span class="chip cat">🏈 FOOT US</span>
-      <span class="match">
-        <span class="team">Solar Titans</span><span class="score win">27</span>
-        <span class="sep">–</span>
-        <span class="score">24</span><span class="team">Iron Wolves</span>
-        <span class="status">Final</span>
-      </span>
+          <!-- CONTENU B (COPIE STRICTE) -->
+          <div class="marquee__content" aria-hidden="true">
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+              LeBron James → Cavaliers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
+            </span>
 
-      <span class="dot">•</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
 
-      <span class="chip cat">🏒 HOCKEY</span>
-      <span class="match">
-        <span class="team">Glacier Kings</span><span class="score win">5</span>
-        <span class="sep">–</span>
-        <span class="score">3</span><span class="team">Storm Riders</span>
-        <span class="status">Final</span>
-      </span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
+            </span>
+          </div>
 
-      <span class="dot">•</span>
-
-      <span class="chip cat">🎾 TENNIS</span>
-      <span class="match">
-        <span class="team">Nova Ace</span><span class="score win">6</span><span class="sep">–</span><span class="score">4</span>
-        <span class="score win">7</span><span class="sep">–</span><span class="score">6</span>
-        <span class="team">Cobalt Spin</span>
-        <span class="status live">TB • 5–3</span>
-      </span>
-
-      <span class="dot">•</span>
-
-      <span class="chip cat">🏀 BASKET</span>
-      <span class="match">
-        <span class="team">Metro Giants</span><span class="score">71</span>
-        <span class="sep">–</span>
-        <span class="score win">79</span><span class="team">Amber Sparks</span>
-        <span class="status live">Q3 • 00:29</span>
-      </span>
-
-      <span class="dot">•</span>
-
-      <span class="chip cat">⚽ FOOT</span>
-      <span class="match">
-        <span class="team">Aurora FC</span><span class="score">1</span>
-        <span class="sep">–</span>
-        <span class="score">1</span><span class="team">Metro United</span>
-        <span class="status">Mi-temps</span>
-      </span>
+        </div>
+      </div>
     </div>
+
+    <!-- MENU -->
+    <nav class="menu">
+      <a href="../actus.html" class="active">Actus</a>
+      <a href="../equipes.html">Équipes</a>
+      <a href="../calendrier.html">Calendrier</a>
+      <a href="../classement.html">Classement</a>
+    </nav>
+
   </div>
-</div>
-/* =======================
-   TICKER ORANGE / NOIR
-   ======================= */
+</header>
 
-.score-ticker.theme-orange {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  right: 18px;
-  z-index: 9;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(180deg, rgba(10, 10, 12, 0.78), rgba(10, 10, 12, 0.58));
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.38);
-}
+<!-- ================= ARTICLE ================= -->
+<main class="article">
 
-.ticker-top {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
+  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
+    <img src="../assets/news/actu1.jpg" alt="Illustration actu 1"
+         style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
 
-.ticker-title {
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.86);
-}
+    <div class="article-meta">
+      <h1>La grande soirée de Derrick Rose : les Bulls retirent le numéro 1</h1>
+      <div class="date">Publié le 24 janvier 2026</div>
+    </div>
 
-.badge-live {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  padding: 6px 10px;
-  border-radius: 999px;
-  color: #0b0b0f;
-  background: linear-gradient(90deg, #ff7a18, #ffb000);
-  box-shadow: 0 10px 22px rgba(255, 122, 24, 0.28);
-}
+    <div class="article-content" style="grid-column:2;">
+      <p>
+        À l’occasion du match NBA entre les Chicago Bulls et les Boston Celtics, la franchise de Chicago
+        rendra un hommage historique à Derrick Rose en retirant officiellement son numéro 1.
+        Le plus jeune MVP de l’histoire de la NBA verra ainsi son maillot rejoindre les légendes du United Center.
+      </p>
 
-.badge-live::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ff2e2e;
-  box-shadow: 0 0 0 6px rgba(255, 46, 46, 0.18);
-  animation: pulse 1.2s ease-in-out infinite;
-}
+      <h2>Le numéro 1 de Derrick Rose retiré au United Center</h2>
+      <p>
+        Le 24 janvier 2026 restera une date majeure dans l’histoire des Bulls. Le maillot de Derrick Rose
+        sera hissé au plafond du United Center aux côtés de ceux de Michael Jordan,
+        Scottie Pippen, Bob Love et Jerry Sloan.
+      </p>
 
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 0.75;
-  }
-}
+      <p>
+        Sur le parquet, les Bulls affronteront les Celtics, tandis que plusieurs anciens joueurs emblématiques
+        assisteront à la cérémonie. La présence de l’ancien entraîneur Tom Thibodeau est également attendue.
+      </p>
 
-.ticker-track {
-  position: relative;
-  display: flex;
-  gap: 2.2rem;
-  padding: 10px 14px 12px;
-  align-items: center;
-}
+      <h2>Derrick Rose, un symbole fort pour Chicago</h2>
+      <p>
+        Originaire de Chicago, Derrick Rose a marqué le retour des Bulls au premier plan.
+        Son histoire reste l’une des plus marquantes pour les fans de la franchise.
+      </p>
+    </div>
+  </section>
 
-.ticker-track::before,
-.ticker-track::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 76px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.ticker-track::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(10, 10, 12, 0.95), transparent);
-}
-
-.ticker-track::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(10, 10, 12, 0.95), transparent);
-}
-
-.ticker-content {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.1rem;
-  white-space: nowrap;
-  will-change: transform;
-  animation: ticker 22s linear infinite;
-}
-
-@keyframes ticker {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.chip.cat {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 122, 24, 0.10);
-}
-
-.match {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.55rem;
-  font-size: 0.96rem;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.team {
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-.score {
-  font-weight: 900;
-  font-variant-numeric: tabular-nums;
-}
-
-.score.win {
-  color: #ffb000;
-  text-shadow: 0 10px 24px rgba(255, 176, 0, 0.18);
-}
-
-.sep {
-  opacity: 0.55;
-}
-
-.status {
-  margin-left: 0.35rem;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0.18rem 0.5rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.status.live {
-  border-color: rgba(255, 46, 46, 0.30);
-  box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.12);
-}
-
-.dot {
-  opacity: 0.25;
-  user-select: none;
-}
-
-/* Accessibilité : réduit l’animation si demandé */
-@media (prefers-reduced-motion: reduce) {
-  .ticker-content {
-    animation: none;
-  }
-  .score-ticker.theme-orange {
-    position: static;
-    margin: 16px auto 0;
-  }
-}
-
-    </style>
-  </head>
-  <body>
-
-<img src="logo-playground.png" alt="Logo Playground" class="logo" />
-
-    <main class="card" role="main">
-  <h1><span class="title-accent">PLAYGROUND</span></h1>
-  <p class="subtitle">Toute l’actualité de ton sport préféré</p>
 </main>
 
-  </body>
+<script src="../js/main.js"></script>
+</body>
 </html>
