@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Playground — Actu 1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -18,109 +17,19 @@
   </div>
 
   <div class="top-left">
+    <!-- ✅ BANNIÈRES PARTAGÉES -->
+    <div id="banners"></div>
 
-    <!-- ================= SCORES ================= -->
-    <div class="banner">
-      <span class="label">SCORES</span>
-      <div class="marquee">
-        <div class="marquee__track">
-
-          <!-- CONTENU A -->
-          <div class="marquee__content">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-              Lakers 112–108 Suns
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
-            </span>
-
-            <span class="dot">&nbsp;•&nbsp;</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
-              Bulls 104–99 Heat
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
-            </span>
-          </div>
-
-          <!-- CONTENU B (COPIE STRICTE) -->
-          <div class="marquee__content" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-              Lakers 112–108 Suns
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg">
-            </span>
-
-            <span class="dot">&nbsp;•&nbsp;</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg">
-              Bulls 104–99 Heat
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg">
-            </span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= TRANSFERTS ================= -->
-    <div class="banner">
-      <span class="label">TRANSFERTS</span>
-      <div class="marquee">
-        <div class="marquee__track">
-
-          <!-- CONTENU A -->
-          <div class="marquee__content">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-              LeBron James → Cavaliers
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
-            </span>
-
-            <span class="dot">&nbsp;•&nbsp;</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
-              Luka Dončić → Lakers
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-            </span>
-          </div>
-
-          <!-- CONTENU B (COPIE STRICTE) -->
-          <div class="marquee__content" aria-hidden="true">
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-              LeBron James → Cavaliers
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg">
-            </span>
-
-            <span class="dot">&nbsp;•&nbsp;</span>
-
-            <span class="item">
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg">
-              Luka Dončić → Lakers
-              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg">
-            </span>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- MENU -->
     <nav class="menu">
-      <a href="../actus.html" class="active">Actus</a>
-      <a href="../equipes.html">Équipes</a>
-      <a href="../calendrier.html">Calendrier</a>
-      <a href="../classement.html">Classement</a>
+      <a href="../actus.html" data-nav="actus">Actus</a>
+      <a href="../equipes.html" data-nav="equipes">Équipes</a>
+      <a href="../calendrier.html" data-nav="calendrier">Calendrier</a>
+      <a href="../classement.html" data-nav="classement">Classement</a>
     </nav>
-
   </div>
 </header>
 
-<!-- ================= ARTICLE ================= -->
 <main class="article">
-
   <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
     <img src="../assets/news/actu1.jpg" alt="Illustration actu 1"
          style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
@@ -156,7 +65,6 @@
       </p>
     </div>
   </section>
-
 </main>
 
 <script src="../js/main.js"></script>
