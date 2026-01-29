@@ -35,14 +35,14 @@ ARTICLE 1 (ACTU 1) — MARQUEE FIX (ESPACES + LOOP PARFAIT)
     .banner .item{
       display:inline-flex;
       align-items:center;
-      gap: 12px;               /* espace entre logo et texte */
+      .banner .item{ gap:12px !important; }               /* espace entre logo et texte */
       white-space: nowrap;
     }
 
     /* Séparateur uniforme partout */
     .banner .sep{
       display:inline-block;
-      margin: 0 18px;          /* espace entre les items */
+      .banner .sep{ margin:0 18px !important; }          /* espace entre les items */
       white-space: nowrap;
       opacity: .95;
     }
