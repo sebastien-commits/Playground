@@ -57,50 +57,34 @@ body{
 
 /* =========================
    MARQUEE (SCORES / TRANSFERTS)
-   - boucle sans trou
-   - espacement régulier
-   - point centré
+   - boucle sans trou (2 contenus identiques)
+   - animation fluide
+   - espacement régulier via .dot
    ========================= */
 
-.marquee {
+.marquee{
   overflow: hidden;
   width: 100%;
 }
 
-.marquee__track {
+.marquee__track{
   display: flex;
-  width: max-content;
+  width: max-content;                 /* largeur du contenu */
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
   animation: scroll 25s linear infinite;
 }
 
-.marquee__content {
-  display: flex;
+/* IMPORTANT : pas de gap ici, sinon tu crées un "vide" entre les 2 blocs */
+.marquee__content{
+  display: inline-flex;
   align-items: center;
-  gap: 18px;
-}
-
-.item {
   white-space: nowrap;
-  font-weight: 600;
+  flex-shrink: 0;
 }
 
-.dot {
-  margin: 0 10px;
-  opacity: 0.7;
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-
-
+/* item = logo + texte + logo */
 .item{
   display: inline-flex;
   align-items: center;
@@ -109,17 +93,26 @@ body{
   font-weight: 700;
 }
 
-.sep{
-  opacity: .7;
-  font-weight: 900;
-  margin: 0 8px;
+/* séparateur : espace uniforme entre les infos */
+.dot{
+  display: inline-block;
+  margin: 0 16px;      /* ajuste si tu veux plus/moins d’air */
+  opacity: 0.7;
+  white-space: nowrap;
 }
 
+/* logos équipes */
 .team-logo{
   width: 20px;
   height: 20px;
   object-fit: contain;
   filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
+}
+
+/* boucle parfaite : translate -50% (avec 2 blocs identiques) */
+@keyframes scroll{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
 }
 
 /* MENU */
@@ -245,235 +238,5 @@ body{
     grid-row: 1 / 2;
   }
 }
-
-/* ANIM */
-@keyframes scroll{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
-}
-.home-grid{
-  width: min(1200px, calc(100% - 60px));
-  margin: 40px auto 60px;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 22px;
-}
-
-.small-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-.card{
-  position: relative;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 16px 28px rgba(0,0,0,.18);
-  background: rgba(255,255,255,.12);
-}
-
-.card img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.card.big{ min-height: 520px; }
-.card.small{ min-height: 245px; }
-
-.card-title{
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  color: #fff;
-  font-weight: 800;
-  text-shadow: 0 3px 12px rgba(0,0,0,.55);
-  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
-  padding: 18px 10px 6px;
-  border-radius: 16px;
-}
-
-@media (max-width: 980px){
-  .home-grid{ grid-template-columns: 1fr; }
-  .small-grid{ grid-template-columns: 1fr; }
-  .card.big{ min-height: 420px; }
-}
-
-/* ================================
-PATCH MARQUEE (SCORES + TRANSFERTS)
--> corrige: items collés, double points, trou/loop, saccades
-================================== */
-
-/* 1) Sécurité: on neutralise les bullets automatiques éventuels */
-.banner .item::before,
-.banner .item::after,
-.banner .marquee__content::before,
-.banner .marquee__content::after{
-  content: none !important;
-}
-
-/* 2) Marquee base */
-.banner .marquee{
-  overflow: hidden !important;
-}
-
-/* 3) Track: doit être en flex + largeur auto + animation FORCÉE */
-.banner .marquee__track{
-  display: flex !important;
-  width: max-content !important;
-  will-change: transform !important;
-  transform: translate3d(0,0,0) !important;
-  backface-visibility: hidden !important;
-  animation: pgMarquee 26s linear infinite !important;
-}
-
-/* vitesses */
-.banner.transfers .marquee__track{
-  animation-duration: 30s !important;
-}
-
-/* 4) Les 2 blocs doivent se suivre sans se “répartir” */
-.banner .marquee__content{
-  display: inline-flex !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-
-  /* empêche un style du genre space-between / width:100% de créer du vide */
-  justify-content: flex-start !important;
-  width: auto !important;
-}
-
-/* 5) Items: FORCER inline-flex sinon gap ne marche pas */
-.banner .item{
-  display: inline-flex !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  gap: 12px !important;
-}
-
-/* 6) Logos: garantir qu’ils ne “collent” pas le texte */
-.banner .team-logo{
-  display: inline-block !important;
-  margin: 0 6px !important;
-  vertical-align: middle !important;
-}
-
-/* 7) Séparateurs: espace identique partout */
-.banner .sep{
-  display: inline-flex !important;
-  align-items: center !important;
-  margin: 0 18px !important;
-  white-space: nowrap !important;
-  line-height: 1 !important;
-}
-
-/* 8) Loop parfait: translate -50% (2 blocs identiques requis) */
-@keyframes pgMarquee{
-  from{ transform: translate3d(0,0,0); }
-  to  { transform: translate3d(-50%,0,0); }
-}
-
-/* ===== MARQUEE FIX (loop parfait + espacements) ===== */
-
-.marquee{
-  overflow: hidden;
-}
-
-.marquee__track{
-  display: flex;
-  width: max-content;
-  will-change: transform;
-  transform: translate3d(0,0,0);
-  backface-visibility: hidden;
-  animation: marqueeLoop 26s linear infinite;
-}
-
-/* si tu veux une vitesse différente sur transferts,
-   tu peux ajouter une classe à la track et changer duration */
-.marquee__track.slow{ animation-duration: 30s; }
-
-.marquee__content{
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* items */
-.item{
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-/* points : espace identique partout */
-.dot{
-  display: inline-block;
-  margin: 0 18px;
-  white-space: nowrap;
-  opacity: .95;
-}
-
-/* IMPORTANT : boucle parfaite = 2 contenus identiques */
-@keyframes marqueeLoop{
-  from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
-}
-
-/* ===== FIX: relancer l'animation des bannières ===== */
-
-/* on s'assure que le conteneur masque bien */
-.marquee { overflow: hidden !important; }
-
-/* on FORCE l'animation (si ton CSS avait animation:none) */
-.marquee__track{
-  display: flex !important;
-  width: max-content !important;
-  will-change: transform !important;
-  transform: translate3d(0,0,0) !important;
-
-  animation-name: marqueeLoop !important;
-  animation-duration: 26s !important;
-  animation-timing-function: linear !important;
-  animation-iteration-count: infinite !important;
-
-  /* sécurité au cas où un style mettrait pause */
-  animation-play-state: running !important;
-}
-
-/* contenu doublé */
-.marquee__content{
-  display: inline-flex !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-}
-
-/* items */
-.item{
-  display: inline-flex !important;
-  align-items: center !important;
-  white-space: nowrap !important;
-}
-
-/* séparateur : espace uniforme */
-.dot{
-  display: inline-block !important;
-  margin: 0 18px !important;
-  white-space: nowrap !important;
-}
-
-/* l'animation */
-@keyframes marqueeLoop{
-  from { transform: translate3d(0,0,0); }
-  to   { transform: translate3d(-50%,0,0); }
-}
-
-
-
 
 
