@@ -148,9 +148,10 @@ body{
   padding: 18px 22px 40px;
 }
 
-/* =====================================================
-   ✅ HOMEPAGE – VERSION CORRECTE (1 GRANDE + 4 PETITES)
-===================================================== */
+/* =========================
+   HOMEPAGE GRID
+   ========================= */
+
 .home-grid{
   width: min(1200px, calc(100% - 60px));
   margin: 40px auto 60px;
@@ -159,59 +160,57 @@ body{
   gap: 22px;
 }
 
-/* colonne droite */
 .small-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 18px;
 }
 
 /* =========================
-   CARDS (UNE SEULE VERSION)
-========================= */
+   CARD (IMAGE + TEXTE EN OVERLAY)
+   ========================= */
+
 .card{
   position: relative;
-  border-radius: 26px;
   overflow: hidden;
+  border-radius: 22px;
   box-shadow: 0 16px 28px rgba(0,0,0,.18);
-  background-size: cover;
-  background-position: center;
+  background: #000;
 }
 
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
+.card.big{ min-height: 520px; }
+.card.small{ min-height: 245px; }
+
+/* Image = fond plein */
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.card.big{
-  min-height: 520px;
-}
-
-.card.small{
-  min-height: 245px;
-}
-
-.card__overlay{
+/* TEXTE TOUJOURS SUR L’IMAGE */
+.card-title{
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 16px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 18px 16px 14px;
+  font-weight: 800;
   color: #fff;
-  z-index: 2;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.70),
+    rgba(0,0,0,.25),
+    rgba(0,0,0,0)
+  );
+
+  text-shadow: 0 3px 12px rgba(0,0,0,.55);
 }
 
-.card__overlay h3{
-  margin: 0;
-  font-size: 22px;
-  font-weight: 900;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
+/* Responsive */
 @media (max-width: 980px){
   .home-grid{
     grid-template-columns: 1fr;
@@ -222,11 +221,4 @@ body{
   .card.big{ min-height: 420px; }
 }
 
-@media (max-width: 680px){
-  .topbar{
-    flex-direction: column;
-  }
-  .menu{
-    flex-wrap: wrap;
-  }
-}
+
