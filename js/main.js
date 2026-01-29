@@ -64,22 +64,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // Normalise les bannières: enlève dot/sep existants et remet un dot propre entre chaque item.
   const contents = document.querySelectorAll(".topbar .banner .marquee__content");
 
+  const appendDot = (container) => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.innerHTML = "&nbsp;•&nbsp;";
+    container.appendChild(dot);
+  };
+
   contents.forEach((content) => {
     // 1) Récupère uniquement les items (dans l'ordre)
     const items = Array.from(content.querySelectorAll(".item"));
 
+    if (!items.length) return;
+
     // 2) Vide le contenu actuel (ça supprime les .dot, .sep, et les "•" mal placés)
-    content.textContent = "";
-    // Si tu as des images (logos) dans les items, il faut cloner les nodes, pas textContent:
-    // => On reconstruit en clonant les items.
+    content.replaceChildren();
+
     items.forEach((item, idx) => {
       if (idx > 0) {
-        const dot = document.createElement("span");
-        dot.className = "dot";
-        dot.innerHTML = "&nbsp;•&nbsp;";
-        content.appendChild(dot);
+        appendDot(content);
       }
       content.appendChild(item.cloneNode(true));
     });
+
+    // Ajoute un point à la fin pour séparer la boucle entre la fin et le début.
+    appendDot(content);
   });
 });
