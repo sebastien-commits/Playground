@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground — Actu 3</title>
+  <title>Playground — Actu 6</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../css/style.css?v=1">
@@ -25,15 +25,15 @@
       <div class="marquee">
         <div class="marquee__track">
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg"> Hornets 116–114 Wizards <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/was.svg"></span>
             <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg"> Bucks 118–110 Nets <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg"></span>
             <span class="sep">•</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg"> Bulls 104–99 Heat <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg"> Hornets 116–114 Wizards <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/was.svg"></span>
             <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"> Lakers 112–108 Suns <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg"> Bucks 118–110 Nets <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg"></span>
             <span class="sep">•</span>
           </div>
         </div>
@@ -45,11 +45,11 @@
       <div class="marquee">
         <div class="marquee__track marquee__track--slow">
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers (fictif) <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg"> Charlotte vise le play-in à l’Est</span>
             <span class="sep">•</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg"> Luka Dončić → Lakers (fictif) <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg"></span>
+            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg"> Charlotte vise le play-in à l’Est</span>
             <span class="sep">•</span>
           </div>
         </div>
@@ -67,15 +67,64 @@
 </header>
 
 <main class="article">
-  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;">
-    <img src="../assets/news/actu3.jpg" style="width:280px;border-radius:18px;">
-    <div>
-      <h1>Actu 3 — Titre de l’article</h1>
-      <div class="date">Publié le 24 janvier 2026</div>
+
+  <!-- Header article : grid pour aligner le texte sous la photo -->
+  <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
+    <img src="../assets/news/actu3.jpg" alt="Illustration actu 3" style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
+
+    <div class="article-meta">
+      <h1>Les Hornets s’accrochent au play-in après une victoire serrée</h1>
+      <div class="date">Publié le 27 janvier 2026</div>
     </div>
 
-    <div style="grid-column:2;">
-      <p>Contenu de l’article 3 à venir.</p>
+    <!-- Le texte commence “sous le bloc” meta, aligné avec le bas photo -->
+    <div class="article-content" style="grid-column:2;">
+      <p>
+        Avec cette 18e victoire de la saison, les Hornets rejoignent les Bucks au même total de succès
+        et se rapprochent un peu plus de la 10e place de la conférence Est, synonyme de play-in.
+        LaMelo Ball et ses coéquipiers sont encore loin de leur objectif, mais la dynamique actuelle est encourageante.
+      </p>
+
+      <h2>Un début de match rythmé et spectaculaire</h2>
+      <p>
+        Les rencontres disputées à midi sont souvent marquées par de nombreuses maladresses,
+        mais ce duel n’a pas suivi ce scénario. Dès l’entame, les deux équipes se rendent coup pour coup
+        avec une belle adresse de part et d’autre. Alex Sarr apporte de la variété à l’intérieur,
+        mais l’effectif plus fourni des Hornets fait la différence grâce à ses créateurs capables de trouver les shooteurs.
+      </p>
+
+      <p>
+        Charlotte passe alors un 13-0 pour prendre les commandes du match, avant que Kyshawn George
+        ne relance les Wizards. Après douze minutes, Washington n’accuse qu’un point de retard (35-34),
+        laissant présager une rencontre disputée.
+      </p>
+
+      <h2>Des accélérations décisives pour Charlotte</h2>
+      <p>
+        Comme lors du premier quart-temps, les Wizards s’accrochent avec Tre Johnson dans le corner
+        ou Bub Carrington capable de marquer de très loin. Mais une nouvelle fois, les Hornets placent
+        une accélération en milieu de période avec un 15-0 qui creuse l’écart.
+      </p>
+
+      <p>
+        Kon Knueppel se montre irréprochable au tir et Charlotte rejoint la pause avec huit points d’avance (66-58).
+        Avec une réussite à 60 % derrière l’arc et peu de pertes de balle, l’écart aurait même pu être plus conséquent.
+      </p>
+
+      <h2>Une fin de match sous haute tension</h2>
+      <p>
+        Le scénario reste identique au retour des vestiaires. Les Hornets profitent de plusieurs temps forts
+        pour prendre jusqu’à 18 points d’avance. LaMelo Ball se concentre sur la création,
+        tandis que Miles Bridges et Brandon Miller concluent les actions.
+        Sous les panneaux, Moussa Diabate limite l’impact d’Alex Sarr.
+      </p>
+
+      <p>
+        Mais Charlotte se relâche et les Wizards entament une folle remontée.
+        Revenus à une seule possession après une claquette de Jamir Watkins (114-112),
+        ils font trembler les Hornets jusqu’au bout. Les deux dernières minutes sont tendues et hachées,
+        et Charlotte s’en sort finalement sur le fil grâce à deux lancers-francs de Miles Bridges.
+      </p>
     </div>
   </section>
 </main>
