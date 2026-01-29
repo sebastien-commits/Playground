@@ -1,23 +1,17 @@
-/* =========================
-   RESET
-========================= */
+/* RESET */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
-/* =========================
-   FOND GLOBAL
-========================= */
+/* FOND GLOBAL */
 body{
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #ff9a00 0%, #ffc400 55%, #ffd400 100%);
   min-height: 100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 .topbar{
   display: flex;
   gap: 24px;
@@ -36,14 +30,13 @@ body{
   height: auto;
 }
 
+/* Zone droite header */
 .top-left{
   flex: 1;
   min-width: 0;
 }
 
-/* =========================
-   BANNIÈRES
-========================= */
+/* BANNIÈRES */
 .banner{
   display: flex;
   align-items: center;
@@ -63,8 +56,11 @@ body{
 }
 
 /* =========================
-   MARQUEE (animation gérée par JS)
-========================= */
+   MARQUEE (SCORES / TRANSFERTS)
+   - boucle sans vide
+   - distance en px calculée par JS
+   ========================= */
+
 .banner .marquee{
   overflow: hidden;
   width: 100%;
@@ -77,12 +73,14 @@ body{
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
 
-  --marquee-distance: 50%;
+  /* valeurs par défaut si JS n’a pas encore calculé */
+  --marquee-distance: 800px;
   --marquee-duration: 25s;
 
-  animation: marqueeScroll var(--marquee-duration) linear infinite;
+  animation: scroll var(--marquee-duration) linear infinite;
 }
 
+/* IMPORTANT: pas de gap ici (sinon “trou” entre A et B) */
 .banner .marquee__content{
   display: inline-flex;
   align-items: center;
@@ -90,43 +88,46 @@ body{
   flex-shrink: 0;
 }
 
+/* item = logo + texte + logo */
 .banner .item{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
   white-space: nowrap;
+  font-weight: 700;
 }
 
+/* séparateur */
 .banner .dot{
   display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
   margin: 0 16px;
-  opacity: 0.7;
+  opacity: .75;
+  line-height: 1;
 }
 
+/* Logos équipes */
 .team-logo{
   width: 20px;
   height: 20px;
   object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
 
-@keyframes marqueeScroll{
+@keyframes scroll{
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(calc(-1 * var(--marquee-distance)),0,0); }
 }
 
-@media (prefers-reduced-motion: reduce){
-  .banner .marquee__track{ animation: none; }
-}
-
-/* =========================
-   MENU
-========================= */
+/* MENU */
 .menu{
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
+  gap: 18px;
   margin: 16px 0 10px;
+  padding: 14px 10px;
 }
 
 .menu a{
@@ -136,136 +137,130 @@ body{
   border-radius: 999px;
 }
 
-.menu a:hover,
-.menu a.active{
+.menu a:hover{
   background: rgba(255,255,255,.25);
 }
 
-/* =========================
-   CONTENU
-========================= */
+/* (si tu veux un état actif) */
+.menu a.active{
+  background: rgba(255,255,255,.30);
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+/* Bouton loupe */
+.search-btn{
+  border: 0;
+  background: rgba(255,255,255,.30);
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+/* CONTENU */
 .content{
   padding: 18px 22px 40px;
 }
 
 /* =========================
-   HOMEPAGE GRID
+   HOMEPAGE GRID (ORIGINAL)
+   1 grande à gauche + 4 petites à droite
    ========================= */
 
 .home-grid{
+  display: grid;
+  grid-template-columns: 1.55fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 22px;
+  align-items: stretch;
+
   width: min(1200px, calc(100% - 60px));
   margin: 40px auto 60px;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 22px;
 }
 
-.small-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-
-/* =========================
-   CARD (IMAGE + TEXTE EN OVERLAY)
-   ========================= */
-
+/* CARDS */
 .card{
   position: relative;
+  border-radius: 26px;
   overflow: hidden;
-  border-radius: 22px;
   box-shadow: 0 16px 28px rgba(0,0,0,.18);
-  background: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
 }
 
-.card.big{ min-height: 520px; }
-.card.small{ min-height: 245px; }
-
-/* Image = fond plein */
-.card img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* overlay sombre sur la photo (pour texte blanc) */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
 }
 
-/* TEXTE TOUJOURS SUR L’IMAGE */
-.card-title{
+/* Texte SUR la photo */
+.card__overlay{
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  padding: 18px 16px 14px;
-  font-weight: 800;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
   color: #fff;
-
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,.70),
-    rgba(0,0,0,.25),
-    rgba(0,0,0,0)
-  );
-
-  text-shadow: 0 3px 12px rgba(0,0,0,.55);
 }
 
-/* Responsive */
-@media (max-width: 980px){
+.card__overlay h3{
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+/* La grande prend 2 lignes */
+.card.big{
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.card.small{
+  min-height: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px){
+  .home-grid{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 200px 200px;
+  }
+  .card.big{
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+}
+
+@media (max-width: 680px){
+  .topbar{
+    flex-direction: column;
+  }
+  .top-right{
+    width: auto;
+    flex: 0 0 auto;
+  }
+  .menu{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .home-grid{
     grid-template-columns: 1fr;
+    grid-template-rows: 260px 190px 190px 190px 190px;
   }
-  .small-grid{
-    grid-template-columns: 1fr;
+  .card.big{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
   }
-  .card.big{ min-height: 420px; }
 }
 
-
-/* =========================
-   SEARCH BUTTON (LOUPE)
-   ========================= */
-
-.search-btn{
-  width: 46px;
-  height: 46px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  box-shadow:
-    0 6px 14px rgba(0,0,0,.18),
-    inset 0 1px 0 rgba(255,255,255,.4);
-
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+/* Accessibilité : réduit l’animation si demandé */
+@media (prefers-reduced-motion: reduce){
+  .banner .marquee__track{ animation: none; }
 }
-
-.search-btn img,
-.search-btn svg{
-  width: 18px;
-  height: 18px;
-  opacity: .85;
-}
-
-/* Hover */
-.search-btn:hover{
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 10px 22px rgba(0,0,0,.22);
-}
-
-/* Active (clic) */
-.search-btn:active{
-  transform: translateY(0);
-  box-shadow: 0 6px 14px rgba(0,0,0,.18);
-}
-
