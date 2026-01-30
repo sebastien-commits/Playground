@@ -2,11 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground — Actu 7</title>
+  <title>Playground — Actu 4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="../css/style.css?v=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -14,50 +12,59 @@
 <header class="topbar">
   <div class="top-right">
     <a href="../index.html">
-      <img src="../logo-playground.png" alt="PLAYGROUND">
+      <img src="../logo-playground.png" alt="Playground" class="logo-img">
     </a>
   </div>
 
   <div class="top-left">
 
-    <div class="banner scores">
+    <div class="banner">
       <span class="label">SCORES</span>
       <div class="marquee">
         <div class="marquee__track">
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg"> Pacers 121–118 Thunder <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/okc.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg"> Hornets 116–114 Wizards <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/was.svg"></span>
-            <span class="sep">•</span>
+            <span class="item">🏀 Lakers 112–108 Suns</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
+            <span class="item">☘️ Celtics 120–114 Knicks</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
+            <span class="item">🐂 Bulls 104–99 Heat</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg"> Pacers 121–118 Thunder <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/okc.svg"></span>
-            <span class="sep">•</span>
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg"> Hornets 116–114 Wizards <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/was.svg"></span>
-            <span class="sep">•</span>
+            <span class="item">🏀 Lakers 112–108 Suns</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
+            <span class="item">☘️ Celtics 120–114 Knicks</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
+            <span class="item">🐂 Bulls 104–99 Heat</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="banner transfers">
+    <div class="banner">
       <span class="label">TRANSFERTS</span>
       <div class="marquee">
         <div class="marquee__track marquee__track--slow">
           <div class="marquee__content">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg"> Indiana surprend OKC avec un small ball audacieux</span>
-            <span class="sep">•</span>
+            <span class="item">🦌 Giannis → Heat 🔥</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
+            <span class="item">🐎 Luka Dončić → Lakers 💛</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
-            <span class="item"><img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg"> Indiana surprend OKC avec un small ball audacieux</span>
-            <span class="sep">•</span>
+            <span class="item">🦌 Giannis → Heat 🔥</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
+            <span class="item">🐎 Luka Dončić → Lakers 💛</span>
+            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
         </div>
       </div>
     </div>
 
     <nav class="menu">
-      <a href="../actus.html" class="active">Actus</a>
+      <button class="search-btn" aria-label="Rechercher">🔍</button>
+      <a href="../actus.html">Actus</a>
       <a href="../equipes.html">Équipes</a>
       <a href="../calendrier.html">Calendrier</a>
       <a href="../classement.html">Classement</a>
@@ -67,70 +74,26 @@
 </header>
 
 <main class="article">
-
-  <!-- Header article : grid pour aligner le texte sous la photo -->
   <section class="article-header" style="display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:start;">
-    <img src="../assets/news/actu4.jpg" alt="Illustration actu 4" style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
+    <img src="../assets/news/actu4.jpg" alt="Illustration actu 4"
+         style="width:280px;border-radius:18px;box-shadow:0 10px 22px rgba(0,0,0,.25);">
 
     <div class="article-meta">
-      <h1>Le grand bonheur des Pacers : Indiana surprend OKC au bout du suspense</h1>
+      <h1>Une célébration inoubliable</h1>
       <div class="date">Publié le 24 janvier 2026</div>
     </div>
 
-    <!-- Le texte commence “sous le bloc” meta, aligné avec le bas photo -->
     <div class="article-content" style="grid-column:2;">
       <p>
-        Vainqueurs à Oklahoma City, les Pacers ont pris à la gorge les champions NBA avec un plan de jeu audacieux,
-        et ils ont tenu bon jusqu’au bout. Malgré un Shai Gilgeous-Alexander encore impressionnant, Indiana a résisté
-        dans le money time pour signer un succès marquant.
+        Scènes de joie dans l’arène : la célébration a marqué les esprits, entre émotion et communion avec les fans.
       </p>
-
-      <h2>OKC surpris d’entrée malgré un grand SGA</h2>
+      <h2>Un moment fort</h2>
       <p>
-        « Ils étaient davantage prêts que nous. Ils nous ont sauté dessus ». C’est ainsi que Shai Gilgeous-Alexander
-        résume la défaite surprise du Thunder face aux Pacers. Auteur de 102 points sur ses deux dernières rencontres
-        face aux finalistes NBA, le leader d’OKC a joué comme un MVP, mais il a manqué de soutien dans la dernière ligne droite,
-        au moment du braquage final.
+        Les joueurs ont salué le public longtemps après le buzzer final, symbole d’un groupe soudé.
       </p>
-
+      <h2>Une dynamique lancée</h2>
       <p>
-        Mark Daigneault partage le constat : « Clairement, ils étaient plus prêts que nous à l’entre-deux. Il faut leur tirer
-        notre chapeau pour nous être tombés dessus de cette manière ». L’entraîneur évoque aussi le contexte du retour de road trip,
-        et pointe surtout l’écart concédé en première mi-temps : une fois l’hémorragie stoppée, le Thunder a globalement dominé
-        une bonne partie du match, sans parvenir à totalement renverser la situation.
-      </p>
-
-      <h2>Carlisle mise sur le small ball pour créer le chaos</h2>
-      <p>
-        Pour surprendre le Thunder, Rick Carlisle a choisi de miser sur la mobilité et la vitesse de ses joueurs,
-        quitte à accepter un déficit de taille face à Chet Holmgren. « Les matchups, tout simplement », répond le coach d’Indiana
-        à propos de ce choix. Holmgren, plus de 2m10 et capable de jouer comme un arrière, complique la tâche d’un pivot traditionnel,
-        surtout entouré de joueurs rapides et polyvalents.
-      </p>
-
-      <p>
-        « Quand on met un cinq “small ball” sur le terrain, il faut que ça fonctionne, et les joueurs ont fait ce qu’il fallait
-        pour que ça marche. C’était l’essentiel. C’est une grande soirée pour nous », insiste Carlisle, satisfait de l’exécution
-        et de l’engagement de ses hommes.
-      </p>
-
-      <h2>Une discipline saluée et des héros partout</h2>
-      <p>
-        Dans une saison compliquée, l’entraîneur des Pacers a surtout mis en avant la discipline et la confiance dans le plan de jeu.
-        Indiana n’a jamais paniqué, même lorsque SGA a sorti le grand jeu dans les deux dernières minutes. « On était un énorme outsider
-        sur ce match, mais on a une vraie dureté compétitive », explique Carlisle, saluant le travail défensif basé sur la discipline,
-        la dimension physique et la volonté de limiter les lancers-francs.
-      </p>
-
-      <p>
-        Le Thunder a tout de même obtenu 30 lancers, mais Indiana a fait mieux que lors du match précédent, où Shai en avait tiré 26 à lui seul.
-        Et Carlisle de rendre hommage à ses joueurs, un par un : Walker, brillant dans tous les secteurs, Aaron en mode déclic, Pascal fidèle à lui-même,
-        Nembhard maître du tempo, et Potter précieux en sortie de banc, avec un 10 points – 10 rebonds et un tir à 3-points capital dans le money time.
-      </p>
-
-      <p>
-        « C’est une saison difficile, mais aussi une saison agréable. C’est un plaisir de se battre avec eux », conclut Carlisle.
-        Une victoire référence, et un message clair : les Pacers savent encore frapper fort, même chez les champions.
+        Ce type de victoire peut servir de déclic pour enchaîner et construire une vraie série.
       </p>
     </div>
   </section>
