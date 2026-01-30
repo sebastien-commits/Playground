@@ -1,39 +1,237 @@
 /* =========================
+   RESET
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   FOND GLOBAL
+   ========================= */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #ff9a00 0%, #ffc400 55%, #ffd400 100%);
+  min-height: 100vh;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.topbar {
+  display: flex;
+  gap: 24px;
+  padding: 18px 22px 0;
+  align-items: flex-start;
+}
+
+.top-right {
+  width: 220px;
+  flex: 0 0 220px;
+  padding-top: 10px;
+}
+
+.logo-img {
+  width: 170px;
+}
+
+/* zone droite */
+.top-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   BANNIÈRES
+   ========================= */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  overflow: hidden;
+}
+
+.label {
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* MARQUEE */
+.banner .marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner .marquee__track {
+  display: flex;
+  width: max-content;
+  animation: scroll var(--marquee-duration, 25s) linear infinite;
+}
+
+.banner .marquee__content {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.banner .item {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.banner .dot {
+  margin: 0 16px;
+  opacity: .7;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* =========================
+   MENU
+   ========================= */
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 18px;
+  margin: 16px 0 10px;
+  padding: 14px 10px;
+}
+
+.menu a {
+  font-weight: 900;
+  font-size: 20px;
+  padding: 10px 18px;
+  border-radius: 999px;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: rgba(255,255,255,.25);
+}
+
+.search-btn {
+  border: 0;
+  cursor: pointer;
+  background: rgba(255,255,255,.3);
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+/* =========================
+   CONTENU GLOBAL
+   ========================= */
+.content {
+  padding: 20px;
+}
+
+/* =========================
+   ACCUEIL – GRILLE
+   ========================= */
+.home-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.small-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card.big {
+  height: 420px;
+}
+
+.card.small {
+  height: 200px;
+}
+
+.card-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px;
+  font-weight: 900;
+  color: white;
+  background: linear-gradient(transparent, rgba(0,0,0,.75));
+}
+
+/* =========================
    PAGE ACTUS – LISTE VERTICALE
    ========================= */
-
 .section-title {
   font-size: 28px;
   font-weight: 900;
-  margin: 30px 20px 20px;
+  margin: 30px 0 20px;
 }
 
 .actus-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 0 20px 40px;
 }
 
 .actus-item {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 20px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,.15);
   border-radius: 18px;
   padding: 14px;
   align-items: center;
-  transition: transform .2s ease, background .2s ease;
+  transition: background .2s, transform .2s;
 }
 
 .actus-item:hover {
+  background: rgba(255,255,255,.22);
   transform: translateY(-2px);
-  background: rgba(255,255,255,0.22);
 }
 
 .actus-item img {
-  width: 100%;
   height: 140px;
+  width: 100%;
   object-fit: cover;
   border-radius: 14px;
 }
@@ -46,12 +244,38 @@
 
 .actus-text p {
   margin: 0;
-  opacity: 0.85;
-  font-size: 15px;
+  opacity: .85;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* =========================
+   ARTICLE
+   ========================= */
+.article {
+  padding: 30px;
+}
+
+.article h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.article .date {
+  opacity: .7;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .small-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .actus-item {
     grid-template-columns: 1fr;
   }
