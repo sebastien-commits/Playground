@@ -1,14 +1,14 @@
-// Background images via data-bg
-document.querySelectorAll(".news[data-bg]").forEach(card => {
+// Background images via data-bg (si tu l’utilises ailleurs)
+document.querySelectorAll(".news[data-bg]").forEach((card) => {
   const url = card.getAttribute("data-bg");
   if (url) card.style.backgroundImage = `url('${url}')`;
 });
 
-// Menu actif automatiquement selon la page
+// Menu actif automatiquement selon la page (nécessite data-nav dans les liens)
 (function setActiveNav() {
   const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const map = {
-    "index.html": "actus",     // accueil = actus
+    "index.html": "actus",
     "actus.html": "actus",
     "equipes.html": "equipes",
     "calendrier.html": "calendrier",
@@ -32,54 +32,64 @@ document.querySelectorAll(".news[data-bg]").forEach(card => {
     window.location.href = `actus.html?q=${encodeURIComponent(q.trim())}`;
   });
 })();
-(function () {
-  function initMarquees() {
-    document.querySelectorAll('.marquee').forEach((marquee) => {
-      const track = marquee.querySelector('.marquee__track');
-      const contents = track ? track.querySelectorAll('.marquee__content') : null;
-      if (!track || !contents || contents.length < 2) return;
 
-      // Distance = largeur EXACTE du 1er bloc (donc zéro trou)
-      const distance = contents[0].scrollWidth;
+/* =========================
+   MARQUEE STABLE
+   - normalise dots
+   - copie stricte contenu B
+   - calcule distance exacte (px) + durée
+   ========================= */
+(() => {
+  const makeDot = () => {
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.innerHTML = "&nbsp;•&nbsp;";
+    return dot;
+  };
 
-      // Vitesse en px/s (ajuste si tu veux)
-      const slow = track.classList.contains('marquee__track--slow');
-      const speed = slow ? 55 : 75; // px/sec
-      const duration = distance / speed;
-
-      track.style.setProperty('--marquee-distance', distance + 'px');
-      track.style.setProperty('--marquee-duration', duration + 's');
-    });
-  }
-
-  // au chargement + après le rendu des images
-  window.addEventListener('load', initMarquees);
-  window.addEventListener('resize', () => {
-    // petit debounce simple
-    clearTimeout(window.__mq_t);
-    window.__mq_t = setTimeout(initMarquees, 150);
-  });
-})();
-document.addEventListener("DOMContentLoaded", () => {
-  // Normalise les bannières: enlève dot/sep existants et remet un dot propre entre chaque item.
-  const contents = document.querySelectorAll(".topbar .banner .marquee__content");
-
-  contents.forEach((content) => {
-    // 1) Récupère uniquement les items (dans l'ordre)
+  const normalizeContent = (content) => {
     const items = Array.from(content.querySelectorAll(".item"));
+    if (!items.length) return;
 
-    // 2) Vide le contenu actuel (ça supprime les .dot, .sep, et les "•" mal placés)
-    content.textContent = "";
-    // Si tu as des images (logos) dans les items, il faut cloner les nodes, pas textContent:
-    // => On reconstruit en clonant les items.
+    // Reconstruit: item • item • item (PAS de point final)
+    content.replaceChildren();
     items.forEach((item, idx) => {
-      if (idx > 0) {
-        const dot = document.createElement("span");
-        dot.className = "dot";
-        dot.innerHTML = "&nbsp;•&nbsp;";
-        content.appendChild(dot);
-      }
+      if (idx > 0) content.appendChild(makeDot());
       content.appendChild(item.cloneNode(true));
     });
+  };
+
+  const setupTrack = (track) => {
+    const contents = Array.from(track.querySelectorAll(".marquee__content"));
+    if (contents.length < 2) return;
+
+    // 1) normalise A
+    normalizeContent(contents[0]);
+
+    // 2) copie stricte A => B (et autres si existants)
+    for (let i = 1; i < contents.length; i++) {
+      contents[i].innerHTML = contents[0].innerHTML;
+    }
+
+    // 3) distance exacte = largeur du bloc A
+    const distance = contents[0].scrollWidth;
+
+    // vitesse
+    const slow = track.classList.contains("marquee__track--slow");
+    const speed = slow ? 55 : 75; // px/sec
+    const duration = Math.max(6, distance / speed);
+
+    track.style.setProperty("--marquee-distance", distance + "px");
+    track.style.setProperty("--marquee-duration", duration + "s");
+  };
+
+  const init = () => {
+    document.querySelectorAll(".marquee__track").forEach(setupTrack);
+  };
+
+  window.addEventListener("load", init);
+  window.addEventListener("resize", () => {
+    clearTimeout(window.__mq_t);
+    window.__mq_t = setTimeout(init, 150);
   });
-});
+})();
