@@ -2,12 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playground — Actus</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="logo-playground.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header class="topbar">
@@ -19,107 +18,134 @@
 
   <div class="top-left">
 
-    <!-- BANNIÈRES -->
+    <!-- BANNIÈRE SCORES -->
     <div class="banner">
       <span class="label">SCORES</span>
       <div class="marquee">
         <div class="marquee__track">
+
           <div class="marquee__content">
-            <span class="item">🏀 Lakers 112–108 Suns</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Suns">
+            </span>
             <span class="dot">&nbsp;•&nbsp;</span>
-            <span class="item">☘️ Celtics 120–114 Knicks</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Celtics">
+              Celtics 120–114 Knicks
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="Knicks">
+            </span>
             <span class="dot">&nbsp;•&nbsp;</span>
-            <span class="item">🐂 Bulls 104–99 Heat</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Bulls">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
+            </span>
           </div>
+
           <div class="marquee__content" aria-hidden="true">
-            <span class="item">🏀 Lakers 112–108 Suns</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
+              Lakers 112–108 Suns
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Suns">
+            </span>
             <span class="dot">&nbsp;•&nbsp;</span>
-            <span class="item">☘️ Celtics 120–114 Knicks</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Celtics">
+              Celtics 120–114 Knicks
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="Knicks">
+            </span>
             <span class="dot">&nbsp;•&nbsp;</span>
-            <span class="item">🐂 Bulls 104–99 Heat</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Bulls">
+              Bulls 104–99 Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
+            </span>
           </div>
+
         </div>
       </div>
     </div>
 
+    <!-- BANNIÈRE TRANSFERTS -->
     <div class="banner">
       <span class="label">TRANSFERTS</span>
       <div class="marquee">
         <div class="marquee__track marquee__track--slow">
+
           <div class="marquee__content">
-            <span class="item">🦌 Giannis → Heat 🔥</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Bucks">
+              Giannis → Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
+            </span>
             <span class="dot">&nbsp;•&nbsp;</span>
-            <span class="item">🐎 Luka Dončić → Lakers 💛</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Mavericks">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
+            </span>
           </div>
+
           <div class="marquee__content" aria-hidden="true">
-            <span class="item">🦌 Giannis → Heat 🔥</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Bucks">
+              Giannis → Heat
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Heat">
+            </span>
             <span class="dot">&nbsp;•&nbsp;</span>
-            <span class="item">🐎 Luka Dončić → Lakers 💛</span>
+            <span class="item">
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Mavericks">
+              Luka Dončić → Lakers
+              <img class="team-logo" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Lakers">
+            </span>
           </div>
+
         </div>
       </div>
     </div>
 
-    <!-- MENU -->
     <nav class="menu">
       <button class="search-btn" aria-label="Rechercher">🔍</button>
-      <a href="actus.html" class="active">Actus</a>
-      <a href="equipes.html">Équipes</a>
-      <a href="calendrier.html">Calendrier</a>
-      <a href="classement.html">Classement</a>
+      <a href="actus.html" data-nav="actus">Actus</a>
+      <a href="equipes.html" data-nav="equipes">Équipes</a>
+      <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
+      <a href="classement.html" data-nav="classement">Classement</a>
     </nav>
 
   </div>
 </header>
 
 <main class="content">
+  <h1 style="width:min(1200px, calc(100% - 60px)); margin: 28px auto 10px;">Les dernières actus</h1>
 
-  <h1 class="section-title">Les dernières actus</h1>
-
-  <section class="actus-list">
-
-    <a href="articles/article-1.html" class="actus-item">
+  <section class="news-list">
+    <a class="news-row" href="articles/article-1.html">
       <img src="assets/news/actu1.jpg" alt="">
-      <div class="actus-text">
-        <h2>La grande soirée de Derrick Rose</h2>
-        <p>Les Bulls retirent officiellement le numéro 1.</p>
-      </div>
+      <div class="news-title">La grande soirée de Derrick Rose</div>
     </a>
 
-    <a href="articles/article-2.html" class="actus-item">
+    <a class="news-row" href="articles/article-2.html">
       <img src="assets/news/actu2.jpg" alt="">
-      <div class="actus-text">
-        <h2>Domantas Sabonis enfin de retour</h2>
-        <p>Le pivot des Kings revient après blessure.</p>
-      </div>
+      <div class="news-title">Domantas Sabonis enfin de retour</div>
     </a>
 
-    <a href="articles/article-3.html" class="actus-item">
+    <a class="news-row" href="articles/article-3.html">
       <img src="assets/news/actu3.jpg" alt="">
-      <div class="actus-text">
-        <h2>Duel intense à l’Ouest</h2>
-        <p>Un match très disputé entre deux rivaux.</p>
-      </div>
+      <div class="news-title">Duel intense à l’Ouest</div>
     </a>
 
-    <a href="articles/article-4.html" class="actus-item">
+    <a class="news-row" href="articles/article-4.html">
       <img src="assets/news/actu4.jpg" alt="">
-      <div class="actus-text">
-        <h2>Une célébration inoubliable</h2>
-        <p>Une scène forte après la victoire.</p>
-      </div>
+      <div class="news-title">Une célébration inoubliable</div>
     </a>
 
-    <a href="articles/article-5.html" class="actus-item">
+    <a class="news-row" href="articles/article-5.html">
       <img src="assets/news/actu5.jpg" alt="">
-      <div class="actus-text">
-        <h2>Brooklyn frappe fort</h2>
-        <p>Les Nets enchaînent avec autorité.</p>
-      </div>
+      <div class="news-title">Brooklyn frappe fort</div>
     </a>
-
   </section>
-
 </main>
 
 <script src="js/main.js"></script>
