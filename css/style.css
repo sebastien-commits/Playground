@@ -328,3 +328,9 @@ body {
   margin: 0 14px;
   opacity: .65;
 }
+
+/* FIX cadrage image carte principale (home) */
+.home-grid .card.big img {
+  object-fit: cover;
+  object-position: center top;
+}
