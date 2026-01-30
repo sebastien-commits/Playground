@@ -209,3 +209,38 @@ body{
     min-height: 420px;
   }
 }
+
+/* =========================
+   FIX LOGOS NBA DANS LES BANNIÈRES
+   (évite les logos géants / coupés)
+   ========================= */
+
+.topbar .banner .marquee__content,
+.topbar .banner .marquee__track,
+.topbar .banner .item {
+  align-items: center;
+}
+
+/* Force la taille des logos dans les bannières (même si un style global les casse) */
+.topbar .banner img.team-logo,
+.topbar .banner .team-logo {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  flex: 0 0 22px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+}
+
+/* Empêche le texte / logos d'étirer la bannière */
+.topbar .banner .item {
+  font-size: 16px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Optionnel : évite l'effet "block" global sur les images à l'intérieur des items */
+.topbar .banner .item img {
+  display: inline-block !important;
+}
