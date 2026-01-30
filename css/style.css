@@ -284,3 +284,47 @@ body {
     height: 180px;
   }
 }
+
+/* =========================
+   FIX BANNIÈRES : logos trop grands
+   ========================= */
+
+/* Hauteur propre des bannières */
+.topbar .banner{
+  height: 64px;            /* ajuste si tu veux (60–70) */
+  padding: 10px 16px;
+}
+
+/* Texte stable */
+.topbar .banner .label{
+  font-size: 16px;
+}
+
+.topbar .banner .item{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ✅ LE FIX PRINCIPAL : limite la taille des images dans les bannières */
+.topbar .banner img{
+  width: 26px !important;
+  height: 26px !important;
+  object-fit: contain !important;
+  flex: 0 0 auto;
+}
+
+/* Si tu utilises une classe team-logo, on la force aussi */
+.topbar .banner .team-logo{
+  width: 26px !important;
+  height: 26px !important;
+  object-fit: contain !important;
+}
+
+/* Séparateur propre */
+.topbar .banner .dot{
+  margin: 0 14px;
+  opacity: .65;
+}
