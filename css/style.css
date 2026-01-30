@@ -1,64 +1,43 @@
-/* =========================
-   RESET
-   ========================= */
-* {
-  box-sizing: border-box;
-}
+/* RESET */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* =========================
-   FOND GLOBAL
-   ========================= */
-body {
+/* FOND GLOBAL */
+body{
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #ff9a00 0%, #ffc400 55%, #ffd400 100%);
   min-height: 100vh;
 }
 
-/* =========================
-   HEADER
-   ========================= */
-.topbar {
+/* HEADER */
+.topbar{
   display: flex;
   gap: 24px;
   padding: 18px 22px 0;
   align-items: flex-start;
 }
 
-.top-right {
+.top-right{
   width: 220px;
   flex: 0 0 220px;
   padding-top: 10px;
 }
 
-.logo-img {
+.logo-img{
   width: 170px;
+  height: auto;
 }
 
-/* zone droite */
-.top-left {
+/* Zone droite header */
+.top-left{
   flex: 1;
   min-width: 0;
 }
 
-/* =========================
-   BANNIÈRES
-   ========================= */
-.banner {
+/* BANNIÈRES */
+.banner{
   display: flex;
   align-items: center;
   gap: 14px;
@@ -70,51 +49,81 @@ body {
   overflow: hidden;
 }
 
-.label {
+.label{
   font-weight: 900;
+  letter-spacing: 0.5px;
   white-space: nowrap;
 }
 
-/* MARQUEE */
-.banner .marquee {
+/* =========================
+   MARQUEE (SCORES / TRANSFERTS)
+   - boucle parfaite: distance en px (calculée en JS)
+   - pas de gap entre contenus A et B
+   ========================= */
+.banner .marquee{
   overflow: hidden;
   width: 100%;
 }
 
-.banner .marquee__track {
+.banner .marquee__track{
   display: flex;
   width: max-content;
-  animation: scroll var(--marquee-duration, 25s) linear infinite;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+
+  /* valeurs par défaut (JS override) */
+  --marquee-distance: 50%;
+  --marquee-duration: 25s;
+
+  animation: scroll var(--marquee-duration) linear infinite;
 }
 
-.banner .marquee__content {
+/* IMPORTANT : pas de gap ici */
+.banner .marquee__content{
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.banner .item {
+.banner .item{
   display: inline-flex;
   align-items: center;
-  font-weight: 700;
+  gap: 10px;
   white-space: nowrap;
+  font-weight: 800;
 }
 
-.banner .dot {
+.banner .dot{
+  display: inline-block;
   margin: 0 16px;
-  opacity: .7;
+  opacity: 0.7;
+  white-space: nowrap;
+  line-height: 1;
 }
 
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* Logos équipes */
+.team-logo{
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
 }
 
-/* =========================
-   MENU
-   ========================= */
-.menu {
+/* Animation pilotée par --marquee-distance */
+@keyframes scroll{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(calc(-1 * var(--marquee-distance)),0,0); }
+}
+
+/* Réduction mouvement */
+@media (prefers-reduced-motion: reduce) {
+  .banner .marquee__track { animation: none; }
+}
+
+/* MENU */
+.menu{
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -123,214 +132,155 @@ body {
   padding: 14px 10px;
 }
 
-.menu a {
+.menu a{
   font-weight: 900;
   font-size: 20px;
   padding: 10px 18px;
   border-radius: 999px;
 }
 
-.menu a:hover,
-.menu a.active {
+.menu a:hover{
   background: rgba(255,255,255,.25);
 }
 
-.search-btn {
+.menu a.active{
+  background: rgba(255,255,255,.45);
+}
+
+/* Loupe */
+.search-btn{
   border: 0;
+  background: rgba(255,255,255,.30);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  background: rgba(255,255,255,.3);
-  padding: 10px 14px;
-  border-radius: 50%;
   font-size: 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
 }
 
-/* =========================
-   CONTENU GLOBAL
-   ========================= */
-.content {
-  padding: 20px;
+/* CONTENU */
+.content{
+  padding: 18px 22px 40px;
 }
 
-/* =========================
-   ACCUEIL – GRILLE
-   ========================= */
-.home-grid {
+/* HOME GRID : 1 grande à gauche + 4 petites à droite */
+.home-grid{
+  width: min(1200px, calc(100% - 60px));
+  margin: 40px auto 60px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 22px;
 }
 
-.small-grid {
+.small-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
 
-.card {
+.card{
   position: relative;
-  overflow: hidden;
   border-radius: 22px;
-  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  overflow: hidden;
+  box-shadow: 0 16px 28px rgba(0,0,0,.18);
+  background: rgba(255,255,255,.12);
 }
 
-.card img {
+.card img{
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  object-position: center;
 }
 
-.card.big {
-  height: 420px;
+/* ✅ Fix “tête coupée” sur la grande image */
+.card.big img{
+  object-position: center 15%;
 }
 
-.card.small {
-  height: 200px;
-}
+.card.big{ min-height: 520px; }
+.card.small{ min-height: 245px; }
 
-.card-title {
+.card-title{
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 16px;
-  font-weight: 900;
-  color: white;
-  background: linear-gradient(transparent, rgba(0,0,0,.75));
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 3px 12px rgba(0,0,0,.55);
+  background: linear-gradient(to top, rgba(0,0,0,.70), rgba(0,0,0,0));
+  padding: 18px 10px 8px;
+  border-radius: 16px;
 }
 
-/* =========================
-   PAGE ACTUS – LISTE VERTICALE
-   ========================= */
-.section-title {
-  font-size: 28px;
-  font-weight: 900;
-  margin: 30px 0 20px;
+@media (max-width: 980px){
+  .topbar{ flex-direction: column; }
+  .top-right{ width: auto; flex: none; padding-top: 0; }
+  .home-grid{ grid-template-columns: 1fr; }
+  .small-grid{ grid-template-columns: 1fr; }
+  .card.big{ min-height: 420px; }
 }
 
-.actus-list {
+/* ===== ACTUS : liste verticale image gauche + titre droite ===== */
+.news-list{
+  width: min(1200px, calc(100% - 60px));
+  margin: 26px auto 60px;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-.actus-item {
+.news-row{
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 20px;
-  background: rgba(255,255,255,.15);
+  grid-template-columns: 240px 1fr;
+  gap: 18px;
+  align-items: center;
+  background: rgba(255,255,255,.18);
   border-radius: 18px;
   padding: 14px;
-  align-items: center;
-  transition: background .2s, transform .2s;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
 }
 
-.actus-item:hover {
-  background: rgba(255,255,255,.22);
-  transform: translateY(-2px);
-}
-
-.actus-item img {
+.news-row img{
+  width: 240px;
   height: 140px;
-  width: 100%;
-  object-fit: cover;
   border-radius: 14px;
+  object-fit: cover;
 }
 
-.actus-text h2 {
-  margin: 0 0 8px;
-  font-size: 20px;
+.news-row .news-title{
   font-weight: 900;
+  font-size: 22px;
+  line-height: 1.15;
 }
 
-.actus-text p {
-  margin: 0;
-  opacity: .85;
-}
-
-/* =========================
-   ARTICLE
-   ========================= */
-.article {
-  padding: 30px;
-}
-
-.article h1 {
-  font-size: 30px;
-  margin-bottom: 8px;
-}
-
-.article .date {
-  opacity: .7;
-  margin-bottom: 20px;
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 900px) {
-  .home-grid {
+@media (max-width: 720px){
+  .news-row{
     grid-template-columns: 1fr;
   }
-
-  .small-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .actus-item {
-    grid-template-columns: 1fr;
-  }
-
-  .actus-item img {
+  .news-row img{
+    width: 100%;
     height: 180px;
   }
 }
 
-/* =========================
-   FIX BANNIÈRES : logos trop grands
-   ========================= */
-
-/* Hauteur propre des bannières */
-.topbar .banner{
-  height: 64px;            /* ajuste si tu veux (60–70) */
-  padding: 10px 16px;
+/* Pages simples (cards jaunes) */
+.block{
+  width: min(1200px, calc(100% - 60px));
+  margin: 26px auto 60px;
+  background: rgba(255,255,255,.20);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
 }
 
-/* Texte stable */
-.topbar .banner .label{
-  font-size: 16px;
+.block h2{
+  margin: 0 0 12px;
 }
 
-.topbar .banner .item{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  line-height: 1;
-}
-
-/* ✅ LE FIX PRINCIPAL : limite la taille des images dans les bannières */
-.topbar .banner img{
-  width: 26px !important;
-  height: 26px !important;
-  object-fit: contain !important;
-  flex: 0 0 auto;
-}
-
-/* Si tu utilises une classe team-logo, on la force aussi */
-.topbar .banner .team-logo{
-  width: 26px !important;
-  height: 26px !important;
-  object-fit: contain !important;
-}
-
-/* Séparateur propre */
-.topbar .banner .dot{
-  margin: 0 14px;
-  opacity: .65;
-}
-
-/* FIX cadrage image carte principale (home) */
-.home-grid .card.big img {
-  object-fit: cover;
-  object-position: center top;
-}
