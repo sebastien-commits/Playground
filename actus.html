@@ -2,11 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playground — Actus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="logo-playground.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <header class="topbar">
@@ -18,7 +19,7 @@
 
   <div class="top-left">
 
-    <!-- BANNIÈRE SCORES -->
+    <!-- BANNIÈRES -->
     <div class="banner">
       <span class="label">SCORES</span>
       <div class="marquee">
@@ -29,7 +30,6 @@
             <span class="item">☘️ Celtics 120–114 Knicks</span>
             <span class="dot">&nbsp;•&nbsp;</span>
             <span class="item">🐂 Bulls 104–99 Heat</span>
-            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
             <span class="item">🏀 Lakers 112–108 Suns</span>
@@ -37,13 +37,11 @@
             <span class="item">☘️ Celtics 120–114 Knicks</span>
             <span class="dot">&nbsp;•&nbsp;</span>
             <span class="item">🐂 Bulls 104–99 Heat</span>
-            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- BANNIÈRE TRANSFERTS -->
     <div class="banner">
       <span class="label">TRANSFERTS</span>
       <div class="marquee">
@@ -52,13 +50,11 @@
             <span class="item">🦌 Giannis → Heat 🔥</span>
             <span class="dot">&nbsp;•&nbsp;</span>
             <span class="item">🐎 Luka Dončić → Lakers 💛</span>
-            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
           <div class="marquee__content" aria-hidden="true">
             <span class="item">🦌 Giannis → Heat 🔥</span>
             <span class="dot">&nbsp;•&nbsp;</span>
             <span class="item">🐎 Luka Dončić → Lakers 💛</span>
-            <span class="dot">&nbsp;•&nbsp;</span>
           </div>
         </div>
       </div>
@@ -67,7 +63,7 @@
     <!-- MENU -->
     <nav class="menu">
       <button class="search-btn" aria-label="Rechercher">🔍</button>
-      <a href="actus.html">Actus</a>
+      <a href="actus.html" class="active">Actus</a>
       <a href="equipes.html">Équipes</a>
       <a href="calendrier.html">Calendrier</a>
       <a href="classement.html">Classement</a>
@@ -77,34 +73,53 @@
 </header>
 
 <main class="content">
-  <h1 style="margin: 12px 0 18px; font-size: 28px; font-weight: 900;">Les dernières actus</h1>
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
-    <a class="card" href="articles/article-1.html" style="min-height:220px;">
+  <h1 class="section-title">Les dernières actus</h1>
+
+  <section class="actus-list">
+
+    <a href="articles/article-1.html" class="actus-item">
       <img src="assets/news/actu1.jpg" alt="">
-      <span class="card-title">La grande soirée de Derrick Rose</span>
+      <div class="actus-text">
+        <h2>La grande soirée de Derrick Rose</h2>
+        <p>Les Bulls retirent officiellement le numéro 1.</p>
+      </div>
     </a>
 
-    <a class="card" href="articles/article-2.html" style="min-height:220px;">
+    <a href="articles/article-2.html" class="actus-item">
       <img src="assets/news/actu2.jpg" alt="">
-      <span class="card-title">Domantas Sabonis enfin de retour</span>
+      <div class="actus-text">
+        <h2>Domantas Sabonis enfin de retour</h2>
+        <p>Le pivot des Kings revient après blessure.</p>
+      </div>
     </a>
 
-    <a class="card" href="articles/article-3.html" style="min-height:220px;">
+    <a href="articles/article-3.html" class="actus-item">
       <img src="assets/news/actu3.jpg" alt="">
-      <span class="card-title">Duel intense à l’Ouest</span>
+      <div class="actus-text">
+        <h2>Duel intense à l’Ouest</h2>
+        <p>Un match très disputé entre deux rivaux.</p>
+      </div>
     </a>
 
-    <a class="card" href="articles/article-4.html" style="min-height:220px;">
+    <a href="articles/article-4.html" class="actus-item">
       <img src="assets/news/actu4.jpg" alt="">
-      <span class="card-title">Une célébration inoubliable</span>
+      <div class="actus-text">
+        <h2>Une célébration inoubliable</h2>
+        <p>Une scène forte après la victoire.</p>
+      </div>
     </a>
 
-    <a class="card" href="articles/article-5.html" style="min-height:220px;">
+    <a href="articles/article-5.html" class="actus-item">
       <img src="assets/news/actu5.jpg" alt="">
-      <span class="card-title">Brooklyn frappe fort</span>
+      <div class="actus-text">
+        <h2>Brooklyn frappe fort</h2>
+        <p>Les Nets enchaînent avec autorité.</p>
+      </div>
     </a>
-  </div>
+
+  </section>
+
 </main>
 
 <script src="js/main.js"></script>
