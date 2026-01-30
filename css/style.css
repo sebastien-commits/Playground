@@ -1,17 +1,23 @@
-/* RESET */
+/* =========================
+   RESET
+   ========================= */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
-/* FOND GLOBAL */
+/* =========================
+   FOND GLOBAL
+   ========================= */
 body{
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #ff9a00 0%, #ffc400 55%, #ffd400 100%);
   min-height: 100vh;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+   ========================= */
 .topbar{
   display: flex;
   gap: 24px;
@@ -30,13 +36,14 @@ body{
   height: auto;
 }
 
-/* Zone droite header */
 .top-left{
   flex: 1;
   min-width: 0;
 }
 
-/* BANNIÈRES */
+/* =========================
+   BANNIÈRES (SCORES / TRANSFERTS)
+   ========================= */
 .banner{
   display: flex;
   align-items: center;
@@ -55,14 +62,6 @@ body{
   white-space: nowrap;
 }
 
-/* =========================
-   MARQUEE (SCORES / TRANSFERTS)
-   - boucle sans trou (2 contenus identiques)
-   - animation fluide
-   - espaces réguliers via .dot (&nbsp;•&nbsp;)
-   ========================= */
-
-/* Important: on scope pour ne rien casser ailleurs */
 .banner .marquee{
   overflow: hidden;
   width: 100%;
@@ -73,11 +72,9 @@ body{
   width: max-content;
   will-change: transform;
   transform: translate3d(0,0,0);
-  backface-visibility: hidden;
   animation: scroll 25s linear infinite;
 }
 
-/* IMPORTANT : pas de gap ici sinon tu crées un "vide" entre les 2 contenus */
 .banner .marquee__content{
   display: inline-flex;
   align-items: center;
@@ -85,39 +82,27 @@ body{
   flex-shrink: 0;
 }
 
-/* Item (logo + texte + logo) */
 .banner .item{
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  white-space: nowrap;
   font-weight: 700;
 }
 
-/* Séparateur (utilise dans le HTML: <span class="dot">&nbsp;•&nbsp;</span>) */
 .banner .dot{
-  display: inline-block;
-  margin: 0 16px; /* augmente à 18/20 si tu veux plus d'air */
+  margin: 0 16px;
   opacity: 0.7;
   white-space: nowrap;
-  line-height: 1;
 }
 
-/* Logos équipes */
-.team-logo{
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
-}
-
-/* Boucle parfaite : translate -50% (si 2 contenus identiques) */
 @keyframes scroll{
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
 }
 
-/* MENU */
+/* =========================
+   MENU
+   ========================= */
 .menu{
   display: flex;
   align-items: center;
@@ -141,3 +126,86 @@ body{
 .search-btn{
   border: 0;
   background: rgba(255,255,255,.30);
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+}
+
+/* =========================
+   CONTENU
+   ========================= */
+.content{
+  padding: 18px 22px 40px;
+}
+
+/* =========================
+   HOME GRID – ACCUEIL
+   1 grande à gauche + 4 petites à droite
+   ========================= */
+.home-grid{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 22px;
+  margin: 40px auto 60px;
+  width: min(1200px, calc(100% - 60px));
+}
+
+.small-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* Cartes */
+.card{
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 28px rgba(0,0,0,.18);
+}
+
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tailles */
+.card.big{
+  min-height: 520px;
+}
+
+.card.small{
+  min-height: 245px;
+}
+
+/* Texte sur l’image */
+.card-title{
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  color: #fff;
+  font-weight: 800;
+  text-shadow: 0 3px 12px rgba(0,0,0,.55);
+  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0));
+  padding: 18px 10px 6px;
+  border-radius: 16px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 980px){
+  .home-grid{
+    grid-template-columns: 1fr;
+  }
+  .small-grid{
+    grid-template-columns: 1fr;
+  }
+  .card.big{
+    min-height: 420px;
+  }
+}
