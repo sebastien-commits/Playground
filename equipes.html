@@ -2,17 +2,204 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Playground — Équipes</title>
+  <title>Playground — Calendrier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ===== Calendrier (joli + responsive) ===== */
+    .calendar-wrap{
+      width: min(1200px, calc(100% - 60px));
+      margin: 26px auto 80px;
+    }
+
+    .calendar-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .calendar-title{
+      margin: 0;
+      font-size: 44px;
+      letter-spacing: -0.5px;
+    }
+
+    .calendar-sub{
+      margin: 6px 0 0;
+      opacity: .85;
+      font-weight: 700;
+    }
+
+    .calendar-tools{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .calendar-input{
+      border: 0;
+      outline: none;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.35);
+      box-shadow: 0 8px 18px rgba(0,0,0,.10);
+      min-width: 240px;
+      font-weight: 700;
+    }
+
+    .calendar-pill{
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.30);
+      box-shadow: 0 8px 18px rgba(0,0,0,.10);
+      font-weight: 800;
+      opacity: .9;
+    }
+
+    .day-block{
+      margin-top: 16px;
+      background: rgba(255,255,255,.18);
+      border-radius: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+      overflow: hidden;
+    }
+
+    .day-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.20);
+      border-bottom: 1px solid rgba(255,255,255,.22);
+    }
+
+    .day-date{
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .day-count{
+      font-weight: 900;
+      opacity: .8;
+      font-size: 13px;
+    }
+
+    .games{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .game-card{
+      background: rgba(255,255,255,.20);
+      border-radius: 16px;
+      padding: 12px 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .game-top{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 900;
+    }
+
+    .game-time{
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.28);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .matchup{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .team{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .team.right{
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .team img{
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,.25));
+      flex: 0 0 26px;
+    }
+
+    .team-name{
+      font-weight: 900;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .at{
+      font-weight: 1000;
+      opacity: .75;
+      padding: 0 6px;
+    }
+
+    .meta{
+      opacity: .85;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .state{
+      opacity: .8;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .empty{
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.18);
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+      font-weight: 900;
+      opacity: .9;
+    }
+
+    @media (max-width: 980px){
+      .calendar-title{ font-size: 34px; }
+      .games{ grid-template-columns: 1fr; }
+      .calendar-input{ min-width: 200px; }
+    }
+  </style>
 </head>
 
 <body>
 
 <header class="topbar">
   <div class="top-right">
-    <a href="./index.html">
-      <img src="./logo-playground.png" alt="Playground" class="logo-img">
+    <a href="index.html">
+      <img src="logo-playground.png" alt="Playground" class="logo-img">
     </a>
   </div>
 
@@ -106,69 +293,227 @@
 
     <nav class="menu">
       <button class="search-btn" aria-label="Rechercher">🔍</button>
-      <a href="./actus.html">Actus</a>
-      <a class="active" href="./equipes.html">Équipes</a>
-      <a href="./calendrier.html">Calendrier</a>
-      <a href="./classement.html">Classement</a>
+      <a href="actus.html">Actus</a>
+      <a href="equipes.html">Équipes</a>
+      <a class="active" href="calendrier.html">Calendrier</a>
+      <a href="classement.html">Classement</a>
     </nav>
 
   </div>
 </header>
 
-<main class="content">
-  <section class="block teams-page">
-    <h1 class="page-title">Équipes NBA</h1>
-
-    <div class="conferences">
-
-      <!-- EST -->
-      <section class="conf">
-        <h2 class="conf-title">Conférence Est</h2>
-        <ul class="team-list">
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Hawks_d%27Atlanta"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/atl.svg" alt="Atlanta Hawks">Atlanta Hawks</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Celtics_de_Boston"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Boston Celtics">Boston Celtics</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Nets_de_Brooklyn"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg" alt="Brooklyn Nets">Brooklyn Nets</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Hornets_de_Charlotte"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg" alt="Charlotte Hornets">Charlotte Hornets</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Bulls_de_Chicago"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Chicago Bulls">Chicago Bulls</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Cavaliers_de_Cleveland"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg" alt="Cleveland Cavaliers">Cleveland Cavaliers</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Pistons_de_D%C3%A9troit"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/det.svg" alt="Detroit Pistons">Detroit Pistons</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Pacers_de_l%27Indiana"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg" alt="Indiana Pacers">Indiana Pacers</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Heat_de_Miami"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Miami Heat">Miami Heat</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Bucks_de_Milwaukee"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Milwaukee Bucks">Milwaukee Bucks</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Knicks_de_New_York"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="New York Knicks">New York Knicks</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Magic_d%27Orlando"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/orl.svg" alt="Orlando Magic">Orlando Magic</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/76ers_de_Philadelphie"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phi.svg" alt="Philadelphia 76ers">Philadelphia 76ers</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Raptors_de_Toronto"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/tor.svg" alt="Toronto Raptors">Toronto Raptors</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Wizards_de_Washington"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/was.svg" alt="Washington Wizards">Washington Wizards</a></li>
-        </ul>
-      </section>
-
-      <!-- OUEST -->
-      <section class="conf">
-        <h2 class="conf-title">Conférence Ouest</h2>
-        <ul class="team-list">
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Mavericks_de_Dallas"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Dallas Mavericks">Dallas Mavericks</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Nuggets_de_Denver"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/den.svg" alt="Denver Nuggets">Denver Nuggets</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Warriors_de_Golden_State"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/gsw.svg" alt="Golden State Warriors">Golden State Warriors</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Rockets_de_Houston"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/hou.svg" alt="Houston Rockets">Houston Rockets</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Clippers_de_Los_Angeles"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lac.svg" alt="LA Clippers">LA Clippers</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Lakers_de_Los_Angeles"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Los Angeles Lakers">Los Angeles Lakers</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Grizzlies_de_Memphis"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mem.svg" alt="Memphis Grizzlies">Memphis Grizzlies</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Timberwolves_du_Minnesota"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/min.svg" alt="Minnesota Timberwolves">Minnesota Timberwolves</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Pelicans_de_la_Nouvelle-Orl%C3%A9ans"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nop.svg" alt="New Orleans Pelicans">New Orleans Pelicans</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Thunder_d%27Oklahoma_City"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/okc.svg" alt="Oklahoma City Thunder">Oklahoma City Thunder</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Suns_de_Phoenix"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Phoenix Suns">Phoenix Suns</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Trail_Blazers_de_Portland"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/por.svg" alt="Portland Trail Blazers">Portland Trail Blazers</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Kings_de_Sacramento"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/sac.svg" alt="Sacramento Kings">Sacramento Kings</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Spurs_de_San_Antonio"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/sas.svg" alt="San Antonio Spurs">San Antonio Spurs</a></li>
-          <li><a class="team-link" target="_blank" rel="noopener noreferrer" href="https://fr.wikipedia.org/wiki/Jazz_de_l%27Utah"><img class="team-logo team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/uta.svg" alt="Utah Jazz">Utah Jazz</a></li>
-        </ul>
-      </section>
-
+<main class="calendar-wrap">
+  <div class="calendar-head">
+    <div>
+      <h1 class="calendar-title">Calendrier NBA</h1>
+      <p class="calendar-sub">Janvier 2026 — heures affichées en France (Europe/Paris)</p>
     </div>
-  </section>
+
+    <div class="calendar-tools">
+      <input id="teamFilter" class="calendar-input" placeholder="Filtrer par équipe (ex: Lakers, BOS, Knicks…)" />
+      <span id="countPill" class="calendar-pill">Chargement…</span>
+    </div>
+  </div>
+
+  <div id="calendarRoot"></div>
 </main>
 
-<script src="./js/main.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Source officielle NBA (saison 2025-26 complète)
+  // On filtre ensuite sur Janvier 2026.
+  const SCHEDULE_URL = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json";
+
+  // Mapping tricode -> code logo (nba-logo-api)
+  // (Le repo utilise des codes type "lal", "bos", etc.)
+  const LOGO = {
+    ATL:"atl", BOS:"bos", BKN:"bkn", CHA:"cha", CHI:"chi", CLE:"cle", DAL:"dal", DEN:"den", DET:"det",
+    GSW:"gsw", HOU:"hou", IND:"ind", LAC:"lac", LAL:"lal", MEM:"mem", MIA:"mia", MIL:"mil", MIN:"min",
+    NOP:"nop", NYK:"nyk", OKC:"okc", ORL:"orl", PHI:"phi", PHX:"phx", POR:"por", SAC:"sac", SAS:"sas",
+    TOR:"tor", UTA:"uta", WAS:"was"
+  };
+
+  const logoUrl = (tri) => {
+    const code = LOGO[tri] || String(tri || "").toLowerCase();
+    return `https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/${code}.svg`;
+  };
+
+  const fmtDateFR = (isoDate) => {
+    // isoDate = "2026-01-05T00:00:00Z" etc.
+    const d = new Date(isoDate);
+    return new Intl.DateTimeFormat("fr-FR", {
+      timeZone: "Europe/Paris",
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
+    }).format(d);
+  };
+
+  const fmtTimeFR = (isoDateTime) => {
+    const d = new Date(isoDateTime);
+    return new Intl.DateTimeFormat("fr-FR", {
+      timeZone: "Europe/Paris",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(d);
+  };
+
+  function normalize(str){
+    return (str || "")
+      .toString()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
+
+  function gameMatchesFilter(game, q){
+    if(!q) return true;
+
+    const home = `${game.homeTeam?.teamCity || ""} ${game.homeTeam?.teamName || ""} ${game.homeTeam?.teamTricode || ""}`;
+    const away = `${game.awayTeam?.teamCity || ""} ${game.awayTeam?.teamName || ""} ${game.awayTeam?.teamTricode || ""}`;
+    return normalize(home).includes(q) || normalize(away).includes(q);
+  }
+
+  function render(groups){
+    const root = document.getElementById("calendarRoot");
+    const pill = document.getElementById("countPill");
+
+    let totalGames = 0;
+    for (const g of groups) totalGames += g.games.length;
+    pill.textContent = `${totalGames} matchs`;
+
+    if(totalGames === 0){
+      root.innerHTML = `<div class="empty">Aucun match trouvé (essaie un autre filtre).</div>`;
+      return;
+    }
+
+    root.innerHTML = groups.map(group => {
+      const dateLabel = group.label;
+      const gamesHtml = group.games.map(g => {
+        const time = g.gameDateTimeUTC ? fmtTimeFR(g.gameDateTimeUTC) : "—";
+        const arena = [g.arenaName, g.arenaCity].filter(Boolean).join(" • ");
+        const status = g.gameStatusText || "";
+
+        const homeTri = g.homeTeam?.teamTricode;
+        const awayTri = g.awayTeam?.teamTricode;
+
+        const homeName = `${g.homeTeam?.teamCity || ""} ${g.homeTeam?.teamName || ""}`.trim();
+        const awayName = `${g.awayTeam?.teamCity || ""} ${g.awayTeam?.teamName || ""}`.trim();
+
+        return `
+          <div class="game-card">
+            <div class="game-top">
+              <div class="state">${status}</div>
+              <div class="game-time">${time}</div>
+            </div>
+
+            <div class="matchup">
+              <div class="team">
+                <img src="${logoUrl(awayTri)}" alt="${awayTri || "Away"}">
+                <div class="team-name">${awayName || awayTri || "—"}</div>
+              </div>
+
+              <div class="at">@</div>
+
+              <div class="team right">
+                <div class="team-name">${homeName || homeTri || "—"}</div>
+                <img src="${logoUrl(homeTri)}" alt="${homeTri || "Home"}">
+              </div>
+            </div>
+
+            <div class="meta">${arena || ""}</div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <section class="day-block">
+          <div class="day-head">
+            <div class="day-date">${dateLabel}</div>
+            <div class="day-count">${group.games.length} match${group.games.length > 1 ? "s" : ""}</div>
+          </div>
+          <div class="games">${gamesHtml}</div>
+        </section>
+      `;
+    }).join("");
+  }
+
+  async function loadAndRender(){
+    const root = document.getElementById("calendarRoot");
+    const pill = document.getElementById("countPill");
+    const input = document.getElementById("teamFilter");
+
+    root.innerHTML = "";
+    pill.textContent = "Chargement…";
+
+    let data;
+    try{
+      const res = await fetch(SCHEDULE_URL, { cache: "no-store" });
+      data = await res.json();
+    }catch(e){
+      root.innerHTML = `<div class="empty">Impossible de charger le calendrier NBA (réseau/CORS). Réessaie dans 1 minute.</div>`;
+      pill.textContent = "Erreur";
+      return;
+    }
+
+    // Le JSON contient gameDates[] avec des games[] pour chaque date.
+    const gameDates = data?.leagueSchedule?.gameDates || [];
+
+    // On garde uniquement Janvier 2026 (heure UTC dans gameDateEst)
+    const janGamesByDate = [];
+
+    for(const gd of gameDates){
+      const games = gd?.games || [];
+      if(!games.length) continue;
+
+      // gameDateEst: "2026-01-05T00:00:00Z" etc.
+      const dateEst = games[0]?.gameDateEst || gd?.gameDateEst;
+      if(!dateEst) continue;
+
+      const d = new Date(dateEst);
+      const year = d.getUTCFullYear();
+      const month = d.getUTCMonth() + 1; // 1..12
+
+      if(year === 2026 && month === 1){
+        janGamesByDate.push({
+          dateISO: dateEst,
+          games
+        });
+      }
+    }
+
+    // tri par date
+    janGamesByDate.sort((a,b) => new Date(a.dateISO) - new Date(b.dateISO));
+
+    function buildGroups(filterValue){
+      const q = normalize(filterValue);
+      return janGamesByDate
+        .map(day => {
+          const filtered = day.games.filter(g => gameMatchesFilter(g, q));
+          return {
+            label: fmtDateFR(day.dateISO),
+            dateISO: day.dateISO,
+            games: filtered
+          };
+        })
+        .filter(day => day.games.length > 0);
+    }
+
+    // rendu initial
+    render(buildGroups(""));
+
+    // filtre live
+    let t = null;
+    input.addEventListener("input", () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        render(buildGroups(input.value));
+      }, 120);
+    });
+  }
+
+  loadAndRender();
+</script>
 </body>
 </html>
