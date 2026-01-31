@@ -342,3 +342,72 @@ body{
 }
 
 
+/* =========================
+   ÉQUIPES (2 conférences + logos + liens)
+   ========================= */
+
+.teams-page .page-title{
+  margin: 0 0 18px;
+  font-size: 42px;
+  font-weight: 900;
+}
+
+.conferences{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.conf{
+  background: rgba(255,255,255,.12);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+
+.conf-title{
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.team-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.team-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 800;
+  background: rgba(255,255,255,.10);
+  transition: transform .08s ease, background .12s ease;
+}
+
+.team-link:hover{
+  background: rgba(255,255,255,.22);
+  transform: translateY(-1px);
+}
+
+.team-logo--list{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px){
+  .conferences{
+    grid-template-columns: 1fr;
+  }
+  .teams-page .page-title{
+    font-size: 34px;
+  }
+}
+
