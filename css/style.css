@@ -314,12 +314,12 @@ body{
 .article-hero img {
   display: block;
   width: 100%;
-  max-width: 520px;        /* ✅ taille "avant" (ajuste 480–560 si besoin) */
-  max-height: 320px;       /* ✅ évite que ça devienne trop haut */
-  margin: 0 auto;          /* ✅ centré */
+  max-width: 260px;      /* 🔽 2x plus petit */
+  max-height: 180px;     /* 🔽 2x plus petit */
+  margin: 0 auto 10px;   /* centré + petit espace dessous */
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+  border-radius: 14px;   /* un peu plus fin visuellement */
+  box-shadow: 0 8px 18px rgba(0,0,0,.22);
 }
 
 
@@ -336,4 +336,5 @@ body{
   margin: 40px 0 16px;
   font-size: 24px;
 }
+
 
