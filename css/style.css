@@ -284,3 +284,51 @@ body{
   margin: 0 0 12px;
 }
 
+
+/* =========================
+   ARTICLE
+   ========================= */
+
+.article {
+  max-width: 900px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
+
+.article-header h1 {
+  font-size: 32px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.article-meta {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.article-hero {
+  margin: 20px 0 40px;
+}
+
+.article-hero img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+
+.article-body {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.article-body p {
+  margin-bottom: 20px;
+}
+
+.article-body h2 {
+  margin: 40px 0 16px;
+  font-size: 24px;
+}
