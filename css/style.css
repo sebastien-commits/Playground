@@ -284,3 +284,61 @@ body{
   margin: 0 0 12px;
 }
 
+
+/* =========================
+   ARTICLE
+   ========================= */
+
+.article {
+  max-width: 900px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
+
+.article-header {
+  margin-bottom: 10px;
+}
+
+.article-header h1 {
+  font-size: 32px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.article-meta {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 14px; /* 🔹 espace AVANT la photo */
+}
+
+/* IMAGE sous la date */
+.article-hero {
+  margin-bottom: 30px;
+}
+
+.article-hero img {
+  display: block;
+  max-width: 260px;      /* taille réduite */
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.22);
+}
+
+/* TEXTE */
+.article-body {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.article-body p {
+  margin-bottom: 20px;
+  max-width: 720px; /* 🔹 évite le texte trop large */
+}
+
+.article-body h2 {
+  margin: 40px 0 16px;
+  font-size: 24px;
+}
+
+
