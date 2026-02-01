@@ -57,8 +57,6 @@ body{
 
 /* =========================
    MARQUEE (SCORES / TRANSFERTS)
-   - boucle parfaite: distance en px (calculée en JS)
-   - pas de gap entre contenus A et B
    ========================= */
 .banner .marquee{
   overflow: hidden;
@@ -284,20 +282,16 @@ body{
   margin: 0 0 12px;
 }
 
-
 /* =========================
    ARTICLE
    ========================= */
-
 .article {
   max-width: 900px;
   margin: 40px auto 80px;
   padding: 0 20px;
 }
 
-.article-header {
-  margin-bottom: 10px;
-}
+.article-header { margin-bottom: 10px; }
 
 .article-header h1 {
   font-size: 32px;
@@ -308,32 +302,25 @@ body{
 .article-meta {
   font-size: 14px;
   opacity: 0.8;
-  margin-bottom: 14px; /* 🔹 espace AVANT la photo */
+  margin-bottom: 14px;
 }
 
-/* IMAGE sous la date */
-.article-hero {
-  margin-bottom: 30px;
-}
+.article-hero { margin-bottom: 30px; }
 
 .article-hero img {
   display: block;
-  max-width: 260px;      /* taille réduite */
+  max-width: 260px;
   max-height: 180px;
   object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 8px 18px rgba(0,0,0,.22);
 }
 
-/* TEXTE */
-.article-body {
-  font-size: 18px;
-  line-height: 1.7;
-}
+.article-body { font-size: 18px; line-height: 1.7; }
 
 .article-body p {
   margin-bottom: 20px;
-  max-width: 720px; /* 🔹 évite le texte trop large */
+  max-width: 720px;
 }
 
 .article-body h2 {
@@ -341,11 +328,9 @@ body{
   font-size: 24px;
 }
 
-
 /* =========================
    ÉQUIPES (2 conférences + logos + liens)
    ========================= */
-
 .teams-page .page-title{
   margin: 0 0 18px;
   font-size: 42px;
@@ -412,9 +397,40 @@ body{
 }
 
 /* =========================
+   CLASSEMENT (même look que ÉQUIPES)
+   ========================= */
+.team-link--standings{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.rank{
+  width: 26px;
+  text-align: right;
+  font-weight: 900;
+  opacity: .95;
+  flex: 0 0 26px;
+}
+
+.team-name{
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.record{
+  margin-left: auto;
+  font-weight: 900;
+  opacity: .9;
+  white-space: nowrap;
+}
+
+/* =========================
    CALENDRIER (1 seul cadre + scroll interne)
    ========================= */
-
 .calendar{
   width: min(1200px, calc(100% - 60px));
   margin: 26px auto 60px;
@@ -435,19 +451,15 @@ body{
 
 /* zone scrollable */
 .calendar-scroll{
-  max-height: 70vh;                 /* hauteur visible */
-  overflow-y: auto;                  /* scroll interne */
-  padding-right: 10px;               /* espace scrollbar */
-  padding-left: 12px;                /* espace coté gauche */
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-left: 12px;
 }
 
 /* scrollbar à GAUCHE (hack CSS) */
-.calendar-scroll{
-  direction: rtl;                    /* met la scrollbar à gauche */
-}
-.calendar-scroll > *{
-  direction: ltr;                    /* remet le contenu normal */
-}
+.calendar-scroll{ direction: rtl; }
+.calendar-scroll > *{ direction: ltr; }
 
 /* style des jours */
 .day-row{
@@ -478,7 +490,6 @@ body{
   white-space: nowrap;
 }
 
-/* liste de matchs */
 .games{
   display: flex;
   flex-direction: column;
@@ -495,9 +506,7 @@ body{
   background: rgba(255,255,255,.18);
 }
 
-.game:hover{
-  background: rgba(255,255,255,.26);
-}
+.game:hover{ background: rgba(255,255,255,.26); }
 
 .teams{
   display: flex;
@@ -543,4 +552,3 @@ body{
   .calendar h1{ font-size: 36px; }
   .calendar-scroll{ max-height: 72vh; }
 }
-
