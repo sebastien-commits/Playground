@@ -63,29 +63,336 @@
       <a href="actus.html" data-nav="actus">Actus</a>
       <a href="equipes.html" data-nav="equipes">Équipes</a>
       <a href="calendrier.html" data-nav="calendrier">Calendrier</a>
-      <a href="classement.html" data-nav="classement">Classement</a>
+      <a class="active" href="classement.html" data-nav="classement">Classement</a>
     </nav>
 
   </div>
 </header>
 
 <main class="content">
-  <h1 style="width:min(1200px, calc(100% - 60px)); margin: 28px auto 10px;">Classement</h1>
+  <!-- Même gros cadre jaune que la page équipes -->
+  <section class="block teams-page">
+    <h1 class="page-title">Classement NBA</h1>
 
-  <section class="block">
-    <h2>Conférence Est</h2>
-    <p>1. Celtics — 34–12</p>
-    <p>2. Knicks — 31–15</p>
-    <p>3. Heat — 29–17</p>
-    <p>4. Bulls — 27–19</p>
-  </section>
+    <div class="conferences">
 
-  <section class="block" style="margin-top:18px;">
-    <h2>Conférence Ouest</h2>
-    <p>1. Lakers — 33–13</p>
-    <p>2. Suns — 30–16</p>
-    <p>3. Nuggets — 28–18</p>
-    <p>4. Warriors — 28–18</p>
+      <!-- EST -->
+      <div class="conf">
+        <h2 class="conf-title">Conférence Est</h2>
+        <ul class="team-list">
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Boston_Celtics">
+              <span class="rank">1</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bos.svg" alt="Boston Celtics">
+              <span class="team-name">Boston Celtics</span>
+              <span class="record">34–12</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/New_York_Knicks">
+              <span class="rank">2</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nyk.svg" alt="New York Knicks">
+              <span class="team-name">New York Knicks</span>
+              <span class="record">31–15</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Milwaukee_Bucks">
+              <span class="rank">3</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mil.svg" alt="Milwaukee Bucks">
+              <span class="team-name">Milwaukee Bucks</span>
+              <span class="record">30–16</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Cleveland_Cavaliers">
+              <span class="rank">4</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cle.svg" alt="Cleveland Cavaliers">
+              <span class="team-name">Cleveland Cavaliers</span>
+              <span class="record">29–17</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Philadelphia_76ers">
+              <span class="rank">5</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phi.svg" alt="Philadelphia 76ers">
+              <span class="team-name">Philadelphia 76ers</span>
+              <span class="record">28–18</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Miami_Heat">
+              <span class="rank">6</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mia.svg" alt="Miami Heat">
+              <span class="team-name">Miami Heat</span>
+              <span class="record">27–19</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Indiana_Pacers">
+              <span class="rank">7</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/ind.svg" alt="Indiana Pacers">
+              <span class="team-name">Indiana Pacers</span>
+              <span class="record">26–20</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Orlando_Magic">
+              <span class="rank">8</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/orl.svg" alt="Orlando Magic">
+              <span class="team-name">Orlando Magic</span>
+              <span class="record">25–21</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Brooklyn_Nets">
+              <span class="rank">9</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/bkn.svg" alt="Brooklyn Nets">
+              <span class="team-name">Brooklyn Nets</span>
+              <span class="record">24–22</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Atlanta_Hawks">
+              <span class="rank">10</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/atl.svg" alt="Atlanta Hawks">
+              <span class="team-name">Atlanta Hawks</span>
+              <span class="record">23–23</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Chicago_Bulls">
+              <span class="rank">11</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/chi.svg" alt="Chicago Bulls">
+              <span class="team-name">Chicago Bulls</span>
+              <span class="record">22–24</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Toronto_Raptors">
+              <span class="rank">12</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/tor.svg" alt="Toronto Raptors">
+              <span class="team-name">Toronto Raptors</span>
+              <span class="record">21–25</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Charlotte_Hornets">
+              <span class="rank">13</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/cha.svg" alt="Charlotte Hornets">
+              <span class="team-name">Charlotte Hornets</span>
+              <span class="record">18–28</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Washington_Wizards">
+              <span class="rank">14</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/was.svg" alt="Washington Wizards">
+              <span class="team-name">Washington Wizards</span>
+              <span class="record">16–30</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Detroit_Pistons">
+              <span class="rank">15</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/det.svg" alt="Detroit Pistons">
+              <span class="team-name">Detroit Pistons</span>
+              <span class="record">14–32</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- OUEST -->
+      <div class="conf">
+        <h2 class="conf-title">Conférence Ouest</h2>
+        <ul class="team-list">
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Los_Angeles_Lakers">
+              <span class="rank">1</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lal.svg" alt="Los Angeles Lakers">
+              <span class="team-name">Los Angeles Lakers</span>
+              <span class="record">33–13</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Denver_Nuggets">
+              <span class="rank">2</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/den.svg" alt="Denver Nuggets">
+              <span class="team-name">Denver Nuggets</span>
+              <span class="record">31–15</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Phoenix_Suns">
+              <span class="rank">3</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/phx.svg" alt="Phoenix Suns">
+              <span class="team-name">Phoenix Suns</span>
+              <span class="record">30–16</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Golden_State_Warriors">
+              <span class="rank">4</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/gsw.svg" alt="Golden State Warriors">
+              <span class="team-name">Golden State Warriors</span>
+              <span class="record">29–17</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Dallas_Mavericks">
+              <span class="rank">5</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/dal.svg" alt="Dallas Mavericks">
+              <span class="team-name">Dallas Mavericks</span>
+              <span class="record">28–18</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Minnesota_Timberwolves">
+              <span class="rank">6</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/min.svg" alt="Minnesota Timberwolves">
+              <span class="team-name">Minnesota Timberwolves</span>
+              <span class="record">27–19</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Oklahoma_City_Thunder">
+              <span class="rank">7</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/okc.svg" alt="Oklahoma City Thunder">
+              <span class="team-name">Oklahoma City Thunder</span>
+              <span class="record">26–20</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Sacramento_Kings">
+              <span class="rank">8</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/sac.svg" alt="Sacramento Kings">
+              <span class="team-name">Sacramento Kings</span>
+              <span class="record">25–21</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Los_Angeles_Clippers">
+              <span class="rank">9</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/lac.svg" alt="LA Clippers">
+              <span class="team-name">LA Clippers</span>
+              <span class="record">24–22</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/New_Orleans_Pelicans">
+              <span class="rank">10</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/nop.svg" alt="New Orleans Pelicans">
+              <span class="team-name">New Orleans Pelicans</span>
+              <span class="record">23–23</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Houston_Rockets">
+              <span class="rank">11</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/hou.svg" alt="Houston Rockets">
+              <span class="team-name">Houston Rockets</span>
+              <span class="record">22–24</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Memphis_Grizzlies">
+              <span class="rank">12</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/mem.svg" alt="Memphis Grizzlies">
+              <span class="team-name">Memphis Grizzlies</span>
+              <span class="record">21–25</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Portland_Trail_Blazers">
+              <span class="rank">13</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/por.svg" alt="Portland Trail Blazers">
+              <span class="team-name">Portland Trail Blazers</span>
+              <span class="record">19–27</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/Utah_Jazz">
+              <span class="rank">14</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/uta.svg" alt="Utah Jazz">
+              <span class="team-name">Utah Jazz</span>
+              <span class="record">17–29</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="team-link team-link--standings" target="_blank" rel="noopener noreferrer"
+               href="https://en.wikipedia.org/wiki/San_Antonio_Spurs">
+              <span class="rank">15</span>
+              <img class="team-logo--list" src="https://raw.githubusercontent.com/gtkacz/nba-logo-api/main/icons/sas.svg" alt="San Antonio Spurs">
+              <span class="team-name">San Antonio Spurs</span>
+              <span class="record">15–31</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
   </section>
 </main>
 
